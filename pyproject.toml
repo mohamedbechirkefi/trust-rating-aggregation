@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0
 [project]
-name = "trust-research"
+name = "trust-rating-aggregation"
 version = "0.0.0"
 description = "TRUST: when do average ratings misrank products compared with uncertainty-aware estimators? (simulation study)"
 readme = "README.md"

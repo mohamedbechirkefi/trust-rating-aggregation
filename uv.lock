@@ -192,7 +192,7 @@ wheels = [
 ]
 
 [[package]]
-name = "trust-research"
+name = "trust-rating-aggregation"
 version = "0.0.0"
 source = { virtual = "." }
 dependencies = [

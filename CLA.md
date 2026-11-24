@@ -14,9 +14,9 @@ and
 **Contributor:** The individual accepting this Agreement.
 
 The Agreement concerns contributions intentionally submitted
-for inclusion in TRUST (research repository), planned at:
+for inclusion in TRUST (research repository), at:
 
-https://github.com/mohamedbechirkefi/trust-research
+https://github.com/mohamedbechirkefi/trust-rating-aggregation
 
 ## 1. Ownership of contributions
 
