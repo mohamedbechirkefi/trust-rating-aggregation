@@ -1,0 +1,3242 @@
+{
+ "cells": [
+  {
+   "cell_id": "c00",
+   "params": {
+    "gamma": 0.0,
+    "lam": 0.0,
+    "n_products": 200,
+    "nb_dispersion": 1.0,
+    "nu": 3.0,
+    "quality": [
+     "beta",
+     4.0,
+     2.0
+    ],
+    "sigma": 0.5
+   },
+   "values": {
+    "nu": 3,
+    "sigma": 0.5
+   }
+  },
+  {
+   "cell_id": "c01",
+   "params": {
+    "gamma": 0.0,
+    "lam": 0.0,
+    "n_products": 200,
+    "nb_dispersion": 1.0,
+    "nu": 3.0,
+    "quality": [
+     "beta",
+     4.0,
+     2.0
+    ],
+    "sigma": 1.5
+   },
+   "values": {
+    "nu": 3,
+    "sigma": 1.5
+   }
+  },
+  {
+   "cell_id": "c02",
+   "params": {
+    "gamma": 0.0,
+    "lam": 0.0,
+    "n_products": 200,
+    "nb_dispersion": 1.0,
+    "nu": 30.0,
+    "quality": [
+     "beta",
+     4.0,
+     2.0
+    ],
+    "sigma": 0.5
+   },
+   "values": {
+    "nu": 30,
+    "sigma": 0.5
+   }
+  },
+  {
+   "cell_id": "c03",
+   "params": {
+    "gamma": 0.0,
+    "lam": 0.0,
+    "n_products": 200,
+    "nb_dispersion": 1.0,
+    "nu": 30.0,
+    "quality": [
+     "beta",
+     4.0,
+     2.0
+    ],
+    "sigma": 1.5
+   },
+   "values": {
+    "nu": 30,
+    "sigma": 1.5
+   }
+  }
+ ],
+ "config": {
+  "arms": [
+   {
+    "name": "MEAN",
+    "type": "mean"
+   },
+   {
+    "kappa": 1,
+    "name": "SHRINK_1",
+    "type": "shrink"
+   },
+   {
+    "kappa": 5,
+    "name": "SHRINK_5",
+    "type": "shrink"
+   },
+   {
+    "kappa": 20,
+    "name": "SHRINK_20",
+    "type": "shrink"
+   },
+   {
+    "name": "LCB",
+    "type": "lcb",
+    "z": 1.645
+   },
+   {
+    "name": "ORACLE",
+    "type": "oracle"
+   }
+  ],
+  "base": {
+   "gamma": 0.0,
+   "lam": 0.0,
+   "nb_dispersion": 1.0,
+   "quality": [
+    "beta",
+    4.0,
+    2.0
+   ]
+  },
+  "config_version": "1.0",
+  "description": "Exploratory variance pilot (simulated) at the four corner cells of the EXP-001 grid, N = 200, seed namespace 901 disjoint from every confirmatory seed. Purpose: per-seed SD of D and runtime per run at full catalogue size.",
+  "evaluation": {
+   "coverage_min_n": 2,
+   "interval_z": 1.645,
+   "min_reviews": 0,
+   "top_k": 10,
+   "truth": "theta"
+  },
+  "exp_id": "X-PILOT-001",
+  "exp_number": 901,
+  "grid": {
+   "nu": [
+    3,
+    30
+   ],
+   "sigma": [
+    0.5,
+    1.5
+   ]
+  },
+  "label": "exploratory",
+  "n_products": 200,
+  "n_seeds": 10,
+  "primary_contrast": [
+   "SHRINK_5",
+   "MEAN"
+  ],
+  "seed_root": 20261124
+ },
+ "config_sha256": "a28345ec364b1461f66545b2673895137182acc53493c348489d4894ec723c68",
+ "exp_id": "X-PILOT-001",
+ "label": "exploratory",
+ "runs": [
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7807017543859649,
+     "coverage_abs_err": 0.11929824561403513,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.3579505307967441,
+     "rmse": 1.2807365251118146,
+     "spearman": 0.38130273951967747,
+     "tau_b": 0.2839878572292833
+    },
+    "MEAN": {
+     "coverage": 0.9649122807017544,
+     "coverage_abs_err": 0.06491228070175437,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.31435369416906855,
+     "rmse": 0.48750286206092475,
+     "spearman": 0.7525263969776835,
+     "tau_b": 0.5982547623925102
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9298245614035088,
+     "coverage_abs_err": 0.029824561403508754,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.2115767095750245,
+     "rmse": 0.45803630733201833,
+     "spearman": 0.7614705878141786,
+     "tau_b": 0.5977142513788958
+    },
+    "SHRINK_20": {
+     "coverage": 0.18421052631578946,
+     "coverage_abs_err": 0.7157894736842105,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.2093875620856851,
+     "rmse": 0.6420670136583531,
+     "spearman": 0.7457316651132218,
+     "tau_b": 0.5678259261941132
+    },
+    "SHRINK_5": {
+     "coverage": 0.5087719298245614,
+     "coverage_abs_err": 0.3912280701754386,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.1711125144016643,
+     "rmse": 0.5466782290879022,
+     "spearman": 0.7518466434411064,
+     "tau_b": 0.5797394544146209
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.559294871794872,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 3.12,
+    "mean_reported": 3.12,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5488820668265716,
+    "share_zero_reviews": 0.25,
+    "total_reported": 624
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c00-s000",
+   "seed_index": 0,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7766990291262136,
+     "coverage_abs_err": 0.12330097087378644,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.4169209404540837,
+     "rmse": 1.3438913817977913,
+     "spearman": 0.390697638539977,
+     "tau_b": 0.28793616770167346
+    },
+    "MEAN": {
+     "coverage": 0.9320388349514563,
+     "coverage_abs_err": 0.03203883495145632,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.25478155366032507,
+     "rmse": 0.4797789120525772,
+     "spearman": 0.734714977611935,
+     "tau_b": 0.5823475719138858
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.912621359223301,
+     "coverage_abs_err": 0.012621359223300987,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.25051382339749395,
+     "rmse": 0.437513675431682,
+     "spearman": 0.7398401176682904,
+     "tau_b": 0.581148795714843
+    },
+    "SHRINK_20": {
+     "coverage": 0.24271844660194175,
+     "coverage_abs_err": 0.6572815533980583,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.32724191961387916,
+     "rmse": 0.6088593936571678,
+     "spearman": 0.7247157729385428,
+     "tau_b": 0.5530653040879653
+    },
+    "SHRINK_5": {
+     "coverage": 0.5145631067961165,
+     "coverage_abs_err": 0.3854368932038835,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.25051382339749395,
+     "rmse": 0.5129904260750512,
+     "spearman": 0.7335861115844765,
+     "tau_b": 0.5671070499014041
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.6038394415357766,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 2.865,
+    "mean_reported": 2.865,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5596490678239087,
+    "share_zero_reviews": 0.28,
+    "total_reported": 573
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c00-s001",
+   "seed_index": 1,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7657657657657657,
+     "coverage_abs_err": 0.1342342342342343,
+     "precision_at_k": 0.0,
+     "regret_at_k": 0.29407669715220486,
+     "rmse": 1.3310090190482784,
+     "spearman": 0.4219063292217355,
+     "tau_b": 0.32004503071345725
+    },
+    "MEAN": {
+     "coverage": 0.9099099099099099,
+     "coverage_abs_err": 0.00990990990990992,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.31247337411320064,
+     "rmse": 0.4826276268174038,
+     "spearman": 0.7464194194334896,
+     "tau_b": 0.5879885737413767
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8828828828828829,
+     "coverage_abs_err": 0.017117117117117164,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.18250355462623347,
+     "rmse": 0.45131347263915517,
+     "spearman": 0.7488497142893119,
+     "tau_b": 0.5795225124488612
+    },
+    "SHRINK_20": {
+     "coverage": 0.2882882882882883,
+     "coverage_abs_err": 0.6117117117117117,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.25807906226149413,
+     "rmse": 0.6452838261757291,
+     "spearman": 0.7371904614844388,
+     "tau_b": 0.5571042518443681
+    },
+    "SHRINK_5": {
+     "coverage": 0.5225225225225225,
+     "coverage_abs_err": 0.3774774774774775,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.2021570486691786,
+     "rmse": 0.5439913273167564,
+     "spearman": 0.7420757247313403,
+     "tau_b": 0.5657991846956434
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.559931506849315,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 2.92,
+    "mean_reported": 2.92,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5630834929156195,
+    "share_zero_reviews": 0.255,
+    "total_reported": 584
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c00-s002",
+   "seed_index": 2,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.6964285714285714,
+     "coverage_abs_err": 0.20357142857142863,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.28557083472898004,
+     "rmse": 1.3656077428146993,
+     "spearman": 0.4843367280357597,
+     "tau_b": 0.34901185939610657
+    },
+    "MEAN": {
+     "coverage": 0.8392857142857143,
+     "coverage_abs_err": 0.06071428571428572,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.19057292313083263,
+     "rmse": 0.4778859527628075,
+     "spearman": 0.743971095119525,
+     "tau_b": 0.5817893835261781
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8214285714285714,
+     "coverage_abs_err": 0.07857142857142863,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.20386389897106572,
+     "rmse": 0.45387495671606065,
+     "spearman": 0.7489326965907784,
+     "tau_b": 0.5769976485376851
+    },
+    "SHRINK_20": {
+     "coverage": 0.1875,
+     "coverage_abs_err": 0.7125,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.2142325247581054,
+     "rmse": 0.6136710603987754,
+     "spearman": 0.7324845916288222,
+     "tau_b": 0.5519314004128391
+    },
+    "SHRINK_5": {
+     "coverage": 0.48214285714285715,
+     "coverage_abs_err": 0.41785714285714287,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.2142325247581054,
+     "rmse": 0.5270661944852769,
+     "spearman": 0.7426484007921968,
+     "tau_b": 0.5652017670671693
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.832129963898917,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 2.77,
+    "mean_reported": 2.77,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5175701259316304,
+    "share_zero_reviews": 0.28,
+    "total_reported": 554
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c00-s003",
+   "seed_index": 3,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7288135593220338,
+     "coverage_abs_err": 0.17118644067796618,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.3145931445355954,
+     "rmse": 1.3836419712848853,
+     "spearman": 0.40437606805780124,
+     "tau_b": 0.29214182996259225
+    },
+    "MEAN": {
+     "coverage": 0.923728813559322,
+     "coverage_abs_err": 0.023728813559321993,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.13408304307226349,
+     "rmse": 0.4405465316653013,
+     "spearman": 0.7777766955896053,
+     "tau_b": 0.6206510121367677
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8898305084745762,
+     "coverage_abs_err": 0.01016949152542379,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.14261241610826403,
+     "rmse": 0.4242917901079441,
+     "spearman": 0.7740381708752817,
+     "tau_b": 0.6045920159602668
+    },
+    "SHRINK_20": {
+     "coverage": 0.22033898305084745,
+     "coverage_abs_err": 0.6796610169491526,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.16162017087988811,
+     "rmse": 0.6153446796575989,
+     "spearman": 0.7508920794545114,
+     "tau_b": 0.569454047627317
+    },
+    "SHRINK_5": {
+     "coverage": 0.5084745762711864,
+     "coverage_abs_err": 0.3915254237288136,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.1598340081559817,
+     "rmse": 0.5109302668107344,
+     "spearman": 0.7617407239615638,
+     "tau_b": 0.5865538304362302
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.6780715396578536,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 3.215,
+    "mean_reported": 3.215,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5340463478724786,
+    "share_zero_reviews": 0.235,
+    "total_reported": 643
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c00-s004",
+   "seed_index": 4,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7115384615384616,
+     "coverage_abs_err": 0.18846153846153846,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.5257551947479735,
+     "rmse": 1.4518035549129955,
+     "spearman": 0.25572355524016993,
+     "tau_b": 0.1919665870857805
+    },
+    "MEAN": {
+     "coverage": 0.9038461538461539,
+     "coverage_abs_err": 0.0038461538461538325,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.3764052788394494,
+     "rmse": 0.5262874046466084,
+     "spearman": 0.6943425080310147,
+     "tau_b": 0.539669227168085
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.875,
+     "coverage_abs_err": 0.025000000000000022,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.22518587813597524,
+     "rmse": 0.4934065916094113,
+     "spearman": 0.6963038832015769,
+     "tau_b": 0.5335514127509619
+    },
+    "SHRINK_20": {
+     "coverage": 0.21153846153846154,
+     "coverage_abs_err": 0.6884615384615385,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.4105789411635854,
+     "rmse": 0.6579162039847704,
+     "spearman": 0.6758486526514427,
+     "tau_b": 0.49644858048239576
+    },
+    "SHRINK_5": {
+     "coverage": 0.4423076923076923,
+     "coverage_abs_err": 0.45769230769230773,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.29387359321307116,
+     "rmse": 0.5730399896532594,
+     "spearman": 0.6836231890939256,
+     "tau_b": 0.5094504276876197
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.6511627906976742,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 2.58,
+    "mean_reported": 2.58,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.556986035683643,
+    "share_zero_reviews": 0.285,
+    "total_reported": 516
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c00-s005",
+   "seed_index": 5,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.6893203883495146,
+     "coverage_abs_err": 0.21067961165048543,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.27721465447393356,
+     "rmse": 1.4410590227389006,
+     "spearman": 0.3437475383497244,
+     "tau_b": 0.2517463937032185
+    },
+    "MEAN": {
+     "coverage": 0.8737864077669902,
+     "coverage_abs_err": 0.026213592233009786,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.11751052323013056,
+     "rmse": 0.48210418648692693,
+     "spearman": 0.7006819424737428,
+     "tau_b": 0.5481921694759175
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8349514563106796,
+     "coverage_abs_err": 0.06504854368932045,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.18900461751585773,
+     "rmse": 0.4557678999767561,
+     "spearman": 0.7030639611858022,
+     "tau_b": 0.5409685921362462
+    },
+    "SHRINK_20": {
+     "coverage": 0.24271844660194175,
+     "coverage_abs_err": 0.6572815533980583,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.19450148322672778,
+     "rmse": 0.6060828069108587,
+     "spearman": 0.6798107432557394,
+     "tau_b": 0.5099898687065507
+    },
+    "SHRINK_5": {
+     "coverage": 0.5533980582524272,
+     "coverage_abs_err": 0.34660194174757286,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.2076715429264313,
+     "rmse": 0.5247415057601739,
+     "spearman": 0.687902772173728,
+     "tau_b": 0.5177872344677666
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.669104204753199,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 2.735,
+    "mean_reported": 2.735,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5574421879704591,
+    "share_zero_reviews": 0.265,
+    "total_reported": 547
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c00-s006",
+   "seed_index": 6,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7545454545454545,
+     "coverage_abs_err": 0.1454545454545455,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.3602007386974089,
+     "rmse": 1.4380163976333973,
+     "spearman": 0.33407402876392844,
+     "tau_b": 0.24530700944459918
+    },
+    "MEAN": {
+     "coverage": 0.8909090909090909,
+     "coverage_abs_err": 0.00909090909090915,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.22801138773208773,
+     "rmse": 0.4606733940245392,
+     "spearman": 0.7580506221972907,
+     "tau_b": 0.6037411641529358
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9363636363636364,
+     "coverage_abs_err": 0.036363636363636376,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.1002574826812106,
+     "rmse": 0.41845731656902,
+     "spearman": 0.762145888700274,
+     "tau_b": 0.6009908845737083
+    },
+    "SHRINK_20": {
+     "coverage": 0.22727272727272727,
+     "coverage_abs_err": 0.6727272727272727,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.217892056830304,
+     "rmse": 0.6091150523924118,
+     "spearman": 0.7380926185055253,
+     "tau_b": 0.5586367274591577
+    },
+    "SHRINK_5": {
+     "coverage": 0.6181818181818182,
+     "coverage_abs_err": 0.28181818181818186,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.17634878998658454,
+     "rmse": 0.5088041480123633,
+     "spearman": 0.7517749742493915,
+     "tau_b": 0.580544050104615
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.6265060240963853,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 3.32,
+    "mean_reported": 3.32,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5609128945823786,
+    "share_zero_reviews": 0.235,
+    "total_reported": 664
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c00-s007",
+   "seed_index": 7,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.6160714285714286,
+     "coverage_abs_err": 0.2839285714285714,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.293389050824441,
+     "rmse": 1.3336830802019861,
+     "spearman": 0.5519821580879413,
+     "tau_b": 0.40318778588903154
+    },
+    "MEAN": {
+     "coverage": 0.8660714285714286,
+     "coverage_abs_err": 0.03392857142857142,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.27915963115661313,
+     "rmse": 0.4810021547471491,
+     "spearman": 0.7932179517446868,
+     "tau_b": 0.6385904575958361
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8303571428571429,
+     "coverage_abs_err": 0.06964285714285712,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.12471918088733691,
+     "rmse": 0.47183817663915967,
+     "spearman": 0.7968756145807627,
+     "tau_b": 0.6333431888521608
+    },
+    "SHRINK_20": {
+     "coverage": 0.16964285714285715,
+     "coverage_abs_err": 0.7303571428571429,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.24402394112486103,
+     "rmse": 0.7013014154595402,
+     "spearman": 0.7879551455144126,
+     "tau_b": 0.6057363223259954
+    },
+    "SHRINK_5": {
+     "coverage": 0.42857142857142855,
+     "coverage_abs_err": 0.4714285714285715,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.1995181648392963,
+     "rmse": 0.5873134964359414,
+     "spearman": 0.7926795225326319,
+     "tau_b": 0.6164665383720144
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.6955074875207985,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 3.005,
+    "mean_reported": 3.005,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5614281789752048,
+    "share_zero_reviews": 0.22,
+    "total_reported": 601
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c00-s008",
+   "seed_index": 8,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.6857142857142857,
+     "coverage_abs_err": 0.2142857142857143,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.32650887835770703,
+     "rmse": 1.3667135540034328,
+     "spearman": 0.4007150646552222,
+     "tau_b": 0.28740659383138273
+    },
+    "MEAN": {
+     "coverage": 0.9142857142857143,
+     "coverage_abs_err": 0.014285714285714235,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.2688702272913561,
+     "rmse": 0.466902045431367,
+     "spearman": 0.7497769394438981,
+     "tau_b": 0.5934571176230986
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8571428571428571,
+     "coverage_abs_err": 0.04285714285714293,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.1668117148371948,
+     "rmse": 0.45570138724269665,
+     "spearman": 0.7544919387022962,
+     "tau_b": 0.5930594735889958
+    },
+    "SHRINK_20": {
+     "coverage": 0.23809523809523808,
+     "coverage_abs_err": 0.661904761904762,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.18181811895380573,
+     "rmse": 0.625095300098593,
+     "spearman": 0.7388310280666479,
+     "tau_b": 0.5623342634817416
+    },
+    "SHRINK_5": {
+     "coverage": 0.4857142857142857,
+     "coverage_abs_err": 0.4142857142857143,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.18181811895380573,
+     "rmse": 0.5372455048840958,
+     "spearman": 0.7463612138238447,
+     "tau_b": 0.5741839178917065
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.7311475409836063,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 3.05,
+    "mean_reported": 3.05,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5746188307144459,
+    "share_zero_reviews": 0.245,
+    "total_reported": 610
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c00-s009",
+   "seed_index": 9,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8859649122807017,
+     "coverage_abs_err": 0.01403508771929829,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.240536938285957,
+     "rmse": 1.198359275507017,
+     "spearman": 0.3934982246140687,
+     "tau_b": 0.28191624614028293
+    },
+    "MEAN": {
+     "coverage": 0.9473684210526315,
+     "coverage_abs_err": 0.047368421052631504,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.705021158479521,
+     "rmse": 0.6920655949980604,
+     "spearman": 0.5377174161576459,
+     "tau_b": 0.38977614140008615
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.956140350877193,
+     "coverage_abs_err": 0.056140350877192935,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.2529721806186771,
+     "rmse": 0.5054500515125995,
+     "spearman": 0.552812111006939,
+     "tau_b": 0.39801854195733044
+    },
+    "SHRINK_20": {
+     "coverage": 0.5964912280701754,
+     "coverage_abs_err": 0.3035087719298246,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.2183500181151885,
+     "rmse": 0.5026946300120515,
+     "spearman": 0.5548568633722725,
+     "tau_b": 0.39864517833931523
+    },
+    "SHRINK_5": {
+     "coverage": 0.9035087719298246,
+     "coverage_abs_err": 0.0035087719298245723,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.26577968747668557,
+     "rmse": 0.45742589725523436,
+     "spearman": 0.562946641776243,
+     "tau_b": 0.4055381785411477
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.4086538461538463,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 3.12,
+    "mean_reported": 3.12,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.2314738695515544,
+    "share_zero_reviews": 0.25,
+    "total_reported": 624
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c01-s000",
+   "seed_index": 0,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8446601941747572,
+     "coverage_abs_err": 0.05533980582524278,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.2952641358588082,
+     "rmse": 1.2522897486441062,
+     "spearman": 0.39925039978833843,
+     "tau_b": 0.2835083712984076
+    },
+    "MEAN": {
+     "coverage": 0.9223300970873787,
+     "coverage_abs_err": 0.022330097087378653,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.5472389009516303,
+     "rmse": 0.7183877461388076,
+     "spearman": 0.5586208713340494,
+     "tau_b": 0.41198000634847426
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.941747572815534,
+     "coverage_abs_err": 0.041747572815533984,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.3082342415969155,
+     "rmse": 0.5004884238691554,
+     "spearman": 0.5765666487354038,
+     "tau_b": 0.42040600654305676
+    },
+    "SHRINK_20": {
+     "coverage": 0.5533980582524272,
+     "coverage_abs_err": 0.34660194174757286,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.2541032793907858,
+     "rmse": 0.4774135877664692,
+     "spearman": 0.5778533484421765,
+     "tau_b": 0.4181919561010745
+    },
+    "SHRINK_5": {
+     "coverage": 0.941747572815534,
+     "coverage_abs_err": 0.041747572815533984,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.24738638454646633,
+     "rmse": 0.43229819856763674,
+     "spearman": 0.584280777637801,
+     "tau_b": 0.4246232454801658
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.4467713787085517,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 2.865,
+    "mean_reported": 2.865,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.1868072809634618,
+    "share_zero_reviews": 0.28,
+    "total_reported": 573
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c01-s001",
+   "seed_index": 1,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8648648648648649,
+     "coverage_abs_err": 0.03513513513513511,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.21027387997751568,
+     "rmse": 1.2402814587346902,
+     "spearman": 0.4026312431922062,
+     "tau_b": 0.2948239861403403
+    },
+    "MEAN": {
+     "coverage": 0.9009009009009009,
+     "coverage_abs_err": 0.0009009009009008917,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.37392515299335205,
+     "rmse": 0.7464473626855627,
+     "spearman": 0.5365876474759852,
+     "tau_b": 0.39356920691954145
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9369369369369369,
+     "coverage_abs_err": 0.03693693693693689,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.22695935937454959,
+     "rmse": 0.521217693830163,
+     "spearman": 0.5533129994531143,
+     "tau_b": 0.4040224997000808
+    },
+    "SHRINK_20": {
+     "coverage": 0.6216216216216216,
+     "coverage_abs_err": 0.2783783783783784,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.22572491220253532,
+     "rmse": 0.502484377894564,
+     "spearman": 0.5482666631202464,
+     "tau_b": 0.3942945793189527
+    },
+    "SHRINK_5": {
+     "coverage": 0.9279279279279279,
+     "coverage_abs_err": 0.027927927927927865,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.23191525271761115,
+     "rmse": 0.45230858467830515,
+     "spearman": 0.5587648584658049,
+     "tau_b": 0.40339489193355643
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.4178082191780823,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 2.92,
+    "mean_reported": 2.92,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.1738770840699846,
+    "share_zero_reviews": 0.255,
+    "total_reported": 584
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c01-s002",
+   "seed_index": 2,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8303571428571429,
+     "coverage_abs_err": 0.06964285714285712,
+     "precision_at_k": 0.0,
+     "regret_at_k": 0.4501962346116155,
+     "rmse": 1.2604289738761913,
+     "spearman": 0.4560922553261808,
+     "tau_b": 0.3199947588962251
+    },
+    "MEAN": {
+     "coverage": 0.8035714285714286,
+     "coverage_abs_err": 0.09642857142857142,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.4754760527660129,
+     "rmse": 0.7463033225862068,
+     "spearman": 0.4998741903440639,
+     "tau_b": 0.3626603655782649
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8482142857142857,
+     "coverage_abs_err": 0.051785714285714324,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.42502157773348515,
+     "rmse": 0.545399332460142,
+     "spearman": 0.5086312387423587,
+     "tau_b": 0.36452536420516846
+    },
+    "SHRINK_20": {
+     "coverage": 0.5535714285714286,
+     "coverage_abs_err": 0.3464285714285714,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.40205192962201997,
+     "rmse": 0.4850395001421275,
+     "spearman": 0.5139758938246335,
+     "tau_b": 0.36652391619475094
+    },
+    "SHRINK_5": {
+     "coverage": 0.8839285714285714,
+     "coverage_abs_err": 0.016071428571428625,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.3798298332700787,
+     "rmse": 0.4571733458872487,
+     "spearman": 0.5140471963477294,
+     "tau_b": 0.3675757856629523
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.6823104693140793,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 2.77,
+    "mean_reported": 2.77,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.1012187109421046,
+    "share_zero_reviews": 0.28,
+    "total_reported": 554
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c01-s003",
+   "seed_index": 3,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8305084745762712,
+     "coverage_abs_err": 0.06949152542372883,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.28147981399112254,
+     "rmse": 1.2698235863028677,
+     "spearman": 0.39815977955371556,
+     "tau_b": 0.28324665467014576
+    },
+    "MEAN": {
+     "coverage": 0.923728813559322,
+     "coverage_abs_err": 0.023728813559321993,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.3606333779393385,
+     "rmse": 0.6837710047155574,
+     "spearman": 0.5478234607690695,
+     "tau_b": 0.3971239097182909
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9491525423728814,
+     "coverage_abs_err": 0.04915254237288136,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.2421913716238464,
+     "rmse": 0.4985490855743859,
+     "spearman": 0.5696866153723904,
+     "tau_b": 0.41141578395898243
+    },
+    "SHRINK_20": {
+     "coverage": 0.5677966101694916,
+     "coverage_abs_err": 0.33220338983050846,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.2253721682268104,
+     "rmse": 0.4792606695099386,
+     "spearman": 0.5710232644077069,
+     "tau_b": 0.4106874302696266
+    },
+    "SHRINK_5": {
+     "coverage": 0.923728813559322,
+     "coverage_abs_err": 0.023728813559321993,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.21141212952311506,
+     "rmse": 0.4315832589409601,
+     "spearman": 0.5746964061635144,
+     "tau_b": 0.41422514818935485
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.541213063763608,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 3.215,
+    "mean_reported": 3.215,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.2076985550331503,
+    "share_zero_reviews": 0.235,
+    "total_reported": 643
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c01-s004",
+   "seed_index": 4,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8942307692307693,
+     "coverage_abs_err": 0.005769230769230749,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.42152345808457836,
+     "rmse": 1.332132727455334,
+     "spearman": 0.2823738980307644,
+     "tau_b": 0.1998945773360447
+    },
+    "MEAN": {
+     "coverage": 0.9519230769230769,
+     "coverage_abs_err": 0.05192307692307685,
+     "precision_at_k": 0.0,
+     "regret_at_k": 0.3601916283040443,
+     "rmse": 0.771687908973514,
+     "spearman": 0.49196151584807746,
+     "tau_b": 0.35660005723469396
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9615384615384616,
+     "coverage_abs_err": 0.06153846153846154,
+     "precision_at_k": 0.0,
+     "regret_at_k": 0.3557508935239757,
+     "rmse": 0.5448827664575154,
+     "spearman": 0.49783672009709024,
+     "tau_b": 0.356299669001952
+    },
+    "SHRINK_20": {
+     "coverage": 0.5865384615384616,
+     "coverage_abs_err": 0.31346153846153846,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.42473704451190697,
+     "rmse": 0.5137729820094995,
+     "spearman": 0.5003113859111664,
+     "tau_b": 0.35197256994120557
+    },
+    "SHRINK_5": {
+     "coverage": 0.8846153846153846,
+     "coverage_abs_err": 0.015384615384615441,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.42856708403232524,
+     "rmse": 0.47427423252606127,
+     "spearman": 0.5022258359673321,
+     "tau_b": 0.35672182500787847
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.556201550387597,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 2.58,
+    "mean_reported": 2.58,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.218073034626065,
+    "share_zero_reviews": 0.285,
+    "total_reported": 516
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c01-s005",
+   "seed_index": 5,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7572815533980582,
+     "coverage_abs_err": 0.14271844660194177,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.2984036494510778,
+     "rmse": 1.329848171215707,
+     "spearman": 0.30683979716590243,
+     "tau_b": 0.2193314562894895
+    },
+    "MEAN": {
+     "coverage": 0.8737864077669902,
+     "coverage_abs_err": 0.026213592233009786,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.4352160741289639,
+     "rmse": 0.7627451757370327,
+     "spearman": 0.4222038440785168,
+     "tau_b": 0.30782973934501123
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9029126213592233,
+     "coverage_abs_err": 0.002912621359223322,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.3319022730878016,
+     "rmse": 0.557011335200831,
+     "spearman": 0.4351502156507622,
+     "tau_b": 0.3125594192642963
+    },
+    "SHRINK_20": {
+     "coverage": 0.5533980582524272,
+     "coverage_abs_err": 0.34660194174757286,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.22591873910013494,
+     "rmse": 0.4817130491986041,
+     "spearman": 0.4422010959837368,
+     "tau_b": 0.3170786038736994
+    },
+    "SHRINK_5": {
+     "coverage": 0.883495145631068,
+     "coverage_abs_err": 0.01650485436893201,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.2806719051342643,
+     "rmse": 0.46132709943259514,
+     "spearman": 0.4419238482181729,
+     "tau_b": 0.3174989931396904
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.4789762340036563,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 2.735,
+    "mean_reported": 2.735,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.1804783482095853,
+    "share_zero_reviews": 0.265,
+    "total_reported": 547
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c01-s006",
+   "seed_index": 6,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8727272727272727,
+     "coverage_abs_err": 0.027272727272727337,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.32903412796800335,
+     "rmse": 1.3193252925937868,
+     "spearman": 0.33821310142018784,
+     "tau_b": 0.2368794038709561
+    },
+    "MEAN": {
+     "coverage": 0.8909090909090909,
+     "coverage_abs_err": 0.00909090909090915,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.3052520835409007,
+     "rmse": 0.7529507771415119,
+     "spearman": 0.57184284794265,
+     "tau_b": 0.4150561146858271
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9090909090909091,
+     "coverage_abs_err": 0.009090909090909038,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.20105451757131032,
+     "rmse": 0.5070374690887107,
+     "spearman": 0.5879130689115478,
+     "tau_b": 0.4274093243560704
+    },
+    "SHRINK_20": {
+     "coverage": 0.6545454545454545,
+     "coverage_abs_err": 0.24545454545454548,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.1845114962197103,
+     "rmse": 0.47147133281717374,
+     "spearman": 0.5714021530008119,
+     "tau_b": 0.4071036066683048
+    },
+    "SHRINK_5": {
+     "coverage": 0.8909090909090909,
+     "coverage_abs_err": 0.00909090909090915,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.2323139508994423,
+     "rmse": 0.42677246058199303,
+     "spearman": 0.5821038124306505,
+     "tau_b": 0.42053661990790353
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.5090361445783134,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 3.32,
+    "mean_reported": 3.32,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.1752972194745979,
+    "share_zero_reviews": 0.235,
+    "total_reported": 664
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c01-s007",
+   "seed_index": 7,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8214285714285714,
+     "coverage_abs_err": 0.07857142857142863,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.29422338373898516,
+     "rmse": 1.2398018482210158,
+     "spearman": 0.48279330887507993,
+     "tau_b": 0.3440857471930423
+    },
+    "MEAN": {
+     "coverage": 0.8928571428571429,
+     "coverage_abs_err": 0.0071428571428571175,
+     "precision_at_k": 0.0,
+     "regret_at_k": 0.7561287985106588,
+     "rmse": 0.788956855733055,
+     "spearman": 0.5233116049451046,
+     "tau_b": 0.3877129933043082
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9196428571428571,
+     "coverage_abs_err": 0.019642857142857073,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.29854713191383997,
+     "rmse": 0.558108967673757,
+     "spearman": 0.5388939325019375,
+     "tau_b": 0.3963255491428761
+    },
+    "SHRINK_20": {
+     "coverage": 0.48214285714285715,
+     "coverage_abs_err": 0.41785714285714287,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.19565700676164877,
+     "rmse": 0.5470054685062983,
+     "spearman": 0.5618596454844323,
+     "tau_b": 0.40888424796343076
+    },
+    "SHRINK_5": {
+     "coverage": 0.8303571428571429,
+     "coverage_abs_err": 0.06964285714285712,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.2040934331660198,
+     "rmse": 0.4914596539084359,
+     "spearman": 0.5649296859442219,
+     "tau_b": 0.4127245112391375
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.534109816971714,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 3.005,
+    "mean_reported": 3.005,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.1496147109560653,
+    "share_zero_reviews": 0.22,
+    "total_reported": 601
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c01-s008",
+   "seed_index": 8,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.9142857142857143,
+     "coverage_abs_err": 0.014285714285714235,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.25416704148907066,
+     "rmse": 1.242689235184057,
+     "spearman": 0.3784343994884529,
+     "tau_b": 0.2699593126104321
+    },
+    "MEAN": {
+     "coverage": 0.9333333333333333,
+     "coverage_abs_err": 0.033333333333333326,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.5198193227427885,
+     "rmse": 0.716548264889882,
+     "spearman": 0.4506690344547318,
+     "tau_b": 0.33470487006895244
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9523809523809523,
+     "coverage_abs_err": 0.052380952380952306,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.37062982731042826,
+     "rmse": 0.5306569029869047,
+     "spearman": 0.47114702118889523,
+     "tau_b": 0.34784759962467837
+    },
+    "SHRINK_20": {
+     "coverage": 0.5714285714285714,
+     "coverage_abs_err": 0.3285714285714286,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.31801062459472895,
+     "rmse": 0.4960339231550731,
+     "spearman": 0.4822500352924725,
+     "tau_b": 0.3489976818596863
+    },
+    "SHRINK_5": {
+     "coverage": 0.8952380952380953,
+     "coverage_abs_err": 0.004761904761904745,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.3335808294695415,
+     "rmse": 0.46379215247569106,
+     "spearman": 0.47835347157942354,
+     "tau_b": 0.35098418753833643
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.622950819672131,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 3.05,
+    "mean_reported": 3.05,
+    "median_reported": 2.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.194527730851116,
+    "share_zero_reviews": 0.245,
+    "total_reported": 610
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c01-s009",
+   "seed_index": 9,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8085106382978723,
+     "coverage_abs_err": 0.09148936170212774,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.09990143794746853,
+     "rmse": 0.6976191464629531,
+     "spearman": 0.7338115792011356,
+     "tau_b": 0.6070954055196163
+    },
+    "MEAN": {
+     "coverage": 0.8829787234042553,
+     "coverage_abs_err": 0.017021276595744705,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.08813082319497134,
+     "rmse": 0.21697862624588596,
+     "spearman": 0.9599723944778185,
+     "tau_b": 0.8514258668485053
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8776595744680851,
+     "coverage_abs_err": 0.022340425531914954,
+     "precision_at_k": 0.8,
+     "regret_at_k": 0.05215183478233687,
+     "rmse": 0.21955545257507145,
+     "spearman": 0.9552755999659505,
+     "tau_b": 0.8436623987701928
+    },
+    "SHRINK_20": {
+     "coverage": 0.28191489361702127,
+     "coverage_abs_err": 0.6180851063829788,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.06753615294321147,
+     "rmse": 0.4249936599140812,
+     "spearman": 0.9168346442694604,
+     "tau_b": 0.756237807244877
+    },
+    "SHRINK_5": {
+     "coverage": 0.7127659574468085,
+     "coverage_abs_err": 0.18723404255319154,
+     "precision_at_k": 0.8,
+     "regret_at_k": 0.02187416805356701,
+     "rmse": 0.29102097959601286,
+     "spearman": 0.9403858424445519,
+     "tau_b": 0.8104631867985539
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c02",
+   "diagnostics": {
+    "catalogue_mean_m": 3.628315535652773,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 29.03,
+    "mean_reported": 29.03,
+    "median_reported": 21.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5587653262407087,
+    "share_zero_reviews": 0.03,
+    "total_reported": 5806
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c02-s000",
+   "seed_index": 0,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8272251308900523,
+     "coverage_abs_err": 0.07277486910994768,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.12604718425845984,
+     "rmse": 0.6992296376667061,
+     "spearman": 0.7380201194740407,
+     "tau_b": 0.5840121401762202
+    },
+    "MEAN": {
+     "coverage": 0.8952879581151832,
+     "coverage_abs_err": 0.0047120418848167755,
+     "precision_at_k": 0.8,
+     "regret_at_k": 0.040099404008139494,
+     "rmse": 0.22732650572758686,
+     "spearman": 0.9443772976279556,
+     "tau_b": 0.8253081025982087
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.900523560209424,
+     "coverage_abs_err": 0.0005235602094240122,
+     "precision_at_k": 0.9,
+     "regret_at_k": 0.01685630816594763,
+     "rmse": 0.19593220027910466,
+     "spearman": 0.9519528653380191,
+     "tau_b": 0.8338405166871239
+    },
+    "SHRINK_20": {
+     "coverage": 0.34554973821989526,
+     "coverage_abs_err": 0.5544502617801048,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.12604718425845984,
+     "rmse": 0.38608627307220794,
+     "spearman": 0.9250388796114732,
+     "tau_b": 0.7667631935694357
+    },
+    "SHRINK_5": {
+     "coverage": 0.7120418848167539,
+     "coverage_abs_err": 0.18795811518324612,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.04289554620903413,
+     "rmse": 0.2399744378267607,
+     "spearman": 0.9483542335378864,
+     "tau_b": 0.8190573585187578
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c02",
+   "diagnostics": {
+    "catalogue_mean_m": 3.655652465615565,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 29.81,
+    "mean_reported": 29.81,
+    "median_reported": 18.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5585052320692039,
+    "share_zero_reviews": 0.02,
+    "total_reported": 5962
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c02-s001",
+   "seed_index": 1,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8494623655913979,
+     "coverage_abs_err": 0.05053763440860215,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.07451366624431266,
+     "rmse": 0.7357067359567108,
+     "spearman": 0.7128189629617413,
+     "tau_b": 0.5777444712434433
+    },
+    "MEAN": {
+     "coverage": 0.9301075268817204,
+     "coverage_abs_err": 0.03010752688172036,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.05892327444608103,
+     "rmse": 0.21940537505285285,
+     "spearman": 0.9447155131975477,
+     "tau_b": 0.8286088868847064
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9247311827956989,
+     "coverage_abs_err": 0.02473118279569886,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.039760871435438716,
+     "rmse": 0.2066430612872283,
+     "spearman": 0.9480892897935186,
+     "tau_b": 0.8243704266119941
+    },
+    "SHRINK_20": {
+     "coverage": 0.2956989247311828,
+     "coverage_abs_err": 0.6043010752688172,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.07451366624431266,
+     "rmse": 0.4234189345121557,
+     "spearman": 0.9116417988333302,
+     "tau_b": 0.7518242191681703
+    },
+    "SHRINK_5": {
+     "coverage": 0.7311827956989247,
+     "coverage_abs_err": 0.16881720430107527,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.04814508464627032,
+     "rmse": 0.2846207333003777,
+     "spearman": 0.9352380877909696,
+     "tau_b": 0.7987126139931661
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c02",
+   "diagnostics": {
+    "catalogue_mean_m": 3.578751988686583,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 28.285,
+    "mean_reported": 28.285,
+    "median_reported": 20.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5597059878588303,
+    "share_zero_reviews": 0.025,
+    "total_reported": 5657
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c02-s002",
+   "seed_index": 2,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7868852459016393,
+     "coverage_abs_err": 0.11311475409836069,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.10904038021998641,
+     "rmse": 0.7560864863824571,
+     "spearman": 0.6896638376183912,
+     "tau_b": 0.5492331389053883
+    },
+    "MEAN": {
+     "coverage": 0.9180327868852459,
+     "coverage_abs_err": 0.0180327868852459,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.17758382301290876,
+     "rmse": 0.21756855837633887,
+     "spearman": 0.9480336161459635,
+     "tau_b": 0.826302006410387
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9289617486338798,
+     "coverage_abs_err": 0.02896174863387979,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.0769302572883177,
+     "rmse": 0.2026913922382346,
+     "spearman": 0.9495273165880463,
+     "tau_b": 0.82573214461128
+    },
+    "SHRINK_20": {
+     "coverage": 0.32786885245901637,
+     "coverage_abs_err": 0.5721311475409836,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.08827885421479564,
+     "rmse": 0.40453006640639766,
+     "spearman": 0.9095703996870788,
+     "tau_b": 0.7439186983168469
+    },
+    "SHRINK_5": {
+     "coverage": 0.6885245901639344,
+     "coverage_abs_err": 0.2114754098360656,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.07486580618858607,
+     "rmse": 0.27013806500114534,
+     "spearman": 0.9384010043544347,
+     "tau_b": 0.8023856261115155
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c02",
+   "diagnostics": {
+    "catalogue_mean_m": 3.7373255608549725,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 28.305,
+    "mean_reported": 28.305,
+    "median_reported": 20.5,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5612522393229752,
+    "share_zero_reviews": 0.04,
+    "total_reported": 5661
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c02-s003",
+   "seed_index": 3,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7883597883597884,
+     "coverage_abs_err": 0.11164021164021165,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.14998569991214605,
+     "rmse": 0.6922725582940111,
+     "spearman": 0.7666160269182591,
+     "tau_b": 0.6057529410241099
+    },
+    "MEAN": {
+     "coverage": 0.8941798941798942,
+     "coverage_abs_err": 0.0058201058201058364,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.05938317303397511,
+     "rmse": 0.19919163240422427,
+     "spearman": 0.9607475690242595,
+     "tau_b": 0.8501595930381923
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8783068783068783,
+     "coverage_abs_err": 0.021693121693121764,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.01889219060951053,
+     "rmse": 0.1947753652344681,
+     "spearman": 0.9606368727224969,
+     "tau_b": 0.8488951045664063
+    },
+    "SHRINK_20": {
+     "coverage": 0.30687830687830686,
+     "coverage_abs_err": 0.5931216931216932,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.12212830056825208,
+     "rmse": 0.3904229163094063,
+     "spearman": 0.9273696802429424,
+     "tau_b": 0.7682251746105726
+    },
+    "SHRINK_5": {
+     "coverage": 0.6984126984126984,
+     "coverage_abs_err": 0.20158730158730165,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.04223624219228128,
+     "rmse": 0.2531599834792895,
+     "spearman": 0.9510708860497223,
+     "tau_b": 0.8235474457772914
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c02",
+   "diagnostics": {
+    "catalogue_mean_m": 3.7256563642406113,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 30.09,
+    "mean_reported": 30.09,
+    "median_reported": 23.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5647766847264194,
+    "share_zero_reviews": 0.035,
+    "total_reported": 6018
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c02-s004",
+   "seed_index": 4,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7777777777777778,
+     "coverage_abs_err": 0.12222222222222223,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.08302293784312464,
+     "rmse": 0.7631318227590025,
+     "spearman": 0.7205303719859644,
+     "tau_b": 0.5694600462731787
+    },
+    "MEAN": {
+     "coverage": 0.8941798941798942,
+     "coverage_abs_err": 0.0058201058201058364,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.044859741424863486,
+     "rmse": 0.21672420540368803,
+     "spearman": 0.9544087372418192,
+     "tau_b": 0.8433331421382434
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8888888888888888,
+     "coverage_abs_err": 0.011111111111111183,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.05825194930286326,
+     "rmse": 0.19674770454079446,
+     "spearman": 0.9553924961318346,
+     "tau_b": 0.844409143632949
+    },
+    "SHRINK_20": {
+     "coverage": 0.21164021164021163,
+     "coverage_abs_err": 0.6883597883597884,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.08302293784312464,
+     "rmse": 0.42792434930497003,
+     "spearman": 0.9153085209192956,
+     "tau_b": 0.7499375380245445
+    },
+    "SHRINK_5": {
+     "coverage": 0.6507936507936508,
+     "coverage_abs_err": 0.2492063492063492,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.07230277664497642,
+     "rmse": 0.27254826874909616,
+     "spearman": 0.9437832792548524,
+     "tau_b": 0.8142265220328199
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c02",
+   "diagnostics": {
+    "catalogue_mean_m": 3.694616576297444,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 25.82,
+    "mean_reported": 25.82,
+    "median_reported": 18.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.55751453939203,
+    "share_zero_reviews": 0.04,
+    "total_reported": 5164
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c02-s005",
+   "seed_index": 5,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8225806451612904,
+     "coverage_abs_err": 0.07741935483870965,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.08771271117354118,
+     "rmse": 0.7278546566973142,
+     "spearman": 0.7280018395528917,
+     "tau_b": 0.586762135649435
+    },
+    "MEAN": {
+     "coverage": 0.9032258064516129,
+     "coverage_abs_err": 0.003225806451612856,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.02506732293526248,
+     "rmse": 0.21603848884699028,
+     "spearman": 0.9460886655418322,
+     "tau_b": 0.8246596613718485
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9139784946236559,
+     "coverage_abs_err": 0.013978494623655857,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.02443599640168692,
+     "rmse": 0.20080333972445194,
+     "spearman": 0.9495567796755898,
+     "tau_b": 0.8277670184928626
+    },
+    "SHRINK_20": {
+     "coverage": 0.3064516129032258,
+     "coverage_abs_err": 0.5935483870967742,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.08771271117354118,
+     "rmse": 0.38225354142955137,
+     "spearman": 0.9246537512357432,
+     "tau_b": 0.7744470719929578
+    },
+    "SHRINK_5": {
+     "coverage": 0.7526881720430108,
+     "coverage_abs_err": 0.14731182795698927,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.03419235878922322,
+     "rmse": 0.26014602708537093,
+     "spearman": 0.9416782961284497,
+     "tau_b": 0.8135819006504351
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c02",
+   "diagnostics": {
+    "catalogue_mean_m": 3.833808618504436,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 31.56,
+    "mean_reported": 31.56,
+    "median_reported": 22.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5569137267907633,
+    "share_zero_reviews": 0.04,
+    "total_reported": 6312
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c02-s006",
+   "seed_index": 6,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7842105263157895,
+     "coverage_abs_err": 0.11578947368421055,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.12504352491753234,
+     "rmse": 0.7377272305192645,
+     "spearman": 0.7018832207254827,
+     "tau_b": 0.5543236494149427
+    },
+    "MEAN": {
+     "coverage": 0.8947368421052632,
+     "coverage_abs_err": 0.0052631578947368585,
+     "precision_at_k": 0.8,
+     "regret_at_k": 0.04627288244900374,
+     "rmse": 0.2129026609718047,
+     "spearman": 0.9508375768105455,
+     "tau_b": 0.8257942850161204
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8947368421052632,
+     "coverage_abs_err": 0.0052631578947368585,
+     "precision_at_k": 0.8,
+     "regret_at_k": 0.019125437426472658,
+     "rmse": 0.21069908520030614,
+     "spearman": 0.9497057243787564,
+     "tau_b": 0.8237071576418321
+    },
+    "SHRINK_20": {
+     "coverage": 0.2789473684210526,
+     "coverage_abs_err": 0.6210526315789474,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.10007459046356093,
+     "rmse": 0.407694939722445,
+     "spearman": 0.9048131929825057,
+     "tau_b": 0.7349948170789045
+    },
+    "SHRINK_5": {
+     "coverage": 0.6894736842105263,
+     "coverage_abs_err": 0.21052631578947367,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.057776634818591965,
+     "rmse": 0.2736377618729717,
+     "spearman": 0.9357895946710336,
+     "tau_b": 0.7924265024093259
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c02",
+   "diagnostics": {
+    "catalogue_mean_m": 3.713709677419355,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 28.52,
+    "mean_reported": 28.52,
+    "median_reported": 19.5,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5622272572363997,
+    "share_zero_reviews": 0.03,
+    "total_reported": 5704
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c02-s007",
+   "seed_index": 7,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7700534759358288,
+     "coverage_abs_err": 0.12994652406417118,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.0783461902151883,
+     "rmse": 0.7099463157646705,
+     "spearman": 0.7627111223379721,
+     "tau_b": 0.6220505917237703
+    },
+    "MEAN": {
+     "coverage": 0.8342245989304813,
+     "coverage_abs_err": 0.06577540106951874,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.15852392825553263,
+     "rmse": 0.2728352349492449,
+     "spearman": 0.9265156332305596,
+     "tau_b": 0.803494349816813
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8502673796791443,
+     "coverage_abs_err": 0.04973262032085568,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.12969329457825918,
+     "rmse": 0.2525339320452062,
+     "spearman": 0.9295298850349737,
+     "tau_b": 0.8057982513160898
+    },
+    "SHRINK_20": {
+     "coverage": 0.22994652406417113,
+     "coverage_abs_err": 0.6700534759358289,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.0783461902151883,
+     "rmse": 0.4442330237325857,
+     "spearman": 0.9007467333222712,
+     "tau_b": 0.7400742620443678
+    },
+    "SHRINK_5": {
+     "coverage": 0.6470588235294118,
+     "coverage_abs_err": 0.2529411764705882,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.028089126714168522,
+     "rmse": 0.3120796318615783,
+     "spearman": 0.9236073394071137,
+     "tau_b": 0.7853664445440232
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c02",
+   "diagnostics": {
+    "catalogue_mean_m": 3.579912134525072,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 33.005,
+    "mean_reported": 33.005,
+    "median_reported": 22.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5627468425496994,
+    "share_zero_reviews": 0.05,
+    "total_reported": 6601
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c02-s008",
+   "seed_index": 8,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8432432432432433,
+     "coverage_abs_err": 0.05675675675675673,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.15097906834411212,
+     "rmse": 0.7660145687115765,
+     "spearman": 0.6980456337984974,
+     "tau_b": 0.5516636294797624
+    },
+    "MEAN": {
+     "coverage": 0.9135135135135135,
+     "coverage_abs_err": 0.013513513513513487,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.11988989521516835,
+     "rmse": 0.26697811801617843,
+     "spearman": 0.938565077200654,
+     "tau_b": 0.8227514666627698
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.918918918918919,
+     "coverage_abs_err": 0.018918918918918948,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.049551068261187936,
+     "rmse": 0.22621453444086018,
+     "spearman": 0.9457775527229363,
+     "tau_b": 0.8305127105716612
+    },
+    "SHRINK_20": {
+     "coverage": 0.33513513513513515,
+     "coverage_abs_err": 0.5648648648648649,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.15097906834411212,
+     "rmse": 0.42886749248239037,
+     "spearman": 0.903742461464271,
+     "tau_b": 0.7344386219524454
+    },
+    "SHRINK_5": {
+     "coverage": 0.7405405405405405,
+     "coverage_abs_err": 0.1594594594594595,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.06704380908051988,
+     "rmse": 0.29532775421585106,
+     "spearman": 0.932695401881925,
+     "tau_b": 0.797515536679407
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c02",
+   "diagnostics": {
+    "catalogue_mean_m": 3.6492296667860984,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 27.91,
+    "mean_reported": 27.91,
+    "median_reported": 18.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 0.5648219694193606,
+    "share_zero_reviews": 0.03,
+    "total_reported": 5582
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c02-s009",
+   "seed_index": 9,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.898936170212766,
+     "coverage_abs_err": 0.0010638297872340718,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.05143386166661035,
+     "rmse": 0.711992124836294,
+     "spearman": 0.6757247824679629,
+     "tau_b": 0.5210287560805481
+    },
+    "MEAN": {
+     "coverage": 0.898936170212766,
+     "coverage_abs_err": 0.0010638297872340718,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.3126713018428151,
+     "rmse": 0.43353852439076623,
+     "spearman": 0.7809582508760379,
+     "tau_b": 0.6172951449360323
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9042553191489362,
+     "coverage_abs_err": 0.004255319148936176,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.17432025872698365,
+     "rmse": 0.35724124991748013,
+     "spearman": 0.8064069376706069,
+     "tau_b": 0.6386041093799154
+    },
+    "SHRINK_20": {
+     "coverage": 0.7021276595744681,
+     "coverage_abs_err": 0.19787234042553192,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.04777740649999007,
+     "rmse": 0.3581651046104762,
+     "spearman": 0.83288612592941,
+     "tau_b": 0.6478577836692448
+    },
+    "SHRINK_5": {
+     "coverage": 0.9042553191489362,
+     "coverage_abs_err": 0.004255319148936176,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.11762348369883924,
+     "rmse": 0.31480785858321236,
+     "spearman": 0.8312735535649066,
+     "tau_b": 0.6550997896348071
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c03",
+   "diagnostics": {
+    "catalogue_mean_m": 3.5151567344126766,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 29.03,
+    "mean_reported": 29.03,
+    "median_reported": 21.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.2048394467611048,
+    "share_zero_reviews": 0.03,
+    "total_reported": 5806
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c03-s000",
+   "seed_index": 0,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8848167539267016,
+     "coverage_abs_err": 0.015183246073298462,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.09088334419864808,
+     "rmse": 0.7296218002901632,
+     "spearman": 0.6893341618819474,
+     "tau_b": 0.5189393356140312
+    },
+    "MEAN": {
+     "coverage": 0.9109947643979057,
+     "coverage_abs_err": 0.010994764397905699,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.35556987623732006,
+     "rmse": 0.4423623850145646,
+     "spearman": 0.785064219504857,
+     "tau_b": 0.6233504270060504
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9162303664921466,
+     "coverage_abs_err": 0.016230366492146597,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.13253789996075138,
+     "rmse": 0.34181320397361864,
+     "spearman": 0.8110413127311674,
+     "tau_b": 0.6450121849919929
+    },
+    "SHRINK_20": {
+     "coverage": 0.6649214659685864,
+     "coverage_abs_err": 0.23507853403141366,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.08184892116759812,
+     "rmse": 0.321079363429653,
+     "spearman": 0.846567140511701,
+     "tau_b": 0.661605108366436
+    },
+    "SHRINK_5": {
+     "coverage": 0.9162303664921466,
+     "coverage_abs_err": 0.016230366492146597,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.10067311000121126,
+     "rmse": 0.27291959020652906,
+     "spearman": 0.8454210976782623,
+     "tau_b": 0.6716614255630684
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c03",
+   "diagnostics": {
+    "catalogue_mean_m": 3.4998322710499834,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 29.81,
+    "mean_reported": 29.81,
+    "median_reported": 18.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.1994045523594012,
+    "share_zero_reviews": 0.02,
+    "total_reported": 5962
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c03-s001",
+   "seed_index": 1,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.9247311827956989,
+     "coverage_abs_err": 0.02473118279569886,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.08639491503575591,
+     "rmse": 0.7438704816147519,
+     "spearman": 0.6781989040046017,
+     "tau_b": 0.5236958922569134
+    },
+    "MEAN": {
+     "coverage": 0.9193548387096774,
+     "coverage_abs_err": 0.019354838709677358,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.21817806326627753,
+     "rmse": 0.3642869845210177,
+     "spearman": 0.838785135572668,
+     "tau_b": 0.6687089567036881
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9301075268817204,
+     "coverage_abs_err": 0.03010752688172036,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.2602539380440536,
+     "rmse": 0.2861044002617101,
+     "spearman": 0.8501595161764354,
+     "tau_b": 0.677837014229882
+    },
+    "SHRINK_20": {
+     "coverage": 0.6989247311827957,
+     "coverage_abs_err": 0.20107526881720428,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.08639491503575591,
+     "rmse": 0.3406811635552906,
+     "spearman": 0.8450562144407485,
+     "tau_b": 0.6554973739152986
+    },
+    "SHRINK_5": {
+     "coverage": 0.9247311827956989,
+     "coverage_abs_err": 0.02473118279569886,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.13970323556323194,
+     "rmse": 0.26878364167812596,
+     "spearman": 0.8559408580016371,
+     "tau_b": 0.6769313531360476
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c03",
+   "diagnostics": {
+    "catalogue_mean_m": 3.4428142124801133,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 28.285,
+    "mean_reported": 28.285,
+    "median_reported": 20.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.1963002002279333,
+    "share_zero_reviews": 0.025,
+    "total_reported": 5657
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c03-s002",
+   "seed_index": 2,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8743169398907104,
+     "coverage_abs_err": 0.025683060109289668,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.1392680631870018,
+     "rmse": 0.7442088850608188,
+     "spearman": 0.6471398735672348,
+     "tau_b": 0.48858063930531365
+    },
+    "MEAN": {
+     "coverage": 0.8961748633879781,
+     "coverage_abs_err": 0.0038251366120218844,
+     "precision_at_k": 0.0,
+     "regret_at_k": 0.43108822953632675,
+     "rmse": 0.36660206848600346,
+     "spearman": 0.820595652181005,
+     "tau_b": 0.6459130186233956
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8961748633879781,
+     "coverage_abs_err": 0.0038251366120218844,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.26318105048909946,
+     "rmse": 0.3066144091977353,
+     "spearman": 0.8378287062586157,
+     "tau_b": 0.6579124701655238
+    },
+    "SHRINK_20": {
+     "coverage": 0.7158469945355191,
+     "coverage_abs_err": 0.18415300546448088,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.1392680631870018,
+     "rmse": 0.328787984897164,
+     "spearman": 0.8352170263766501,
+     "tau_b": 0.6395979902679825
+    },
+    "SHRINK_5": {
+     "coverage": 0.907103825136612,
+     "coverage_abs_err": 0.0071038251366120075,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.18145714531969492,
+     "rmse": 0.2755495593218037,
+     "spearman": 0.8454687324727754,
+     "tau_b": 0.6597237923531928
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c03",
+   "diagnostics": {
+    "catalogue_mean_m": 3.596537714184773,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 28.305,
+    "mean_reported": 28.305,
+    "median_reported": 20.5,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.1927536866607982,
+    "share_zero_reviews": 0.04,
+    "total_reported": 5661
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c03-s003",
+   "seed_index": 3,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8783068783068783,
+     "coverage_abs_err": 0.021693121693121764,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.16980553163846768,
+     "rmse": 0.7175055625309201,
+     "spearman": 0.7128871123182932,
+     "tau_b": 0.5360654735814646
+    },
+    "MEAN": {
+     "coverage": 0.9047619047619048,
+     "coverage_abs_err": 0.004761904761904745,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.38516733777368684,
+     "rmse": 0.3576568118851227,
+     "spearman": 0.8345776510461292,
+     "tau_b": 0.6614627903347965
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9206349206349206,
+     "coverage_abs_err": 0.02063492063492056,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.26834830706595536,
+     "rmse": 0.30090629821274406,
+     "spearman": 0.8440951109035456,
+     "tau_b": 0.6687789361851876
+    },
+    "SHRINK_20": {
+     "coverage": 0.6825396825396826,
+     "coverage_abs_err": 0.21746031746031746,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.14947100600532437,
+     "rmse": 0.3250043811891275,
+     "spearman": 0.8543526135241283,
+     "tau_b": 0.6652587823741519
+    },
+    "SHRINK_5": {
+     "coverage": 0.9153439153439153,
+     "coverage_abs_err": 0.015343915343915326,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.10170549161582887,
+     "rmse": 0.26878477636566545,
+     "spearman": 0.8555316712982988,
+     "tau_b": 0.6756180921609141
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c03",
+   "diagnostics": {
+    "catalogue_mean_m": 3.5736124958457958,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 30.09,
+    "mean_reported": 30.09,
+    "median_reported": 23.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.2042711870725709,
+    "share_zero_reviews": 0.035,
+    "total_reported": 6018
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c03-s004",
+   "seed_index": 4,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8518518518518519,
+     "coverage_abs_err": 0.04814814814814816,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.12321817703280935,
+     "rmse": 0.7627549382002213,
+     "spearman": 0.6530921296991519,
+     "tau_b": 0.4913499880801524
+    },
+    "MEAN": {
+     "coverage": 0.8941798941798942,
+     "coverage_abs_err": 0.0058201058201058364,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.24035718423479846,
+     "rmse": 0.36405416375900573,
+     "spearman": 0.8302412311044408,
+     "tau_b": 0.6451034952409133
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9047619047619048,
+     "coverage_abs_err": 0.004761904761904745,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.11686682612204358,
+     "rmse": 0.3059214264181723,
+     "spearman": 0.838660852383439,
+     "tau_b": 0.653688820616687
+    },
+    "SHRINK_20": {
+     "coverage": 0.6349206349206349,
+     "coverage_abs_err": 0.26507936507936514,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.11654182483575681,
+     "rmse": 0.3594651149729716,
+     "spearman": 0.8258920591133572,
+     "tau_b": 0.6301469685159861
+    },
+    "SHRINK_5": {
+     "coverage": 0.8994708994708994,
+     "coverage_abs_err": 0.0005291005291006012,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.10613184285211297,
+     "rmse": 0.28823362430932736,
+     "spearman": 0.8443057030736784,
+     "tau_b": 0.6599264053613172
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c03",
+   "diagnostics": {
+    "catalogue_mean_m": 3.547443841982959,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 25.82,
+    "mean_reported": 25.82,
+    "median_reported": 18.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.1949716159517756,
+    "share_zero_reviews": 0.04,
+    "total_reported": 5164
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c03-s005",
+   "seed_index": 5,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8870967741935484,
+     "coverage_abs_err": 0.012903225806451646,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.08050337646991501,
+     "rmse": 0.7345429133550303,
+     "spearman": 0.7036890921349596,
+     "tau_b": 0.542171902642616
+    },
+    "MEAN": {
+     "coverage": 0.8817204301075269,
+     "coverage_abs_err": 0.018279569892473146,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.4151641720604933,
+     "rmse": 0.41012927406996535,
+     "spearman": 0.8087791457479221,
+     "tau_b": 0.6345199476168668
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8817204301075269,
+     "coverage_abs_err": 0.018279569892473146,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.28379461300648945,
+     "rmse": 0.3244461488480063,
+     "spearman": 0.8206756195091155,
+     "tau_b": 0.6438635049045115
+    },
+    "SHRINK_20": {
+     "coverage": 0.7204301075268817,
+     "coverage_abs_err": 0.17956989247311828,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.06872226272232762,
+     "rmse": 0.30852308040779286,
+     "spearman": 0.845872665994514,
+     "tau_b": 0.661670354962027
+    },
+    "SHRINK_5": {
+     "coverage": 0.9086021505376344,
+     "coverage_abs_err": 0.008602150537634357,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.05815130542104541,
+     "rmse": 0.2709998847308343,
+     "spearman": 0.8451151194995966,
+     "tau_b": 0.6636824284148535
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c03",
+   "diagnostics": {
+    "catalogue_mean_m": 3.6460709759188847,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 31.56,
+    "mean_reported": 31.56,
+    "median_reported": 22.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.15784811664823,
+    "share_zero_reviews": 0.04,
+    "total_reported": 6312
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c03-s006",
+   "seed_index": 6,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.9,
+     "coverage_abs_err": 0.0,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.1649422236624103,
+     "rmse": 0.7368051452784906,
+     "spearman": 0.6608736806844603,
+     "tau_b": 0.4949470313022676
+    },
+    "MEAN": {
+     "coverage": 0.8842105263157894,
+     "coverage_abs_err": 0.015789473684210575,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.16609869087157492,
+     "rmse": 0.386099743938864,
+     "spearman": 0.8061886438609487,
+     "tau_b": 0.623695246928245
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9052631578947369,
+     "coverage_abs_err": 0.0052631578947368585,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.16212027393178108,
+     "rmse": 0.32088549841541136,
+     "spearman": 0.8186951820912644,
+     "tau_b": 0.634413932086923
+    },
+    "SHRINK_20": {
+     "coverage": 0.7105263157894737,
+     "coverage_abs_err": 0.18947368421052635,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.1144253791980967,
+     "rmse": 0.32874148501523176,
+     "spearman": 0.8142909861037056,
+     "tau_b": 0.6171140198683023
+    },
+    "SHRINK_5": {
+     "coverage": 0.8947368421052632,
+     "coverage_abs_err": 0.0052631578947368585,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.10214284798046602,
+     "rmse": 0.2778423593056746,
+     "spearman": 0.8302786975599052,
+     "tau_b": 0.6457795720910169
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c03",
+   "diagnostics": {
+    "catalogue_mean_m": 3.5734572230014026,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 28.52,
+    "mean_reported": 28.52,
+    "median_reported": 19.5,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.1934233421822524,
+    "share_zero_reviews": 0.03,
+    "total_reported": 5704
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c03-s007",
+   "seed_index": 7,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.839572192513369,
+     "coverage_abs_err": 0.06042780748663101,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.10030705985015409,
+     "rmse": 0.727579368891013,
+     "spearman": 0.7087741709553615,
+     "tau_b": 0.55090739451276
+    },
+    "MEAN": {
+     "coverage": 0.8502673796791443,
+     "coverage_abs_err": 0.04973262032085568,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.4761374397455702,
+     "rmse": 0.45735670483853624,
+     "spearman": 0.8029743520426478,
+     "tau_b": 0.6358491414388456
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.8609625668449198,
+     "coverage_abs_err": 0.03903743315508024,
+     "precision_at_k": 0.2,
+     "regret_at_k": 0.3793483864737417,
+     "rmse": 0.37205616554828647,
+     "spearman": 0.8167440754899002,
+     "tau_b": 0.6455320417638617
+    },
+    "SHRINK_20": {
+     "coverage": 0.679144385026738,
+     "coverage_abs_err": 0.220855614973262,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.08264392289035083,
+     "rmse": 0.36355667129453817,
+     "spearman": 0.8326500229657668,
+     "tau_b": 0.6484507242102526
+    },
+    "SHRINK_5": {
+     "coverage": 0.8823529411764706,
+     "coverage_abs_err": 0.01764705882352946,
+     "precision_at_k": 0.3,
+     "regret_at_k": 0.16765849162495972,
+     "rmse": 0.320887360358479,
+     "spearman": 0.8350757437116383,
+     "tau_b": 0.658716434883766
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c03",
+   "diagnostics": {
+    "catalogue_mean_m": 3.462051204362975,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 33.005,
+    "mean_reported": 33.005,
+    "median_reported": 22.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.1820171960924273,
+    "share_zero_reviews": 0.05,
+    "total_reported": 6601
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c03-s008",
+   "seed_index": 8,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8972972972972973,
+     "coverage_abs_err": 0.002702702702702675,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.1421674103223527,
+     "rmse": 0.7589690195815417,
+     "spearman": 0.6608181587221114,
+     "tau_b": 0.4988435310442612
+    },
+    "MEAN": {
+     "coverage": 0.9243243243243243,
+     "coverage_abs_err": 0.024324324324324298,
+     "precision_at_k": 0.1,
+     "regret_at_k": 0.266126586092855,
+     "rmse": 0.3989129900242522,
+     "spearman": 0.8419126595733929,
+     "tau_b": 0.658926760701468
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 1.0,
+     "tau_b": 1.0
+    },
+    "SHRINK_1": {
+     "coverage": 0.9243243243243243,
+     "coverage_abs_err": 0.024324324324324298,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.0908336688660718,
+     "rmse": 0.3034729931295083,
+     "spearman": 0.8575975953875707,
+     "tau_b": 0.6762586645261405
+    },
+    "SHRINK_20": {
+     "coverage": 0.7189189189189189,
+     "coverage_abs_err": 0.18108108108108112,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.1421674103223527,
+     "rmse": 0.34049274146898445,
+     "spearman": 0.8380230775055056,
+     "tau_b": 0.643056944777033
+    },
+    "SHRINK_5": {
+     "coverage": 0.918918918918919,
+     "coverage_abs_err": 0.018918918918918948,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.10063480034666927,
+     "rmse": 0.27673586579776166,
+     "spearman": 0.8558425041221853,
+     "tau_b": 0.6703225994800879
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c03",
+   "diagnostics": {
+    "catalogue_mean_m": 3.5214976710856325,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 27.91,
+    "mean_reported": 27.91,
+    "median_reported": 18.0,
+    "n_evaluated": 200,
+    "n_products": 200,
+    "s_pool": 1.19397956298209,
+    "share_zero_reviews": 0.03,
+    "total_reported": 5582
+   },
+   "error": null,
+   "run_id": "RUN-X-PILOT-001-c03-s009",
+   "seed_index": 9,
+   "status": "ok"
+  }
+ ],
+ "schema_version": "1.0.0",
+ "simulated": true
+}

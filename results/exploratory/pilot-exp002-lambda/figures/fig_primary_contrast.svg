@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="246" viewBox="0 0 720 246" role="img" aria-labelledby="t d">
+<title id="t">X-PILOT-002: tau-b(SHRINK_5) minus tau-b(MEAN) per cell</title><desc id="d">EXPLORATORY, simulated. Dot-and-interval chart. One row per cell; the dot is the mean paired difference in Kendall tau-b over seeds and the bar its 95% percentile bootstrap interval (10000 resamples). Seeds per cell: 10, 10, 10, 10. The dashed line marks zero.</desc>
+<rect width="720" height="246" fill="#ffffff"/>
+<text x="230" y="24" font-family="sans-serif" font-size="14" fill="#111">X-PILOT-002: tau-b(SHRINK_5) minus tau-b(MEAN) per cell</text>
+<line x1="444.0" y1="42" x2="444.0" y2="186" stroke="#888" stroke-dasharray="4 3"/>
+<text x="220" y="71.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c00: gamma=-0.5, lam=0.0</text>
+<line x1="270.7" y1="67.0" x2="416.8" y2="67.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="344.1" cy="67.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="105.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c01: gamma=0.5, lam=0.0</text>
+<line x1="399.1" y1="101.0" x2="486.2" y2="101.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="443.8" cy="101.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="139.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c02: gamma=-0.5, lam=2.0</text>
+<line x1="261.0" y1="135.0" x2="415.5" y2="135.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="340.5" cy="135.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="173.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c03: gamma=0.5, lam=2.0</text>
+<line x1="548.0" y1="169.0" x2="649.0" y2="169.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="594.4" cy="169.0" r="4.5" fill="#1f4e79"/>
+<line x1="230" y1="192" x2="680" y2="192" stroke="#111"/>
+<line x1="230.0" y1="192" x2="230.0" y2="197" stroke="#111"/>
+<text x="230.0" y="211" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">-0.021</text>
+<line x1="342.5" y1="192" x2="342.5" y2="197" stroke="#111"/>
+<text x="342.5" y="211" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">-0.010</text>
+<line x1="455.0" y1="192" x2="455.0" y2="197" stroke="#111"/>
+<text x="455.0" y="211" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">0.001</text>
+<line x1="567.5" y1="192" x2="567.5" y2="197" stroke="#111"/>
+<text x="567.5" y="211" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">0.012</text>
+<line x1="680.0" y1="192" x2="680.0" y2="197" stroke="#111"/>
+<text x="680.0" y="211" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">0.023</text>
+<text x="455.0" y="232" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#111">difference in Kendall tau-b (unitless)</text>
+</svg>

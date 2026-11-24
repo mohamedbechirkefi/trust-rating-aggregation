@@ -3,7 +3,7 @@
 
 **Question.** When do average ratings misrank products compared with uncertainty-aware estimators?
 
-**Status: M0 (bootstrap and feasibility), 2026-11-24. No experiment has been run and there are no findings.** The protocol is a draft awaiting the owner's freeze; nothing here is confirmatory.
+**Status: M2 (core implementation) done, 2026-11-24. No registered experiment has been run and there are no findings.** The protocol is a draft awaiting the owner's freeze; only exploratory, simulated smoke and pilot runs exist (`results/exploratory/`), and they are not evidence.
 
 ## Why it matters
 
@@ -16,7 +16,9 @@ Ranking products by their average star rating lets products with very few review
 - Literature scoping: `research/literature_review.md`. Data candidates and their licences: `data/manifest.json`.
 - Manuscript skeleton: `research/paper/manuscript.md`.
 
-What is not implemented yet: the simulation engine, estimators, tests, experiment runner, report generator and demo.
+- Engine (M2): `src/trust/` (simulation, MEAN, SHRINK, LCB, metrics, runner, versioned schemas, run manifests, report generator, CLI) and `tests/`.
+
+What is not implemented yet: the confirmatory experiments (blocked by the protocol freeze), their reports, the manuscript results and the demo.
 
 ## Experiments
 
@@ -26,13 +28,16 @@ What is not implemented yet: the simulation engine, estimators, tests, experimen
 | EXP-002 | Reporting selection and quality-dependent missingness | planned (protocol draft, awaiting owner freeze) |
 | EXP-003 | Sensitivity analyses that could invalidate the main interpretation | planned (protocol draft, awaiting owner freeze) |
 
-## Quick start (environment only)
+## Quick start
 
 ```sh
 uv sync --frozen
+uv run --frozen pytest -q
+PYTHONPATH=src uv run --frozen python -m trust.cli smoke     # exploratory, simulated
+PYTHONPATH=src uv run --frozen python -m trust.cli report --dir results/exploratory/smoke --pdf
 ```
 
-Experiment commands will be added when the engine exists (M2).
+`trust.cli run --exp EXP-001` is refused until the owner freezes the protocol.
 
 ## Data and licences
 

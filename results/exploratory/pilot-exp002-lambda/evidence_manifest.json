@@ -1,0 +1,15 @@
+{
+ "code_revision": "e1ad9bb780aad7e32b9832aec603ae072fc8a607",
+ "config_sha256": "db3a137c49f52c40104c6889142f9954cb492f0c287348bd47ecbed4bfa732c9",
+ "exp_id": "X-PILOT-002",
+ "generator": "trust.report.build_report",
+ "label": "exploratory",
+ "outputs": {
+  "figures/fig_primary_contrast.svg": "ef893752c230bf2705e7196d720f81ec488025ef27946cb9f6437b131b71ac34",
+  "metrics.csv": "6e9fed645fefd7a4fa0fbc7253c3b96ce9ea1537c66d2b2cac51ddc7efb3d4f7",
+  "report.md": "e7af30832f9fe0d6f05d1f4431eea642fc84f57690883b872c7d30b7fe531b41",
+  "summary.json": "595fed4c0b64c0efa45c6e04fe5b9f37599ec3104098d5c26998714427040888"
+ },
+ "results_path": "results.json",
+ "results_sha256": "9dfed331489712be2e87662ad583e0b041d3b820476a1c2c0d86215baa93a4f9"
+}

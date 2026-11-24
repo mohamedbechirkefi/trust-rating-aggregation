@@ -6,8 +6,8 @@ Target: five focused development days (planning estimate, never a reason to weak
 | ID | Milestone | Depends on | Priority | Effort | Status | Blockers |
 |---|---|---|---|---|---|---|
 | M0 | Bootstrap and feasibility | none | P0 | 0.5 | done (pending owner review of this session) | none |
-| M1 | Research and preregistration | M0 | P0 | 0.5 | in progress (drafts written; freeze pending) | G-FREEZE: owner must freeze the protocol |
-| M2 | Core implementation | M1 drafts (implementation may start before the freeze) | P0 | 1.0 | not started | none |
+| M1 | Research and preregistration | M0 | P0 | 0.5 | in progress (drafts written; smoke and pilots measured; freeze pending) | G-FREEZE: owner must freeze the protocol and decide on D-008 proposals |
+| M2 | Core implementation | M1 drafts (implementation may start before the freeze) | P0 | 1.0 | done (pending owner review) | none |
 | M3 | Experiments | M1 freeze, M2 | P0 | 0.5 | not started | protocol freeze |
 | M4 | Interpretation | M3 | P0 | 1.0 | not started | M3 |
 | M5 | Interactive experience | M3 results (demo shell may start at M2) | P1 | 1.0 | not started | none |
@@ -25,14 +25,14 @@ If the five-day target is threatened, cut in this order: optional EXP-003 sub-an
 
 - Deliverables: evidence review completed beyond scoping (ranking-under-uncertainty statistics literature); formal model; baselines; `research/protocol.md`; `research/experiments/EXP-NNN/protocol.md` for every registered experiment; experiment registry; manuscript skeleton; fixture manifest; smoke run measuring runtime and the SD of the primary contrast; seed count confirmed.
 - Acceptance: protocol frozen by the owner, with its SHA-256 recorded in `research/decision_log.md` and the registry, before any confirmatory run. Exploratory results visibly separated. Zero-cost toolchain confirmed (done at M0).
-- Status: in progress. Drafts v0.1 written 2026-11-24. Smoke run requires the M2 engine.
+- Status: in progress. Drafts v0.1 written 2026-11-24. Exploratory smoke run and two variance pilots done 2026-11-24 (JRN-0002 to JRN-0004): runtime about 3.4 ms per run at N = 200, per-seed SD of D 0.006 to 0.013, 20 seeds adequate. Proposed amendments for the owner in `research/decision_log.md` D-008.
 - Blocker: owner freeze (G-FREEZE).
 
 ## M2: Core implementation (with 11.6 additions)
 
 - Deliverables: simulation module; MEAN baseline first, then SHRINK and LCB; metrics; runner; versioned JSON result schema with validation; run manifests (config hash, seed, git revision, package versions, OS, CPU, runtime, peak memory); report generator; CLI commands `smoke`, `run`, `report`, `test`.
 - Acceptance: unit tests for empty reviews, one review, bounded ratings, posterior formulas (hand-computed examples), deterministic sorting and tie-breaks; invariant tests (bounds of scores, tau-b of ORACLE equal to 1, shrinkage between mean and prior); differential test of tau-b against a simple reference; integration test config to results. Test counts are reported only from actual runs.
-- Status: not started.
+- Status: done on 2026-11-24, pending owner review. All acceptance items are covered by `tests/` (139 passed, 0 failed, `uv run --frozen pytest -q`). Package `src/trust/`, configs in `experiments/`, schemas `src/trust/schemas/` (config v1, result 1.0.0), run manifests, report generator with PDF output, CLI `smoke`, `run` (refuses unfrozen confirmatory configs), `report`, `test`. Exploratory outputs only, in `results/exploratory/`. Not done in M2: the demo (M5); EXP reports (M3, after the freeze).
 
 ## M3: Experiments (with 11.6 additions)
 

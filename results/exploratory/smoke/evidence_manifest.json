@@ -1,0 +1,15 @@
+{
+ "code_revision": "e1ad9bb780aad7e32b9832aec603ae072fc8a607",
+ "config_sha256": "8a834b2b3d89d09dd5bd109047a9999f3038031e485ce26920dceb33c80f813f",
+ "exp_id": "X-SMOKE",
+ "generator": "trust.report.build_report",
+ "label": "exploratory",
+ "outputs": {
+  "figures/fig_primary_contrast.svg": "66bbbd3c65c5d4dbfe8f16c75a6e695df465d2ea6f841ea5baf370e840e17a6a",
+  "metrics.csv": "dec43714542650982cd43d35a6c75a55296280b38f72638fdcd769f716712a1d",
+  "report.md": "31a0c1fc784511ab560c60d554549a4e28c3843d58fa9f4e9824ecd654d7a98f",
+  "summary.json": "9b7ff68524fc172d4934456c669aee4e41b3d7672c341ede556cbc5823153763"
+ },
+ "results_path": "results.json",
+ "results_sha256": "8fe78903201e533d2734e44686c6c4005609b00eb01e1c4611ab1ee25ff3ad40"
+}
