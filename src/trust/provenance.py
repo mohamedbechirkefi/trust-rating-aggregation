@@ -23,7 +23,8 @@ def git_revision(root: Path = REPO_ROOT) -> dict:
 
     try:
         rev = _git("rev-parse", "HEAD")
-        dirty = bool(_git("status", "--porcelain"))
+        # result outputs under results/ do not count: they are what runs produce
+        dirty = bool(_git("status", "--porcelain", "--", ".", ":(exclude)results"))
     except (OSError, subprocess.CalledProcessError):
         return {"revision": None, "dirty": None}
     return {"revision": rev, "dirty": dirty}
