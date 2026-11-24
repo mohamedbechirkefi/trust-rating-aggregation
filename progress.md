@@ -163,3 +163,46 @@ The owner reviews D-008 and freezes the protocols (hash in this log and the regi
 ### Next action
 
 M3, when the coordinator schedules it: `trust.cli run --exp EXP-001`, `EXP-002`, `EXP-003-S*` with reports, giving `D_sigma` next to `Dbar`.
+
+## 2026-11-25: M3 confirmatory runs (owner: "Start next")
+
+**Milestone:** M3. **Actor:** AI assistant, under the M3 brief. Nothing pushed; no paid service; no download (MovieLens already present).
+
+### Pre-run checks (actual outputs)
+
+| Command | Output |
+|---|---|
+| `git rev-parse HEAD`; `git status --porcelain` | `6fceabb...`; clean |
+| SHA-256 of every file in `research/freeze.json` (study and EXP protocols, 7 configs, data manifest, fit record) | all match |
+| SHA-256 of `data/raw/ml-1m.zip` | `a6898adb...4e20`, matches the manifest |
+| `../.tools/py/bin/uv sync --frozen --all-groups --all-extras` | `Audited 13 packages` |
+| `.venv/bin/python -m pytest -q` | `157 passed` (no editable install; `PYTHONPATH=src` points at this tree) |
+
+### Done
+
+1. Frozen-analysis layer `src/trust/hypotheses.py`, `scripts/analyse_confirmatory.py`, tests `tests/test_hypotheses.py` (8), metric validation `scripts/validate_metrics.py`; choices the protocol left open fixed before data (D-011). Commit `bd9e146`. Suite: `165 passed`.
+2. Metric validation: `26 passed, 0 failed`. Smoke (`experiments/smoke.json`, seed namespace 0) into `results/exploratory/smoke-m3/`: 6 runs, 0 failed, results.json byte-identical to the M2 smoke (`8fe78903...`). JRN-0006, exploratory.
+3. Confirmatory runs at `bd9e146` (clean), `nice -n 10`, one process, 2026-11-24T23:35:19Z to 23:35:48Z UTC: EXP-001 180 runs in 2.22 s, EXP-002 240 in 2.26 s, S1-min1 180 in 2.51 s, S1-min5 180 in 1.57 s, S2 180 in 1.52 s, S3 240 in 1.97 s, S4 360 in 4.28 s. All exit 0; 1,560 of 1,560 ok, 0 failed, 0 retried. ORACLE tau-b 1 in every run; 0 degenerate flags.
+4. Per-run reports (`trust.cli report --pdf`), frozen analysis, provenance table and SHA256SUMS; results total 6.8 MB, committed.
+5. Records: journal JRN-0006 to JRN-0009, registry statuses, claims CLM-001 to CLM-011, limitations, D-011, D-012, roadmap.
+
+### Headline (simulated)
+
+`Dbar = 0.0046` (95% 0.0030 to 0.0061; one-sided lower bound 0.0032): H1 supported under the frozen rule, but the direction depends on the noise level: `D_sigma` -0.0198 (-0.0225 to -0.0172), 0.0085 (0.0056 to 0.0113), 0.0250 (0.0224 to 0.0277) at sigma 0.5, 1.0, 1.5. H1b contradicted; H1c not supported (LCB -0.0647). EXP-002: no average lambda effect (-0.0001, -0.0015 to 0.0012); gamma effects negative in both directions. EXP-003: S1 not invalidating; S2 and S4 invalidation criteria met (sign reversal); S3 vacuous by construction (D-012).
+
+### Deviations
+
+None from the frozen protocols, configs or seeds. Analysis details fixed before data (D-011). Analysis manifests first recorded `dirty: true` (the script writes its outputs before reading git state); re-run unchanged after commit, outputs identical (D-012).
+
+### Not done, and why
+
+- Standalone 11.3 reports for EXP-001 to EXP-003: drafted, but the session's file tool refused to write `report.md` files. Generated tables (`research/experiments/EXP-NNN/results_tables.md`) and figures are committed. M3 stays "in progress" until the reports exist.
+- Manuscript update: M4.
+
+### Final checks
+
+`.venv/bin/python -m pytest -q`: `165 passed`.
+
+### Next action
+
+Write the three standalone reports from the generated tables, then M4. The owner should look at D-011 (Holm p-value choice), D-012 (S3 non-diagnostic) and the S2 and S4 reversals before any headline is drafted.

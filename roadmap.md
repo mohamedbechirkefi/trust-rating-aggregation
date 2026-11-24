@@ -1,14 +1,14 @@
 <!-- SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0 -->
 # TRUST roadmap
 
-Target: five focused development days (planning estimate, never a reason to weaken evidence). Effort is in focused days. Status values: done, in progress, not started, blocked. Last updated 2026-11-24.
+Target: five focused development days (planning estimate, never a reason to weaken evidence). Effort is in focused days. Status values: done, in progress, not started, blocked. Last updated 2026-11-25.
 
 | ID | Milestone | Depends on | Priority | Effort | Status | Blockers |
 |---|---|---|---|---|---|---|
 | M0 | Bootstrap and feasibility | none | P0 | 0.5 | done (pending owner review of this session) | none |
 | M1 | Research and preregistration | M0 | P0 | 0.5 | done (protocol v1.0 frozen by the owner 2026-11-24; gate passed) | none |
 | M2 | Core implementation | M1 drafts (implementation may start before the freeze) | P0 | 1.0 | done (pending owner review) | none |
-| M3 | Experiments | M1 freeze, M2 | P0 | 0.5 | not started (unblocked; scheduled by the coordinator) | none |
+| M3 | Experiments | M1 freeze, M2 | P0 | 0.5 | in progress: complete planned matrix run (1,560 of 1,560 runs ok), analysed and recorded; the three standalone 11.3 reports are still to be written | EXP reports |
 | M4 | Interpretation | M3 | P0 | 1.0 | not started | M3 |
 | M5 | Interactive experience | M3 results (demo shell may start at M2) | P1 | 1.0 | not started | none |
 | M6 | Release candidate | M4, M5 | P0 | 0.5 | not started | owner approval for any publication (G-PUBLIC) |
@@ -38,7 +38,7 @@ If the five-day target is threatened, cut in this order: optional EXP-003 sub-an
 
 - Deliverables: smoke run; frozen matrices EXP-001 to EXP-003; raw machine-readable results; plots with uncertainty; a standalone report per experiment generated as each finishes.
 - Acceptance: complete planned matrix or documented failure; no silently dropped runs; provenance captured at run time.
-- Status: not started. Unblocked by the freeze; the coordinator schedules the runs.
+- Status: in progress (2026-11-25). Smoke and metric validation done (JRN-0006). Every frozen matrix ran in full at `bd9e146`: EXP-001 180, EXP-002 240, EXP-003 1,140 runs, 0 failed (JRN-0007 to JRN-0009). Frozen analysis (D-011), generated tables and FIG-001 to FIG-003, claims CLM-001 to CLM-011, D-012. Gate condition "complete planned matrix" holds; M3 is not marked done because the standalone experiment reports (11.3) are not yet written.
 
 ## M4: Interpretation (with 11.6 additions)
 
