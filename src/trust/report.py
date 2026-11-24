@@ -22,8 +22,10 @@ from trust.provenance import sha256_file
 from trust.results import import_result, write_json
 
 METRICS = ("tau_b", "spearman", "precision_at_k", "regret_at_k", "coverage", "rmse")
-PANDOC = os.environ.get("TRUST_PANDOC", "/Users/bechir/research/labs/.tools/pandoc")
-TYPST_PYTHON = os.environ.get("TRUST_TYPST_PYTHON", "/Users/bechir/research/labs/.tools/py/bin/python")
+# Defaults: the shared, read-only toolchain one level above the repository (labs/.tools).
+_TOOLS = Path(__file__).resolve().parents[3] / ".tools"
+PANDOC = os.environ.get("TRUST_PANDOC", str(_TOOLS / "pandoc"))
+TYPST_PYTHON = os.environ.get("TRUST_TYPST_PYTHON", str(_TOOLS / "py" / "bin" / "python"))
 
 
 def fmt(x: float | None, nd: int = 4) -> str:
