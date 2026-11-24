@@ -1,0 +1,19 @@
+{
+ "code_revision": {
+  "dirty": true,
+  "revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1"
+ },
+ "exp_id": "EXP-001",
+ "figures": {
+  "FIG-001.svg": "Simulated, confirmatory. Dot-and-interval chart of D = tau-b(SHRINK_5) minus tau-b(MEAN) (unitless): nine cells (20 seeds each), the three per-noise-level means D_sigma and the pooled Dbar. Dots are means; bars are two-sided 95% percentile bootstrap intervals (10,000 resamples, seeds resampled within cells). Dashed line: zero."
+ },
+ "generator": "scripts/analyse_confirmatory.py (trust.hypotheses)",
+ "inputs": {
+  "results/confirmatory/EXP-001/results.json": "4985c4283311180ffd0736d29d4b72b9c9e9ae5f1350ee2c44cc29fe9b1b5fb7"
+ },
+ "outputs": {
+  "research/experiments/EXP-001/figures/FIG-001.svg": "1e4702730ac260048362a27d4835b7599d6cef1558ee9d0d63bebb3e927cacc8",
+  "research/experiments/EXP-001/results_tables.md": "fcdac9e8c779b22fade86685badf76104d71ebb8a829ae5ffe9e93453f5818fd",
+  "results/confirmatory/analysis/EXP-001.json": "7cae1cf17216b854c1db024b770efd00763b5ea799a20d5eb17332ce378e4819"
+ }
+}

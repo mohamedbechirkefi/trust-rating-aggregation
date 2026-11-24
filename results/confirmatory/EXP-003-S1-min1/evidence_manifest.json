@@ -1,0 +1,15 @@
+{
+ "code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1",
+ "config_sha256": "1db94739be92b71b8ae7bbfc94473cf68290153ef4a2b1281d8173ff251958a6",
+ "exp_id": "EXP-003",
+ "generator": "trust.report.build_report",
+ "label": "confirmatory",
+ "outputs": {
+  "figures/fig_primary_contrast.svg": "fbf3a402c4720289b1ef774325435622f8e488588345b021588eb3441b62dc82",
+  "metrics.csv": "e55e47c091dbc10952cf18aa261de895d84c787e31ab2cd7332758301874de80",
+  "report.md": "ae1f514c9188215939763d7e40a461b56d0fbb936cea2dfbd3cb2a9afa50f6c7",
+  "summary.json": "09b405ed8bb6ca4856629c79d7a2762e143411caaa85ed08cfc5508ccbfd2310"
+ },
+ "results_path": "results.json",
+ "results_sha256": "4b7cc8bf5f7037e110ee757190b6a8dc7ca98297040cc810e87018f2ca7a5241"
+}

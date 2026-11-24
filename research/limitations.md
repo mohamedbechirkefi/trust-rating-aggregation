@@ -18,3 +18,11 @@ Status at M0, 2026-11-24: no experiment has been run, so these are anticipated l
 - The review-count dispersion and the quality distribution come from movie ratings, not product reviews; their transfer to product catalogues is an assumption.
 - The dispersion was fitted at a mean of about 252 ratings per movie and is applied at mean counts of 3 to 30, assuming the relative heterogeneity of exposure does not depend on the mean.
 - The single-noise ordered-probit model misfits the star shares of held-out movies (1-star and 4-star under-predicted, 2-star and 5-star over-predicted; JRN-0005). User leniency is folded into the noise term.
+
+## After the confirmatory runs (M3, 2026-11-25)
+
+- **Direction depends on noise.** Shrinkage ranks worse than the mean at sigma 0.5 and better at sigma 1.0 and 1.5 (EXP-001). The pooled `Dbar > 0` reflects the equal weighting of this grid and must not be read as a uniform effect.
+- **Fragile to the prior.** Moving the shrinkage centre by 0.5 stars (S2) or changing the quality distribution (S4) reverses the sign of `Dbar`. The positive result holds only when the prior centre and population shape match the generator.
+- **S3 is non-diagnostic for rank metrics.** `theta_rep` is a monotone transform of `mu`, so the two truth definitions give identical rankings (D-012).
+- **Small effect.** `Dbar` is about 0.005 tau-b units against a MEAN tau-b near 0.53; top-of-list metrics differ more but were secondary and untested.
+- **Holm p-value method** was fixed at M3 before data (D-011), not in the frozen text.

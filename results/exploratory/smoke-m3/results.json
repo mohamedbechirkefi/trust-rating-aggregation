@@ -1,0 +1,461 @@
+{
+ "cells": [
+  {
+   "cell_id": "c00",
+   "params": {
+    "gamma": 0.0,
+    "lam": 0.0,
+    "n_products": 50,
+    "nb_dispersion": 1.0,
+    "nu": 3.0,
+    "quality": [
+     "beta",
+     4.0,
+     2.0
+    ],
+    "sigma": 1.0
+   },
+   "values": {
+    "nu": 3
+   }
+  },
+  {
+   "cell_id": "c01",
+   "params": {
+    "gamma": 0.0,
+    "lam": 0.0,
+    "n_products": 50,
+    "nb_dispersion": 1.0,
+    "nu": 30.0,
+    "quality": [
+     "beta",
+     4.0,
+     2.0
+    ],
+    "sigma": 1.0
+   },
+   "values": {
+    "nu": 30
+   }
+  }
+ ],
+ "config": {
+  "arms": [
+   {
+    "name": "MEAN",
+    "type": "mean"
+   },
+   {
+    "kappa": 5,
+    "name": "SHRINK_5",
+    "type": "shrink"
+   },
+   {
+    "name": "LCB",
+    "type": "lcb",
+    "z": 1.645
+   },
+   {
+    "name": "ORACLE",
+    "type": "oracle"
+   }
+  ],
+  "base": {
+   "gamma": 0.0,
+   "lam": 0.0,
+   "nb_dispersion": 1.0,
+   "quality": [
+    "beta",
+    4.0,
+    2.0
+   ],
+   "sigma": 1.0
+  },
+  "config_version": "1.0",
+  "description": "Smoke matrix of research/protocol.md section 7 (exploratory, simulated): pipeline check, runtime, SD of D.",
+  "evaluation": {
+   "coverage_min_n": 2,
+   "interval_z": 1.645,
+   "min_reviews": 0,
+   "top_k": 10,
+   "truth": "theta"
+  },
+  "exp_id": "X-SMOKE",
+  "exp_number": 0,
+  "grid": {
+   "nu": [
+    3,
+    30
+   ]
+  },
+  "label": "exploratory",
+  "n_products": 50,
+  "n_seeds": 3,
+  "primary_contrast": [
+   "SHRINK_5",
+   "MEAN"
+  ],
+  "seed_root": 20261124
+ },
+ "config_sha256": "8a834b2b3d89d09dd5bd109047a9999f3038031e485ce26920dceb33c80f813f",
+ "exp_id": "X-SMOKE",
+ "label": "exploratory",
+ "runs": [
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8333333333333334,
+     "coverage_abs_err": 0.06666666666666665,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.3803602155507857,
+     "rmse": 1.350646854178305,
+     "spearman": 0.4181910448722511,
+     "tau_b": 0.29507901119324215
+    },
+    "MEAN": {
+     "coverage": 0.9583333333333334,
+     "coverage_abs_err": 0.05833333333333335,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.19490764238773028,
+     "rmse": 0.5447646397569457,
+     "spearman": 0.6270858576314297,
+     "tau_b": 0.4886644585793685
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 0.9999999999999999,
+     "tau_b": 1.0
+    },
+    "SHRINK_5": {
+     "coverage": 0.8333333333333334,
+     "coverage_abs_err": 0.06666666666666665,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.1169139846815952,
+     "rmse": 0.4641960538547625,
+     "spearman": 0.6485806965557389,
+     "tau_b": 0.5041839025470795
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.6134453781512605,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 2.38,
+    "mean_reported": 2.38,
+    "median_reported": 1.0,
+    "n_evaluated": 50,
+    "n_products": 50,
+    "s_pool": 0.9922711182443895,
+    "share_zero_reviews": 0.3,
+    "total_reported": 119
+   },
+   "error": null,
+   "run_id": "RUN-X-SMOKE-c00-s000",
+   "seed_index": 0,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.8,
+     "coverage_abs_err": 0.09999999999999998,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.18716576445353628,
+     "rmse": 1.2358795536984413,
+     "spearman": 0.5725882185439258,
+     "tau_b": 0.43033148291193524
+    },
+    "MEAN": {
+     "coverage": 0.925,
+     "coverage_abs_err": 0.025000000000000022,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.14480969179212533,
+     "rmse": 0.5611543732666318,
+     "spearman": 0.7464385315419014,
+     "tau_b": 0.5614568120762932
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 0.9999999999999999,
+     "tau_b": 1.0
+    },
+    "SHRINK_5": {
+     "coverage": 0.9,
+     "coverage_abs_err": 0.0,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.14725573847939888,
+     "rmse": 0.3791522466330043,
+     "spearman": 0.764640972219783,
+     "tau_b": 0.5863647448070385
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.672316384180791,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 3.54,
+    "mean_reported": 3.54,
+    "median_reported": 3.0,
+    "n_evaluated": 50,
+    "n_products": 50,
+    "s_pool": 0.9345737420032904,
+    "share_zero_reviews": 0.04,
+    "total_reported": 177
+   },
+   "error": null,
+   "run_id": "RUN-X-SMOKE-c00-s001",
+   "seed_index": 1,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7307692307692307,
+     "coverage_abs_err": 0.1692307692307693,
+     "precision_at_k": 0.5,
+     "regret_at_k": 0.23861073974404512,
+     "rmse": 1.34044020119654,
+     "spearman": 0.4783644016547114,
+     "tau_b": 0.3531717556408407
+    },
+    "MEAN": {
+     "coverage": 0.9615384615384616,
+     "coverage_abs_err": 0.06153846153846154,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.2956616667616716,
+     "rmse": 0.5351967046932713,
+     "spearman": 0.6452226520833053,
+     "tau_b": 0.5010941947408242
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 0.9999999999999999,
+     "tau_b": 1.0
+    },
+    "SHRINK_5": {
+     "coverage": 0.7692307692307693,
+     "coverage_abs_err": 0.13076923076923075,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.2577744426543678,
+     "rmse": 0.49685384937650434,
+     "spearman": 0.6579490254118867,
+     "tau_b": 0.5134259608218907
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c00",
+   "diagnostics": {
+    "catalogue_mean_m": 3.75,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 2.88,
+    "mean_reported": 2.88,
+    "median_reported": 2.0,
+    "n_evaluated": 50,
+    "n_products": 50,
+    "s_pool": 0.952307653575216,
+    "share_zero_reviews": 0.22,
+    "total_reported": 144
+   },
+   "error": null,
+   "run_id": "RUN-X-SMOKE-c00-s002",
+   "seed_index": 2,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.875,
+     "coverage_abs_err": 0.025000000000000022,
+     "precision_at_k": 0.4,
+     "regret_at_k": 0.16098138466602574,
+     "rmse": 0.7179669509115157,
+     "spearman": 0.7421368547418967,
+     "tau_b": 0.5689795918367347
+    },
+    "MEAN": {
+     "coverage": 0.875,
+     "coverage_abs_err": 0.025000000000000022,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.06476783380568385,
+     "rmse": 0.30678225983523855,
+     "spearman": 0.9097152229446285,
+     "tau_b": 0.7596085381898005
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 0.9999999999999999,
+     "tau_b": 1.0
+    },
+    "SHRINK_5": {
+     "coverage": 0.8958333333333334,
+     "coverage_abs_err": 0.004166666666666652,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.06476783380568474,
+     "rmse": 0.216041239306763,
+     "spearman": 0.9266266506602642,
+     "tau_b": 0.7746938775510204
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.635116598079561,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 29.16,
+    "mean_reported": 29.16,
+    "median_reported": 16.0,
+    "n_evaluated": 50,
+    "n_products": 50,
+    "s_pool": 0.9085159837976883,
+    "share_zero_reviews": 0.02,
+    "total_reported": 1458
+   },
+   "error": null,
+   "run_id": "RUN-X-SMOKE-c01-s000",
+   "seed_index": 0,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.86,
+     "coverage_abs_err": 0.040000000000000036,
+     "precision_at_k": 0.6,
+     "regret_at_k": 0.15505410260085029,
+     "rmse": 0.6010231575961906,
+     "spearman": 0.7675870348139254,
+     "tau_b": 0.5983673469387755
+    },
+    "MEAN": {
+     "coverage": 0.94,
+     "coverage_abs_err": 0.039999999999999925,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.03042859244508289,
+     "rmse": 0.17224945618360302,
+     "spearman": 0.9442670256556006,
+     "tau_b": 0.813089634725693
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 0.9999999999999999,
+     "tau_b": 1.0
+    },
+    "SHRINK_5": {
+     "coverage": 0.92,
+     "coverage_abs_err": 0.020000000000000018,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.02548808479782938,
+     "rmse": 0.18268214749884104,
+     "spearman": 0.9314476457042248,
+     "tau_b": 0.7911734593207473
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.5500848896434634,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 35.34,
+    "mean_reported": 35.34,
+    "median_reported": 29.5,
+    "n_evaluated": 50,
+    "n_products": 50,
+    "s_pool": 0.9551397580760592,
+    "share_zero_reviews": 0.0,
+    "total_reported": 1767
+   },
+   "error": null,
+   "run_id": "RUN-X-SMOKE-c01-s001",
+   "seed_index": 1,
+   "status": "ok"
+  },
+  {
+   "arms": {
+    "LCB": {
+     "coverage": 0.7659574468085106,
+     "coverage_abs_err": 0.1340425531914894,
+     "precision_at_k": 0.8,
+     "regret_at_k": 0.07957097280625547,
+     "rmse": 0.7299023531314316,
+     "spearman": 0.7847572432105883,
+     "tau_b": 0.6407851158134978
+    },
+    "MEAN": {
+     "coverage": 0.8936170212765957,
+     "coverage_abs_err": 0.00638297872340432,
+     "precision_at_k": 0.7,
+     "regret_at_k": 0.11394445562744071,
+     "rmse": 0.24000255537915746,
+     "spearman": 0.8874426854092357,
+     "tau_b": 0.7368020422216108
+    },
+    "ORACLE": {
+     "coverage": null,
+     "coverage_abs_err": null,
+     "precision_at_k": 1.0,
+     "regret_at_k": 0.0,
+     "rmse": 0.0,
+     "spearman": 0.9999999999999999,
+     "tau_b": 1.0
+    },
+    "SHRINK_5": {
+     "coverage": 0.8085106382978723,
+     "coverage_abs_err": 0.09148936170212774,
+     "precision_at_k": 0.9,
+     "regret_at_k": 0.009073102209882222,
+     "rmse": 0.23794929232997095,
+     "spearman": 0.9118282710262187,
+     "tau_b": 0.7584803411669975
+    }
+   },
+   "attempts": 1,
+   "cell_id": "c01",
+   "diagnostics": {
+    "catalogue_mean_m": 3.52751677852349,
+    "degenerate": [],
+    "m_fallback": false,
+    "mean_potential": 29.8,
+    "mean_reported": 29.8,
+    "median_reported": 20.0,
+    "n_evaluated": 50,
+    "n_products": 50,
+    "s_pool": 0.9304280746722808,
+    "share_zero_reviews": 0.06,
+    "total_reported": 1490
+   },
+   "error": null,
+   "run_id": "RUN-X-SMOKE-c01-s002",
+   "seed_index": 2,
+   "status": "ok"
+  }
+ ],
+ "schema_version": "1.0.0",
+ "simulated": true
+}

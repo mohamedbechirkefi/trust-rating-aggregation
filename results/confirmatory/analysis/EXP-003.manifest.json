@@ -1,0 +1,25 @@
+{
+ "code_revision": {
+  "dirty": true,
+  "revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1"
+ },
+ "exp_id": "EXP-003",
+ "figures": {
+  "FIG-003.svg": "Simulated, confirmatory. Dot-and-interval chart of the pooled difference in Kendall tau-b against MEAN under each EXP-003 sensitivity condition, next to the EXP-001 reference. Each row pools 9 or 12 cells of 20 seeds; bars are two-sided 95% stratified bootstrap intervals (10,000 resamples). Dashed line: zero."
+ },
+ "generator": "scripts/analyse_confirmatory.py (trust.hypotheses)",
+ "inputs": {
+  "results/confirmatory/EXP-001/results.json": "4985c4283311180ffd0736d29d4b72b9c9e9ae5f1350ee2c44cc29fe9b1b5fb7",
+  "results/confirmatory/EXP-002/results.json": "9bf0747b8460aa49462d73e82edc673933ab716f8340d3aceacd370a6a0b6367",
+  "results/confirmatory/EXP-003-S1-min1/results.json": "4b7cc8bf5f7037e110ee757190b6a8dc7ca98297040cc810e87018f2ca7a5241",
+  "results/confirmatory/EXP-003-S1-min5/results.json": "06a8b632b65a7e31fe50e4c454abef74c39e8fe020ddff61d0231f0540204c25",
+  "results/confirmatory/EXP-003-S2/results.json": "749eefd581ccb1469ad52b23f33f4d04df7b6e5d8f5e3917c9e7f1cf744b768b",
+  "results/confirmatory/EXP-003-S3/results.json": "3c5e6bcfc64befb4129379fe8b35d67124c3cd3cf9a3d93f23bee78aab56581e",
+  "results/confirmatory/EXP-003-S4/results.json": "cf5258f404ba6576b4a8f214e3198aec9dd099ed9fd771a2ce7d8bc0c99c3af5"
+ },
+ "outputs": {
+  "research/experiments/EXP-003/figures/FIG-003.svg": "1776fb0124004c147ad6602a83777b95bb478d3d2bf5557ab71af4942ee90a99",
+  "research/experiments/EXP-003/results_tables.md": "c763a26ec6f10d6402cd6353893139d3ebdcdec11b8072484a3932ddfcccc028",
+  "results/confirmatory/analysis/EXP-003.json": "e7733225abf89718ca3c7842a27747793a7f548ec0aa42acbdafc26499874f63"
+ }
+}

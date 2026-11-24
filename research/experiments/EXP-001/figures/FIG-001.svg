@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="552" viewBox="0 0 720 552" role="img" aria-labelledby="t d">
+<title id="t">FIG-001. EXP-001: SHRINK_5 minus MEAN in Kendall tau-b</title><desc id="d">Simulated, confirmatory. Dot-and-interval chart of D = tau-b(SHRINK_5) minus tau-b(MEAN) (unitless): nine cells (20 seeds each), the three per-noise-level means D_sigma and the pooled Dbar. Dots are means; bars are two-sided 95% percentile bootstrap intervals (10,000 resamples, seeds resampled within cells). Dashed line: zero.</desc>
+<rect width="720" height="552" fill="#ffffff"/>
+<text x="230" y="24" font-family="sans-serif" font-size="14" fill="#111">FIG-001. EXP-001: SHRINK_5 minus MEAN in Kendall tau-b</text>
+<line x1="439.2" y1="42" x2="439.2" y2="492" stroke="#888" stroke-dasharray="4 3"/>
+<text x="220" y="71.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">cell nu=3, sigma=0.5</text>
+<line x1="351.6" y1="67.0" x2="395.4" y2="67.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="374.5" cy="67.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="105.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">cell nu=3, sigma=1.0</text>
+<line x1="458.7" y1="101.0" x2="512.1" y2="101.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="485.7" cy="101.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="139.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">cell nu=3, sigma=1.5</text>
+<line x1="520.9" y1="135.0" x2="575.5" y2="135.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="547.7" cy="135.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="173.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">cell nu=10, sigma=0.5</text>
+<line x1="270.8" y1="169.0" x2="330.5" y2="169.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="300.5" cy="169.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="207.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">cell nu=10, sigma=1.0</text>
+<line x1="457.5" y1="203.0" x2="502.8" y2="203.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="480.2" cy="203.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="241.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">cell nu=10, sigma=1.5</text>
+<line x1="564.0" y1="237.0" x2="622.4" y2="237.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="593.4" cy="237.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="275.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">cell nu=30, sigma=0.5</text>
+<line x1="261.0" y1="271.0" x2="317.1" y2="271.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="289.2" cy="271.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="309.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">cell nu=30, sigma=1.0</text>
+<line x1="465.2" y1="305.0" x2="539.0" y2="305.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="502.5" cy="305.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="343.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">cell nu=30, sigma=1.5</text>
+<line x1="596.1" y1="339.0" x2="649.0" y2="339.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="622.8" cy="339.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="377.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">D_sigma, sigma=0.5</text>
+<line x1="305.4" y1="373.0" x2="337.2" y2="373.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="321.4" cy="373.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="411.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">D_sigma, sigma=1.0</text>
+<line x1="472.4" y1="407.0" x2="506.1" y2="407.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="489.5" cy="407.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="445.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">D_sigma, sigma=1.5</text>
+<line x1="572.2" y1="441.0" x2="603.7" y2="441.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="587.9" cy="441.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="479.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">Dbar (all 9 cells)</text>
+<line x1="457.2" y1="475.0" x2="475.7" y2="475.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="466.3" cy="475.0" r="4.5" fill="#1f4e79"/>
+<line x1="230" y1="498" x2="680" y2="498" stroke="#111"/>
+<line x1="230.0" y1="498" x2="230.0" y2="503" stroke="#111"/>
+<text x="230.0" y="517" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">-0.035</text>
+<line x1="342.5" y1="498" x2="342.5" y2="503" stroke="#111"/>
+<text x="342.5" y="517" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">-0.016</text>
+<line x1="455.0" y1="498" x2="455.0" y2="503" stroke="#111"/>
+<text x="455.0" y="517" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">0.003</text>
+<line x1="567.5" y1="498" x2="567.5" y2="503" stroke="#111"/>
+<text x="567.5" y="517" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">0.022</text>
+<line x1="680.0" y1="498" x2="680.0" y2="503" stroke="#111"/>
+<text x="680.0" y="517" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">0.041</text>
+<text x="455.0" y="538" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#111">difference in Kendall tau-b (unitless)</text>
+</svg>

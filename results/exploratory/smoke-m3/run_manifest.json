@@ -1,0 +1,70 @@
+{
+ "command": "trust run --config experiments/smoke.json --out results/exploratory/smoke-m3 --quiet",
+ "config_sha256": "8a834b2b3d89d09dd5bd109047a9999f3038031e485ce26920dceb33c80f813f",
+ "end_utc": "2026-11-24T23:35:13.665823+00:00",
+ "environment": {
+  "cpu": "Apple M1 Pro",
+  "machine": "arm64",
+  "os": "Darwin 24.3.0 (macOS-15.3.1-arm64-arm-64bit)",
+  "packages": {
+   "jsonschema": "4.25.1",
+   "numpy": "2.3.4",
+   "scipy": "1.16.2"
+  },
+  "python": "3.12.1"
+ },
+ "exp_id": "X-SMOKE",
+ "exp_number": 0,
+ "git": {
+  "dirty": false,
+  "revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1"
+ },
+ "label": "exploratory",
+ "manifest_version": "1.0",
+ "n_seeds": 3,
+ "peak_memory_note": "process-level peak resident set size from getrusage; not per run",
+ "peak_rss_bytes_process": 97009664,
+ "result_schema_version": "1.0.0",
+ "runs": [
+  {
+   "run_id": "RUN-X-SMOKE-c00-s000",
+   "runtime_s": 0.005463374996907078,
+   "seed_index": 0,
+   "start_utc": "2026-11-24T23:35:13.545030+00:00"
+  },
+  {
+   "run_id": "RUN-X-SMOKE-c00-s001",
+   "runtime_s": 0.0025018749947776087,
+   "seed_index": 1,
+   "start_utc": "2026-11-24T23:35:13.550511+00:00"
+  },
+  {
+   "run_id": "RUN-X-SMOKE-c00-s002",
+   "runtime_s": 0.0022849169981782325,
+   "seed_index": 2,
+   "start_utc": "2026-11-24T23:35:13.553027+00:00"
+  },
+  {
+   "run_id": "RUN-X-SMOKE-c01-s000",
+   "runtime_s": 0.0022881249969941564,
+   "seed_index": 0,
+   "start_utc": "2026-11-24T23:35:13.555321+00:00"
+  },
+  {
+   "run_id": "RUN-X-SMOKE-c01-s001",
+   "runtime_s": 0.005589833002886735,
+   "seed_index": 1,
+   "start_utc": "2026-11-24T23:35:13.557618+00:00"
+  },
+  {
+   "run_id": "RUN-X-SMOKE-c01-s002",
+   "runtime_s": 0.04540479199931724,
+   "seed_index": 2,
+   "start_utc": "2026-11-24T23:35:13.563231+00:00"
+  }
+ ],
+ "seed_root": 20261124,
+ "start_utc": "2026-11-24T23:35:13.544942+00:00",
+ "trust_version": "0.1.0",
+ "wall_time_s": 0.06373454099957598
+}

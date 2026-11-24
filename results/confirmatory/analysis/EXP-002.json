@@ -1,0 +1,558 @@
+{
+ "D_per_cell": {
+  "c00": {
+   "boot_hi": 0.0003906400597091566,
+   "boot_lo": -0.0054916096728471,
+   "mean": -0.0025099443454493333,
+   "n": 20,
+   "values": {
+    "gamma": -0.5,
+    "lam": 0.0,
+    "nu": 3
+   }
+  },
+  "c01": {
+   "boot_hi": 0.007815066634997309,
+   "boot_lo": 0.0005945980594174592,
+   "mean": 0.00421154983033962,
+   "n": 20,
+   "values": {
+    "gamma": 0.0,
+    "lam": 0.0,
+    "nu": 3
+   }
+  },
+  "c02": {
+   "boot_hi": 0.005415439168022559,
+   "boot_lo": -0.0024270465903187544,
+   "mean": 0.001622985207423197,
+   "n": 20,
+   "values": {
+    "gamma": 0.5,
+    "lam": 0.0,
+    "nu": 3
+   }
+  },
+  "c03": {
+   "boot_hi": 0.0010997718245771113,
+   "boot_lo": -0.004086455699974231,
+   "mean": -0.0014961922584331793,
+   "n": 20,
+   "values": {
+    "gamma": -0.5,
+    "lam": 2.0,
+    "nu": 3
+   }
+  },
+  "c04": {
+   "boot_hi": 0.007274398297933247,
+   "boot_lo": -0.0009334426202473505,
+   "mean": 0.0033736807938120673,
+   "n": 20,
+   "values": {
+    "gamma": 0.0,
+    "lam": 2.0,
+    "nu": 3
+   }
+  },
+  "c05": {
+   "boot_hi": 0.00846784119830638,
+   "boot_lo": 0.00168647598634804,
+   "mean": 0.005196911163475854,
+   "n": 20,
+   "values": {
+    "gamma": 0.5,
+    "lam": 2.0,
+    "nu": 3
+   }
+  },
+  "c06": {
+   "boot_hi": 0.0035544367287366338,
+   "boot_lo": -0.006872180128686623,
+   "mean": -0.0016135186099979493,
+   "n": 20,
+   "values": {
+    "gamma": -0.5,
+    "lam": 0.0,
+    "nu": 10
+   }
+  },
+  "c07": {
+   "boot_hi": 0.021170817286124587,
+   "boot_lo": 0.011320168423593497,
+   "mean": 0.01628439596054329,
+   "n": 20,
+   "values": {
+    "gamma": 0.0,
+    "lam": 0.0,
+    "nu": 10
+   }
+  },
+  "c08": {
+   "boot_hi": 0.0012905482073764104,
+   "boot_lo": -0.01047248294253707,
+   "mean": -0.004630100301310403,
+   "n": 20,
+   "values": {
+    "gamma": 0.5,
+    "lam": 0.0,
+    "nu": 10
+   }
+  },
+  "c09": {
+   "boot_hi": 0.0017808113829559985,
+   "boot_lo": -0.008303793425050998,
+   "mean": -0.0032987913214712256,
+   "n": 20,
+   "values": {
+    "gamma": -0.5,
+    "lam": 2.0,
+    "nu": 10
+   }
+  },
+  "c10": {
+   "boot_hi": 0.016758181423054786,
+   "boot_lo": 0.006613565495889419,
+   "mean": 0.011812339363145704,
+   "n": 20,
+   "values": {
+    "gamma": 0.0,
+    "lam": 2.0,
+    "nu": 10
+   }
+  },
+  "c11": {
+   "boot_hi": 0.003320526067201021,
+   "boot_lo": -0.009134037249611048,
+   "mean": -0.00284895152600127,
+   "n": 20,
+   "values": {
+    "gamma": 0.5,
+    "lam": 2.0,
+    "nu": 10
+   }
+  }
+ },
+ "contrasts": {
+  "LCB minus MEAN": {
+   "contrasts": {
+    "gamma -0.5 minus 0": {
+     "control": 0.0,
+     "estimate": -0.09258848733596342,
+     "factor": "gamma",
+     "hi95": -0.08456234980387979,
+     "lo95": -0.10073151168803977,
+     "lower_one_sided_95": -0.09937419184572505,
+     "n_strata_excluding_zero": 4,
+     "p_two_sided": 0.00019998000199980003,
+     "per_stratum": [
+      {
+       "boot_hi": -0.07762227025982754,
+       "boot_lo": -0.1076478689272578,
+       "excludes_zero": true,
+       "mean": -0.09249999990728752,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 0.0,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": -0.0630914378822931,
+       "boot_lo": -0.08741171475252804,
+       "excludes_zero": true,
+       "mean": -0.07466026705703528,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 2.0,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": -0.08399346428387863,
+       "boot_lo": -0.12126101909415013,
+       "excludes_zero": true,
+       "mean": -0.10243023989197306,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 0.0,
+        "nu": 10
+       }
+      },
+      {
+       "boot_hi": -0.08311509862857171,
+       "boot_lo": -0.11872237433252623,
+       "excludes_zero": true,
+       "mean": -0.10076344248755784,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 2.0,
+        "nu": 10
+       }
+      }
+     ],
+     "treat": -0.5
+    },
+    "gamma 0.5 minus 0": {
+     "control": 0.0,
+     "estimate": 0.07527526612506538,
+     "factor": "gamma",
+     "hi95": 0.08410101310929606,
+     "lo95": 0.06629835791609028,
+     "lower_one_sided_95": 0.06776602162000069,
+     "n_strata_excluding_zero": 4,
+     "p_two_sided": 0.00019998000199980003,
+     "per_stratum": [
+      {
+       "boot_hi": 0.1001158408264225,
+       "boot_lo": 0.06453235467281346,
+       "excludes_zero": true,
+       "mean": 0.08341172174233445,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 0.0,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": 0.07354114634294096,
+       "boot_lo": 0.046399119685968784,
+       "excludes_zero": true,
+       "mean": 0.060188630132265566,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 2.0,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": 0.10562897358042622,
+       "boot_lo": 0.0637049454385913,
+       "excludes_zero": true,
+       "mean": 0.08486499405331556,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 0.0,
+        "nu": 10
+       }
+      },
+      {
+       "boot_hi": 0.09255999917414907,
+       "boot_lo": 0.05378403235396555,
+       "excludes_zero": true,
+       "mean": 0.07263571857234594,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 2.0,
+        "nu": 10
+       }
+      }
+     ],
+     "treat": 0.5
+    },
+    "lambda 2 minus 0": {
+     "control": 0.0,
+     "estimate": 0.018685967628632703,
+     "factor": "lam",
+     "hi95": 0.022474121436423432,
+     "lo95": 0.014866130050146567,
+     "lower_one_sided_95": 0.015499824246211786,
+     "n_strata_excluding_zero": 5,
+     "p_two_sided": 0.00019998000199980003,
+     "per_stratum": [
+      {
+       "boot_hi": 0.04935694460285605,
+       "boot_lo": 0.026481403050783708,
+       "excludes_zero": true,
+       "mean": 0.03811846862232574,
+       "n_pairs": 20,
+       "stratum": {
+        "gamma": -0.5,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": 0.028743072894482843,
+       "boot_lo": 0.011182286616020198,
+       "excludes_zero": true,
+       "mean": 0.020278735772073477,
+       "n_pairs": 20,
+       "stratum": {
+        "gamma": 0.0,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": 0.007026572924541247,
+       "boot_lo": -0.012439170888527407,
+       "excludes_zero": false,
+       "mean": -0.0029443558379954075,
+       "n_pairs": 20,
+       "stratum": {
+        "gamma": 0.5,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": 0.03337001187423235,
+       "boot_lo": 0.01478524610248569,
+       "excludes_zero": true,
+       "mean": 0.02407527583506417,
+       "n_pairs": 20,
+       "stratum": {
+        "gamma": -0.5,
+        "nu": 10
+       }
+      },
+      {
+       "boot_hi": 0.030319222949659903,
+       "boot_lo": 0.014853003081386965,
+       "excludes_zero": true,
+       "mean": 0.02240847843064894,
+       "n_pairs": 20,
+       "stratum": {
+        "gamma": 0.0,
+        "nu": 10
+       }
+      },
+      {
+       "boot_hi": 0.019485647763044196,
+       "boot_lo": 0.0007310013276107398,
+       "excludes_zero": true,
+       "mean": 0.0101792029496793,
+       "n_pairs": 20,
+       "stratum": {
+        "gamma": 0.5,
+        "nu": 10
+       }
+      }
+     ],
+     "treat": 2.0
+    }
+   },
+   "note": "reported for LCB as the protocol requires; outside the Holm family"
+  },
+  "SHRINK_5 minus MEAN": {
+   "H1_lambda_verdict": "difference detected in at least one stratum",
+   "contrasts": {
+    "gamma -0.5 minus 0": {
+     "control": 0.0,
+     "estimate": -0.011150103120798092,
+     "factor": "gamma",
+     "hi95": -0.008382680614869218,
+     "lo95": -0.014023522259814918,
+     "lower_one_sided_95": -0.013545515843907273,
+     "n_strata_excluding_zero": 3,
+     "p_two_sided": 0.00019998000199980003,
+     "per_stratum": [
+      {
+       "boot_hi": -0.001760940051067077,
+       "boot_lo": -0.011391078522889696,
+       "excludes_zero": true,
+       "mean": -0.006721494175788953,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 0.0,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": 4.0081804796145665e-05,
+       "boot_lo": -0.009624504735747299,
+       "excludes_zero": false,
+       "mean": -0.004869873052245247,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 2.0,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": -0.01136927951578088,
+       "boot_lo": -0.02463812682374999,
+       "excludes_zero": true,
+       "mean": -0.01789791457054124,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 0.0,
+        "nu": 10
+       }
+      },
+      {
+       "boot_hi": -0.008694398975466054,
+       "boot_lo": -0.021487608200887607,
+       "excludes_zero": true,
+       "mean": -0.01511113068461693,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 2.0,
+        "nu": 10
+       }
+      }
+     ],
+     "treat": -0.5
+    },
+    "gamma 0.5 minus 0": {
+     "control": 0.0,
+     "estimate": -0.009085280351063325,
+     "factor": "gamma",
+     "hi95": -0.005793082282574938,
+     "lo95": -0.012332974095435269,
+     "lower_one_sided_95": -0.011799003912184818,
+     "n_strata_excluding_zero": 2,
+     "p_two_sided": 0.00019998000199980003,
+     "per_stratum": [
+      {
+       "boot_hi": 0.0031771177693718368,
+       "boot_lo": -0.008732346517411277,
+       "excludes_zero": false,
+       "mean": -0.0025885646229164227,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 0.0,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": 0.007255867392283438,
+       "boot_lo": -0.003645866926912304,
+       "excludes_zero": false,
+       "mean": 0.0018232303696637865,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 2.0,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": -0.013330863542084534,
+       "boot_lo": -0.02784690550149752,
+       "excludes_zero": true,
+       "mean": -0.020914496261853693,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 0.0,
+        "nu": 10
+       }
+      },
+      {
+       "boot_hi": -0.0071826444444754506,
+       "boot_lo": -0.02226375455154507,
+       "excludes_zero": true,
+       "mean": -0.014661290889146975,
+       "n_pairs": 20,
+       "stratum": {
+        "lam": 2.0,
+        "nu": 10
+       }
+      }
+     ],
+     "treat": 0.5
+    },
+    "lambda 2 minus 0": {
+     "control": 0.0,
+     "estimate": -0.00010439525450341191,
+     "factor": "lam",
+     "hi95": 0.001191082280352252,
+     "lo95": -0.0014679741697907038,
+     "lower_one_sided_95": -0.0012374213994560273,
+     "n_strata_excluding_zero": 2,
+     "p_two_sided": 0.8859114088591141,
+     "per_stratum": [
+      {
+       "boot_hi": 0.0030124361200541787,
+       "boot_lo": -0.0009608641288409668,
+       "excludes_zero": false,
+       "mean": 0.0010137520870161538,
+       "n_pairs": 20,
+       "stratum": {
+        "gamma": -0.5,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": 0.002004331109761254,
+       "boot_lo": -0.003778327050061193,
+       "excludes_zero": false,
+       "mean": -0.0008378690365275527,
+       "n_pairs": 20,
+       "stratum": {
+        "gamma": 0.0,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": 0.006742004458829451,
+       "boot_lo": 0.00038342073053756646,
+       "excludes_zero": true,
+       "mean": 0.0035739259560526567,
+       "n_pairs": 20,
+       "stratum": {
+        "gamma": 0.5,
+        "nu": 3
+       }
+      },
+      {
+       "boot_hi": 0.0023314965992558734,
+       "boot_lo": -0.005473152770678806,
+       "excludes_zero": false,
+       "mean": -0.0016852727114732764,
+       "n_pairs": 20,
+       "stratum": {
+        "gamma": -0.5,
+        "nu": 10
+       }
+      },
+      {
+       "boot_hi": -0.0013755906728467227,
+       "boot_lo": -0.007916979452103378,
+       "excludes_zero": true,
+       "mean": -0.0044720565973975866,
+       "n_pairs": 20,
+       "stratum": {
+        "gamma": 0.0,
+        "nu": 10
+       }
+      },
+      {
+       "boot_hi": 0.005394160059884258,
+       "boot_lo": -0.0023112534695751826,
+       "excludes_zero": false,
+       "mean": 0.0017811487753091326,
+       "n_pairs": 20,
+       "stratum": {
+        "gamma": 0.5,
+        "nu": 10
+       }
+      }
+     ],
+     "treat": 2.0
+    }
+   },
+   "holm": {
+    "gamma -0.5 minus 0": {
+     "p": 0.00019998000199980003,
+     "p_holm": 0.0005999400059994001,
+     "reject": true
+    },
+    "gamma 0.5 minus 0": {
+     "p": 0.00019998000199980003,
+     "p_holm": 0.0005999400059994001,
+     "reject": true
+    },
+    "lambda 2 minus 0": {
+     "p": 0.8859114088591141,
+     "p_holm": 0.8859114088591141,
+     "reject": false
+    }
+   }
+  }
+ },
+ "counts": {
+  "failed": [],
+  "ok": 240,
+  "runs": 240
+ },
+ "exp_id": "EXP-002",
+ "metric": "tau_b"
+}

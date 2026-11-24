@@ -1,0 +1,19 @@
+{
+ "code_revision": {
+  "dirty": true,
+  "revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1"
+ },
+ "exp_id": "EXP-002",
+ "figures": {
+  "FIG-002.svg": "Simulated, confirmatory. Dot-and-interval chart of how D = tau-b(arm) minus tau-b(MEAN) changes with reporting selection (lambda 2 minus 0) and exposure coupling (gamma -0.5 or 0.5 minus 0), for SHRINK_5 and LCB. Each row averages six or four strata of 20 same-seed pairs; bars are two-sided 95% stratified bootstrap intervals. Dashed line: zero."
+ },
+ "generator": "scripts/analyse_confirmatory.py (trust.hypotheses)",
+ "inputs": {
+  "results/confirmatory/EXP-002/results.json": "9bf0747b8460aa49462d73e82edc673933ab716f8340d3aceacd370a6a0b6367"
+ },
+ "outputs": {
+  "research/experiments/EXP-002/figures/FIG-002.svg": "f5e541313f946b5eff65c8cd96d86195a5b596aeacb34ecdf6f4688ac5bc6bd3",
+  "research/experiments/EXP-002/results_tables.md": "ece3860fcebfcfcb3bc0c2a9902acca9f7f376a771cea535dd21487f6313a02e",
+  "results/confirmatory/analysis/EXP-002.json": "4a6aafc7c2c5290e77181a84db9aebd2feb9b545bbe0a512f0c3ed59832f98f2"
+ }
+}

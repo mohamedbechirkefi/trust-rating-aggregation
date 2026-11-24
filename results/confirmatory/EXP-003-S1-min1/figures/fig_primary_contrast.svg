@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="416" viewBox="0 0 720 416" role="img" aria-labelledby="t d">
+<title id="t">EXP-003: tau-b(SHRINK_5) minus tau-b(MEAN) per cell</title><desc id="d">Simulated. Dot-and-interval chart. One row per cell; the dot is the mean paired difference in Kendall tau-b over seeds and the bar its 95% percentile bootstrap interval (10000 resamples). Seeds per cell: 20, 20, 20, 20, 20, 20, 20, 20, 20. The dashed line marks zero.</desc>
+<rect width="720" height="416" fill="#ffffff"/>
+<text x="230" y="24" font-family="sans-serif" font-size="14" fill="#111">EXP-003: tau-b(SHRINK_5) minus tau-b(MEAN) per cell</text>
+<line x1="444.8" y1="42" x2="444.8" y2="356" stroke="#888" stroke-dasharray="4 3"/>
+<text x="220" y="71.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c00: nu=3, sigma=0.5</text>
+<line x1="288.6" y1="67.0" x2="356.1" y2="67.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="323.5" cy="67.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="105.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c01: nu=3, sigma=1.0</text>
+<line x1="467.9" y1="101.0" x2="549.6" y2="101.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="509.7" cy="101.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="139.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c02: nu=3, sigma=1.5</text>
+<line x1="570.8" y1="135.0" x2="649.0" y2="135.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="610.0" cy="135.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="173.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c03: nu=10, sigma=0.5</text>
+<line x1="261.0" y1="169.0" x2="324.7" y2="169.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="292.9" cy="169.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="207.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c04: nu=10, sigma=1.0</text>
+<line x1="460.7" y1="203.0" x2="506.8" y2="203.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="484.0" cy="203.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="241.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c05: nu=10, sigma=1.5</text>
+<line x1="574.6" y1="237.0" x2="634.1" y2="237.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="605.3" cy="237.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="275.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c06: nu=30, sigma=0.5</text>
+<line x1="288.5" y1="271.0" x2="338.4" y2="271.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="313.7" cy="271.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="309.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c07: nu=30, sigma=1.0</text>
+<line x1="465.4" y1="305.0" x2="529.3" y2="305.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="497.9" cy="305.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="343.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">c08: nu=30, sigma=1.5</text>
+<line x1="579.3" y1="339.0" x2="624.0" y2="339.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="601.7" cy="339.0" r="4.5" fill="#1f4e79"/>
+<line x1="230" y1="362" x2="680" y2="362" stroke="#111"/>
+<line x1="230.0" y1="362" x2="230.0" y2="367" stroke="#111"/>
+<text x="230.0" y="381" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">-0.055</text>
+<line x1="342.5" y1="362" x2="342.5" y2="367" stroke="#111"/>
+<text x="342.5" y="381" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">-0.026</text>
+<line x1="455.0" y1="362" x2="455.0" y2="367" stroke="#111"/>
+<text x="455.0" y="381" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">0.003</text>
+<line x1="567.5" y1="362" x2="567.5" y2="367" stroke="#111"/>
+<text x="567.5" y="381" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">0.032</text>
+<line x1="680.0" y1="362" x2="680.0" y2="367" stroke="#111"/>
+<text x="680.0" y="381" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">0.061</text>
+<text x="455.0" y="402" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#111">difference in Kendall tau-b (unitless)</text>
+</svg>

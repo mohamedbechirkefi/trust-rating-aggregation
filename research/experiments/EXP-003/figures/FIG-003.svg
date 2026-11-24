@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="416" viewBox="0 0 720 416" role="img" aria-labelledby="t d">
+<title id="t">FIG-003. EXP-003: pooled D under each sensitivity condition</title><desc id="d">Simulated, confirmatory. Dot-and-interval chart of the pooled difference in Kendall tau-b against MEAN under each EXP-003 sensitivity condition, next to the EXP-001 reference. Each row pools 9 or 12 cells of 20 seeds; bars are two-sided 95% stratified bootstrap intervals (10,000 resamples). Dashed line: zero.</desc>
+<rect width="720" height="416" fill="#ffffff"/>
+<text x="230" y="24" font-family="sans-serif" font-size="14" fill="#111">FIG-003. EXP-003: pooled D under each sensitivity condition</text>
+<line x1="589.8" y1="42" x2="589.8" y2="356" stroke="#888" stroke-dasharray="4 3"/>
+<text x="220" y="71.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">EXP-001 reference (centre m)</text>
+<line x1="608.8" y1="67.0" x2="628.3" y2="67.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="618.4" cy="67.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="105.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">S1, n &gt;= 1</text>
+<line x1="615.5" y1="101.0" x2="649.0" y2="101.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="632.2" cy="101.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="139.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">S1, n &gt;= 5</text>
+<line x1="577.7" y1="135.0" x2="596.5" y2="135.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="586.9" cy="135.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="173.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">S2, centre m + 0.5</text>
+<line x1="308.4" y1="169.0" x2="364.0" y2="169.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="335.3" cy="169.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="207.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">S2, centre m - 0.5</text>
+<line x1="261.0" y1="203.0" x2="311.8" y2="203.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="286.2" cy="203.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="241.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">S2 check, centre m</text>
+<line x1="608.8" y1="237.0" x2="628.3" y2="237.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="618.4" cy="237.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="275.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">S3, truth theta_rep (pooled)</text>
+<line x1="595.2" y1="271.0" x2="611.8" y2="271.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="603.5" cy="271.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="309.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">S4, quality beta 1.0 1.0</text>
+<line x1="446.8" y1="305.0" x2="469.7" y2="305.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="458.2" cy="305.0" r="4.5" fill="#1f4e79"/>
+<text x="220" y="343.0" text-anchor="end" font-family="sans-serif" font-size="12" fill="#111">S4, quality mixture 2.0 6.0 6.0 2.0</text>
+<line x1="413.9" y1="339.0" x2="434.0" y2="339.0" stroke="#1f4e79" stroke-width="2"/>
+<circle cx="424.0" cy="339.0" r="4.5" fill="#1f4e79"/>
+<line x1="230" y1="362" x2="680" y2="362" stroke="#111"/>
+<line x1="230.0" y1="362" x2="230.0" y2="367" stroke="#111"/>
+<text x="230.0" y="381" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">-0.057</text>
+<line x1="342.5" y1="362" x2="342.5" y2="367" stroke="#111"/>
+<text x="342.5" y="381" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">-0.039</text>
+<line x1="455.0" y1="362" x2="455.0" y2="367" stroke="#111"/>
+<text x="455.0" y="381" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">-0.022</text>
+<line x1="567.5" y1="362" x2="567.5" y2="367" stroke="#111"/>
+<text x="567.5" y="381" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">-0.004</text>
+<line x1="680.0" y1="362" x2="680.0" y2="367" stroke="#111"/>
+<text x="680.0" y="381" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#111">0.014</text>
+<text x="455.0" y="402" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#111">difference in Kendall tau-b (unitless)</text>
+</svg>
