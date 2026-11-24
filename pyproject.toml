@@ -21,3 +21,7 @@ dev = [
 package = false
 # Every resolved version must be released at least two weeks before 2026-11-24 (decision D-005).
 exclude-newer = "2026-11-10T00:00:00Z"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

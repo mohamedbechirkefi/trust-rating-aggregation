@@ -1,0 +1,71 @@
+{
+ "config_version": "1.0",
+ "exp_id": "X-PILOT-001",
+ "label": "exploratory",
+ "description": "Exploratory variance pilot (simulated) at the four corner cells of the EXP-001 grid, N = 200, seed namespace 901 disjoint from every confirmatory seed. Purpose: per-seed SD of D and runtime per run at full catalogue size.",
+ "seed_root": 20261124,
+ "exp_number": 901,
+ "n_seeds": 10,
+ "n_products": 200,
+ "arms": [
+  {
+   "name": "MEAN",
+   "type": "mean"
+  },
+  {
+   "name": "SHRINK_1",
+   "type": "shrink",
+   "kappa": 1
+  },
+  {
+   "name": "SHRINK_5",
+   "type": "shrink",
+   "kappa": 5
+  },
+  {
+   "name": "SHRINK_20",
+   "type": "shrink",
+   "kappa": 20
+  },
+  {
+   "name": "LCB",
+   "type": "lcb",
+   "z": 1.645
+  },
+  {
+   "name": "ORACLE",
+   "type": "oracle"
+  }
+ ],
+ "base": {
+  "lam": 0.0,
+  "gamma": 0.0,
+  "nb_dispersion": 1.0,
+  "quality": [
+   "beta",
+   4.0,
+   2.0
+  ]
+ },
+ "grid": {
+  "nu": [
+   3,
+   30
+  ],
+  "sigma": [
+   0.5,
+   1.5
+  ]
+ },
+ "evaluation": {
+  "truth": "theta",
+  "min_reviews": 0,
+  "top_k": 10,
+  "interval_z": 1.645,
+  "coverage_min_n": 2
+ },
+ "primary_contrast": [
+  "SHRINK_5",
+  "MEAN"
+ ]
+}

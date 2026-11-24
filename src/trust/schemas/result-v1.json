@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "trust/result-v1.json",
+  "title": "TRUST result file, schema version 1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "exp_id", "label", "simulated", "config", "config_sha256", "cells", "runs"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "exp_id": {"type": "string"},
+    "label": {"enum": ["exploratory", "confirmatory"]},
+    "simulated": {"const": true},
+    "config": {"type": "object"},
+    "config_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "cells": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["cell_id", "values", "params"],
+        "properties": {"cell_id": {"type": "string"}, "values": {"type": "object"}, "params": {"type": "object"}}
+      }
+    },
+    "runs": {"type": "array", "items": {"$ref": "#/$defs/run"}}
+  },
+  "$defs": {
+    "num": {"type": ["number", "null"]},
+    "arm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tau_b", "spearman", "precision_at_k", "regret_at_k", "coverage", "coverage_abs_err", "rmse"],
+      "properties": {
+        "tau_b": {"$ref": "#/$defs/num"},
+        "spearman": {"$ref": "#/$defs/num"},
+        "precision_at_k": {"$ref": "#/$defs/num"},
+        "regret_at_k": {"$ref": "#/$defs/num"},
+        "coverage": {"$ref": "#/$defs/num"},
+        "coverage_abs_err": {"$ref": "#/$defs/num"},
+        "rmse": {"$ref": "#/$defs/num"}
+      }
+    },
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["run_id", "cell_id", "seed_index", "status", "attempts", "diagnostics", "arms", "error"],
+      "properties": {
+        "run_id": {"type": "string", "pattern": "^RUN-"},
+        "cell_id": {"type": "string"},
+        "seed_index": {"type": "integer", "minimum": 0},
+        "status": {"enum": ["ok", "failed"]},
+        "attempts": {"type": "integer", "minimum": 1, "maximum": 2},
+        "error": {"type": ["string", "null"]},
+        "diagnostics": {"type": "object"},
+        "arms": {"type": "object", "additionalProperties": {"$ref": "#/$defs/arm"}}
+      }
+    }
+  }
+}

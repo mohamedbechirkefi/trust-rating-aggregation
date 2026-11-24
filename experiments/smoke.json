@@ -1,0 +1,58 @@
+{
+ "config_version": "1.0",
+ "exp_id": "X-SMOKE",
+ "label": "exploratory",
+ "description": "Smoke matrix of research/protocol.md section 7 (exploratory, simulated): pipeline check, runtime, SD of D.",
+ "seed_root": 20261124,
+ "exp_number": 0,
+ "n_seeds": 3,
+ "n_products": 50,
+ "arms": [
+  {
+   "name": "MEAN",
+   "type": "mean"
+  },
+  {
+   "name": "SHRINK_5",
+   "type": "shrink",
+   "kappa": 5
+  },
+  {
+   "name": "LCB",
+   "type": "lcb",
+   "z": 1.645
+  },
+  {
+   "name": "ORACLE",
+   "type": "oracle"
+  }
+ ],
+ "base": {
+  "lam": 0.0,
+  "gamma": 0.0,
+  "nb_dispersion": 1.0,
+  "quality": [
+   "beta",
+   4.0,
+   2.0
+  ],
+  "sigma": 1.0
+ },
+ "grid": {
+  "nu": [
+   3,
+   30
+  ]
+ },
+ "evaluation": {
+  "truth": "theta",
+  "min_reviews": 0,
+  "top_k": 10,
+  "interval_z": 1.645,
+  "coverage_min_n": 2
+ },
+ "primary_contrast": [
+  "SHRINK_5",
+  "MEAN"
+ ]
+}

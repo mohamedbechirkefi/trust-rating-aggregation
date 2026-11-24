@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "trust/config-v1.json",
+  "title": "TRUST experiment configuration, version 1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["config_version", "exp_id", "label", "description", "seed_root", "exp_number", "n_seeds", "n_products", "arms", "base", "evaluation", "primary_contrast"],
+  "properties": {
+    "config_version": {"const": "1.0"},
+    "exp_id": {"type": "string", "pattern": "^(EXP-[0-9]{3}|X-[A-Z0-9-]+)$"},
+    "label": {"enum": ["exploratory", "confirmatory"]},
+    "description": {"type": "string"},
+    "seed_root": {"type": "integer", "minimum": 0},
+    "exp_number": {"type": "integer", "minimum": 0},
+    "n_seeds": {"type": "integer", "minimum": 1, "maximum": 1000},
+    "n_products": {"type": "integer", "minimum": 2, "maximum": 100000},
+    "arms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "type"],
+        "properties": {
+          "name": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]*$"},
+          "type": {"enum": ["mean", "shrink", "lcb", "oracle"]},
+          "kappa": {"type": "number", "exclusiveMinimum": 0},
+          "centre_offset": {"type": "number"},
+          "z": {"type": "number", "minimum": 0}
+        },
+        "allOf": [{"if": {"properties": {"type": {"const": "shrink"}}}, "then": {"required": ["kappa"]}}]
+      }
+    },
+    "base": {"$ref": "#/$defs/params"},
+    "grid": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nu": {"type": "array", "minItems": 1, "items": {"type": "number", "exclusiveMinimum": 0}},
+        "sigma": {"type": "array", "minItems": 1, "items": {"type": "number", "exclusiveMinimum": 0}},
+        "lam": {"type": "array", "minItems": 1, "items": {"type": "number", "minimum": 0}},
+        "gamma": {"type": "array", "minItems": 1, "items": {"type": "number"}},
+        "quality": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/quality"}}
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["truth", "min_reviews", "top_k", "interval_z", "coverage_min_n"],
+      "properties": {
+        "truth": {"enum": ["theta", "theta_rep"]},
+        "min_reviews": {"type": "integer", "minimum": 0},
+        "top_k": {"type": "integer", "minimum": 1},
+        "interval_z": {"type": "number", "exclusiveMinimum": 0},
+        "coverage_min_n": {"type": "integer", "minimum": 1}
+      }
+    },
+    "primary_contrast": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string"}},
+    "planning": {"type": "object"}
+  },
+  "$defs": {
+    "quality": {"type": "array", "minItems": 3, "maxItems": 5, "prefixItems": [{"enum": ["beta", "mixture"]}], "items": true},
+    "params": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nu": {"type": "number", "exclusiveMinimum": 0},
+        "sigma": {"type": "number", "exclusiveMinimum": 0},
+        "lam": {"type": "number", "minimum": 0},
+        "gamma": {"type": "number"},
+        "nb_dispersion": {"type": "number", "exclusiveMinimum": 0},
+        "quality": {"$ref": "#/$defs/quality"}
+      }
+    }
+  }
+}

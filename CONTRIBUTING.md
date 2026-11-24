@@ -41,6 +41,11 @@ Never commit an e-mail address, a name or any other personal identifier in code,
 Requires uv (the project pins dependencies in `uv.lock`).
 
     uv sync --frozen        # install the locked environment
-    uv run pytest           # run the test suite (available from M2)
+    uv run --frozen pytest  # run the test suite
+    PYTHONPATH=src uv run --frozen python -m trust.cli smoke                     # exploratory smoke run and report
+    PYTHONPATH=src uv run --frozen python -m trust.cli run --config experiments/<file>.json
+    PYTHONPATH=src uv run --frozen python -m trust.cli run --exp EXP-001         # refused until the owner freezes the protocol
+    PYTHONPATH=src uv run --frozen python -m trust.cli report --dir results/exploratory/<name> --pdf
+    PYTHONPATH=src uv run --frozen python -m trust.cli test
 
 Documents are built with pandoc and the `typst` Python package (no TeX needed); pass `-V mainfont="Libertinus Serif"` to pandoc when targeting Typst.
