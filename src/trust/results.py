@@ -59,8 +59,11 @@ def import_result(path: Path) -> dict:
     return validate_result(json.loads(Path(path).read_text(encoding="utf-8")))
 
 
-def build_manifest(cfg: dict, timings: list[dict], started: datetime, wall_s: float, command: str) -> dict:
-    """One manifest per invocation, with a per-run entry (run id, seed, start time, runtime)."""
+def build_manifest(
+    cfg: dict, timings: list[dict], started: datetime, wall_s: float, command: str, git: dict | None = None
+) -> dict:
+    """One manifest per invocation, with a per-run entry (run id, seed, start time, runtime).
+    git should be captured before the run starts, so that outputs do not mark the tree dirty."""
     return {
         "manifest_version": "1.0",
         "exp_id": cfg["exp_id"],
@@ -71,7 +74,7 @@ def build_manifest(cfg: dict, timings: list[dict], started: datetime, wall_s: fl
         "n_seeds": cfg["n_seeds"],
         "trust_version": __version__,
         "result_schema_version": RESULT_SCHEMA_VERSION,
-        "git": git_revision(),
+        "git": git if git is not None else git_revision(),
         "environment": environment(),
         "command": command,
         "start_utc": started.isoformat(),

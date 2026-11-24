@@ -19,7 +19,7 @@ import time
 from pathlib import Path
 
 from trust.config import ConfigError, load_config
-from trust.provenance import REPO_ROOT, protocol_frozen
+from trust.provenance import REPO_ROOT, git_revision, protocol_frozen
 from trust.report import build_report
 from trust.results import build_manifest, build_result, export_result, now, write_json
 from trust.runner import run_experiment
@@ -49,12 +49,13 @@ def do_run(config_path: Path, out: str | None, quiet: bool, command: str) -> int
                   "Freezing is the owner's decision (G-FREEZE). Use an exploratory config.", file=sys.stderr)
             return EXIT_REFUSED
     dest = output_dir(cfg, config_path, out)
+    git = git_revision()
     started, t0 = now()
     cells, runs, timings = run_experiment(cfg, progress=None if quiet else print)
     wall = time.perf_counter() - t0
     doc = build_result(cfg, cells, runs)
     export_result(dest / "results.json", doc)
-    write_json(dest / "run_manifest.json", build_manifest(cfg, timings, started, wall, command))
+    write_json(dest / "run_manifest.json", build_manifest(cfg, timings, started, wall, command, git))
     n_failed = sum(r["status"] != "ok" for r in runs)
     print(f"{cfg['label']}: {len(runs)} runs ({n_failed} failed) in {wall:.2f} s -> {dest}")
     return 0 if n_failed == 0 else 1
