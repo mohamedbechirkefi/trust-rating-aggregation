@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0
+[project]
+name = "trust-research"
+version = "0.0.0"
+description = "TRUST: when do average ratings misrank products compared with uncertainty-aware estimators? (simulation study)"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { file = "LICENSE" }
+dependencies = [
+    "numpy==2.3.4",
+    "scipy==1.16.2",
+    "jsonschema==4.25.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==8.4.2",
+]
+
+[tool.uv]
+package = false
+# Every resolved version must be released at least two weeks before 2026-11-24 (decision D-005).
+exclude-newer = "2026-11-10T00:00:00Z"

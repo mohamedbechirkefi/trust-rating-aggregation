@@ -35,3 +35,12 @@ Mohamed Bechir Kefi is the project owner and lead maintainer, and the only perso
 ## 5. Privacy and disclosure
 
 Never commit an e-mail address, a name or any other personal identifier in code, logs, fixtures or results. Report security issues privately through GitHub's private vulnerability reporting.
+
+## 6. Development commands
+
+Requires uv (the project pins dependencies in `uv.lock`).
+
+    uv sync --frozen        # install the locked environment
+    uv run pytest           # run the test suite (available from M2)
+
+Documents are built with pandoc and the `typst` Python package (no TeX needed); pass `-V mainfont="Libertinus Serif"` to pandoc when targeting Typst.
