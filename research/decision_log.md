@@ -84,3 +84,20 @@ Append-only. Each entry: id, date, decision, decided by, rationale, consequences
 - **Redistribution and personal data.** `data/raw/` and `data/processed/` are git-ignored; nothing from MovieLens is committed except aggregate fitted parameters and counts (`data/calibration/movielens-1m-fit.json`). `users.dat` (demographics) is never extracted. User ids are pseudonymous and are discarded after the duplicate check.
 - **Use.** Calibration of the NegBin dispersion and the latent quality Beta, by the method written into `research/protocol.md` section 13.1 and committed at `2b8d447` before the fit (JRN-0005). No second test. Fitted values: dispersion 0.4909, Beta(4.2726, 3.1944); sigma 1.0521 reference only.
 - **Consequences.** Every confirmatory config uses the fitted values. Publications must acknowledge MovieLens and cite Harper and Konstan 2015, and must not imply GroupLens endorsement.
+
+## D-010: Protocol freeze v1.0 (owner-approved, G-FREEZE)
+
+- **Date:** 2026-11-24
+- **Decided by:** the owner. Quoted answers: "yes for all others" (`owner-approvals-2026-11-24.md`, TRUST amendments) and "Approve all" (`owner-approvals-2026-11-24b.md`, real data and section 7). Applied by the AI assistant.
+- **Amendments applied** (protocol section 13): MovieLens calibration (D-009); A-1 LCB prior centred on the catalogue mean (`alpha_k = 5 * p_k`); A-2 `D_sigma` reported per noise level next to `Dbar`; A-3 20 seeds kept; A-4 measured SD 0.0064 to 0.0128 replaces 0.05. Not applied: D-008 A6 (not approved). D-008 is thereby resolved.
+- **Common decisions.** C1 real data as approved (MovieLens calibration), synthetic otherwise; C2 PDFs with pandoc and Typst; C3 authorship "Mohamed Bechir Kefi", no affiliation, AI disclosed as an assistant; C4 the exploratory primary-contrast values seen before the freeze are listed with their paths in `research/freeze.json` (smoke, X-PILOT-001, X-PILOT-002; all under the planning generator and the uncentred LCB).
+- **Hashes (SHA-256).**
+  - `research/protocol.md` v1.0: `3226e302fb4758327d50a5f583026d469d7ccbc5ad7c72b458fcd8bf2b702f03`
+  - `research/experiments/EXP-001/protocol.md`: `27766885e692caa61253528fe5d959ab25f4b64db65bfde28c301671df31ce50`
+  - `research/experiments/EXP-002/protocol.md`: `47459d4b5c8d0f9ab2911be068929c6ada9253ec7a601004893c731b0b1fcf27`
+  - `research/experiments/EXP-003/protocol.md`: `cb4568fa37e4feaa1bd1a79a71fafa47a96fcad13d8b8b2d6605932c71b19b81`
+  - configs: `EXP-001.json` `bb3bec3b...0f4279`, `EXP-002.json` `325df066...5bd9`, `EXP-003-S1-min1.json` `7e9683ea...a564`, `EXP-003-S1-min5.json` `5b948ab0...dc89`, `EXP-003-S2.json` `fecaa2f8...ff18`, `EXP-003-S3.json` `43854058...d4d7`, `EXP-003-S4.json` `e788afa2...4d89` (full values in `research/freeze.json`)
+  - `data/manifest.json`: `ed8fb8eee48be9a08850c48872883a4299e3e4601b9ac4a371df65e023dd4d30`
+  - git revision of the frozen content: `39392ab5864ae2c398b226409a765808c80eda6e`
+- **Guard.** `run` now also checks the config file, the study protocol and the data manifest against `research/freeze.json` (`trust.provenance.config_frozen`); tests cover acceptance of the frozen configs and refusal of changed, unlisted or out-of-repository ones.
+- **Consequences.** Every later change to these files is a dated deviation here. M3 (confirmatory runs) is scheduled by the coordinator; none was run in this session.

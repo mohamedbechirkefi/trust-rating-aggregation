@@ -8,9 +8,24 @@ type: software
 authors:
   - family-names: Kefi
     given-names: Mohamed Bechir
-version: 0.0.0
+version: 0.1.0
+date-released: "2026-11-24"
+abstract: "Simulation study, protocol v1.0 frozen on 2026-11-24, not yet run. Authorship: Mohamed Bechir Kefi, no affiliation. An AI system was used as a research and development assistant and is not an author. Simulation parameters are calibrated on MovieLens 1M (Harper and Konstan 2015), which is not redistributed."
 keywords:
   - rating aggregation
   - Bayesian shrinkage
   - ranking under uncertainty
   - simulation
+references:
+  - type: article
+    title: "The MovieLens Datasets: History and Context"
+    authors:
+      - family-names: Harper
+        given-names: F. Maxwell
+      - family-names: Konstan
+        given-names: Joseph A.
+    journal: "ACM Transactions on Interactive Intelligent Systems"
+    volume: 5
+    issue: 4
+    year: 2015
+    doi: 10.1145/2827872

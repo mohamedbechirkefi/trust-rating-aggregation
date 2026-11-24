@@ -1,0 +1,144 @@
+{
+ "kind": "trust-freeze-record",
+ "record_version": "1",
+ "date": "2026-11-24",
+ "status": "frozen (owner-approved 2026-11-24), not yet run",
+ "gate": "G-FREEZE",
+ "owner_approval": {
+  "sources": [
+   "../_shared/owner-approvals-2026-11-24.md (labs workspace, outside this repository)",
+   "../_shared/owner-approvals-2026-11-24b.md (labs workspace, outside this repository), sections 1 and 7"
+  ],
+  "date": "2026-11-24",
+  "owner_answers_quoted": [
+   "yes for all others",
+   "Approve all"
+  ],
+  "trust_items_quoted": [
+   "TRUST | MovieLens | Real rating counts and distributions; the misranking test stays simulated on top",
+   "Centre the LCB prior on the catalogue mean. Report per noise level, since D changes sign. 20 seeds. Use the measured SD."
+  ]
+ },
+ "real_data": {
+  "dataset": "MovieLens 1M (GroupLens)",
+  "role": "calibration only; no second test; the misranking test stays simulated",
+  "url": "https://files.grouplens.org/datasets/movielens/ml-1m.zip",
+  "licence_url": "https://files.grouplens.org/datasets/movielens/ml-1m-README.txt",
+  "accessed": "2026-11-24",
+  "licence": "research use; no redistribution without permission; no commercial use; acknowledge and cite Harper and Konstan 2015; no endorsement",
+  "size_bytes": 5917549,
+  "sha256": "a6898adb50b9ca05aa231689da44c217cb524e7ebd39d264c56e2832f2c54e20",
+  "committed": false,
+  "method_committed_before_fit": "2b8d447",
+  "fit_code_revision": "7ef3853518b00a91e83775be045b82ce4a5281b4",
+  "fit_journal": "JRN-0005",
+  "fit_record": {
+   "path": "data/calibration/movielens-1m-fit.json",
+   "sha256": "b2876cd263401596907b04a68cf15e71b568da502ce7474e53076fd8d7cfffe0"
+  },
+  "fitted_values": {
+   "nb_dispersion": 0.4909,
+   "quality": [
+    "beta",
+    4.2726,
+    3.1944
+   ],
+   "sigma_reference_only": 1.0521
+  },
+  "primary_contrast_used_in_fit": false
+ },
+ "amendments_applied": {
+  "R2-DATA": "MovieLens calibration of NegBin dispersion (1 -> 0.4909) and base quality (Beta(4, 2) -> Beta(4.2726, 3.1944)) in every confirmatory config (protocol 13.1, 13.3)",
+  "A-1": "LCB prior centred on the catalogue mean: alpha_k = 5 * p_k (catalogue star shares), uniform fallback when no rating; replaces the uncentred arm (protocol 13.2)",
+  "A-2": "D_sigma per noise level reported with two-sided 95% stratified bootstrap intervals next to Dbar; descriptive, outside the Holm family; primary H1 unchanged (protocol 13.2; trust.analysis.pooled_by_level)",
+  "A-3": "20 seeds per cell kept in every confirmatory config",
+  "A-4": "measured per-seed SD 0.0064 to 0.0128 replaces the 0.05 planning value; not re-measured under the calibrated generator (disclosed)",
+  "not_applied": "D-008 A6 (calibration-metric wording) is not in the approved list; D-008 A2 and A3 were measurements, not changes",
+  "where": "research/protocol.md section 13 (and inline notes in sections 2, 3, 4, 6, 8); EXP-001, EXP-002, EXP-003 status lines"
+ },
+ "common_decisions": {
+  "C1": "Data: real data as approved, synthetic otherwise. TRUST: MovieLens 1M calibrates the simulation's review-count dispersion and quality distribution; all confirmatory evidence remains simulated.",
+  "C2": "PDFs: built with pandoc and Typst (-V mainfont=\"Libertinus Serif\"); no LaTeX on the machine.",
+  "C3": "Authorship: \"Mohamed Bechir Kefi\", no affiliation. The AI is disclosed as a research and development assistant, not as an author.",
+  "C4": "Disclosure: exploratory values of the primary contrast D = tau_b(SHRINK_5) - tau_b(MEAN) were seen before the freeze, under the planning generator (Beta(4, 2), dispersion 1) and the uncentred LCB, in seed namespaces disjoint from the confirmatory ones (smoke exp_number 0 at N = 50; pilots 901 and 902). Values below. They motivated A-2 (sign change by sigma), A-1 (LCB far below MEAN) and A-4. They are not evidence for any hypothesis. The calibration fit computed no contrast.",
+  "C4_values": {
+   "results/exploratory/smoke/ (JRN-0002, N = 50, sigma 1.0, 3 seeds)": {
+    "D nu=3": 0.0176,
+    "D nu=30": 0.0049,
+    "pooled": 0.0113,
+    "LCB-MEAN nu=3": -0.1575,
+    "LCB-MEAN nu=30": -0.1671
+   },
+   "results/exploratory/pilot-exp001-corners/ (JRN-0003, 10 seeds)": {
+    "D nu=3 sigma=0.5": -0.0232,
+    "D nu=3 sigma=1.5": 0.0117,
+    "D nu=30 sigma=0.5": -0.0245,
+    "D nu=30 sigma=1.5": 0.0223,
+    "pooled": -0.0034,
+    "LCB-MEAN by cell": [
+     -0.2982,
+     -0.1023,
+     -0.2494,
+     -0.1248
+    ]
+   },
+   "results/exploratory/pilot-exp002-lambda/ (JRN-0004, nu 3, sigma 1.0, 10 seeds)": {
+    "D gamma=-0.5 lam=0": -0.0099,
+    "D gamma=0.5 lam=0": -0.0,
+    "D gamma=-0.5 lam=2": -0.0103,
+    "D gamma=0.5 lam=2": 0.0149,
+    "pooled": -0.0013,
+    "LCB-MEAN by cell": [
+     -0.283,
+     -0.0209,
+     -0.1888,
+     0.0597
+    ]
+   }
+  },
+  "C4_note": "While checking that the code change kept exploratory outputs reproducible, the smoke and EXP-001 corner pilots were rerun into a scratch directory outside the repository; results.json was byte-identical (SHA-256 8fe78903... and 52815070...), so no new value was seen."
+ },
+ "study_protocol": {
+  "path": "research/protocol.md",
+  "version": "v1.0",
+  "sha256": "3226e302fb4758327d50a5f583026d469d7ccbc5ad7c72b458fcd8bf2b702f03"
+ },
+ "data_manifest": {
+  "path": "data/manifest.json",
+  "sha256": "ed8fb8eee48be9a08850c48872883a4299e3e4601b9ac4a371df65e023dd4d30"
+ },
+ "experiments": {
+  "EXP-001": {
+   "type": "confirmatory",
+   "protocol_path": "research/experiments/EXP-001/protocol.md",
+   "protocol_sha256": "27766885e692caa61253528fe5d959ab25f4b64db65bfde28c301671df31ce50",
+   "configs": {
+    "experiments/EXP-001.json": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279"
+   }
+  },
+  "EXP-002": {
+   "type": "confirmatory",
+   "protocol_path": "research/experiments/EXP-002/protocol.md",
+   "protocol_sha256": "47459d4b5c8d0f9ab2911be068929c6ada9253ec7a601004893c731b0b1fcf27",
+   "configs": {
+    "experiments/EXP-002.json": "325df0660716aa3be368cd85ae912184139617bc1b217488a7a98e79bf6b5bd9"
+   }
+  },
+  "EXP-003": {
+   "type": "confirmatory",
+   "protocol_path": "research/experiments/EXP-003/protocol.md",
+   "protocol_sha256": "cb4568fa37e4feaa1bd1a79a71fafa47a96fcad13d8b8b2d6605932c71b19b81",
+   "configs": {
+    "experiments/EXP-003-S1-min1.json": "7e9683ea0e8f31689e5846474b0f15175aaaa1cc04dbc7cd20675729fe60a564",
+    "experiments/EXP-003-S1-min5.json": "5b948ab09d3fb99421c487b14ddd1fb644ff71e33d7e49bc75597fbdc69ddc89",
+    "experiments/EXP-003-S2.json": "fecaa2f8523f360fd5270a3481222e47aea88c27dc125a58c44592aefb22ff18",
+    "experiments/EXP-003-S3.json": "4385405824d78de6b48b14392d094df0277c7cf4bfec44dc359668dc2768d4d7",
+    "experiments/EXP-003-S4.json": "e788afa2ac3733cb22ff639d558c285fefea89aa47814025407ccdfcb3054d89"
+   }
+  }
+ },
+ "git_revision": "39392ab5864ae2c398b226409a765808c80eda6e",
+ "git_revision_note": "commit holding the frozen protocols, configs, data manifest and code; this record is committed on top of it",
+ "guard": "trust.provenance.config_frozen: run refuses a confirmatory config unless the EXP protocol hash is in the registry and decision log, research/protocol.md and data/manifest.json match this record, and the config file is listed here with its current SHA-256",
+ "authorship": "Mohamed Bechir Kefi (C3)"
+}

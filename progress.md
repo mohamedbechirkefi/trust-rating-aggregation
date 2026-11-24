@@ -133,3 +133,33 @@ Created: `src/trust/*.py`, `src/trust/schemas/*.json`, `tests/conftest.py`, `tes
 ### Next action
 
 The owner reviews D-008 and freezes the protocols (hash in this log and the registry). Then M3: `trust.cli run --exp EXP-001`, `EXP-002`, `EXP-003-S*`, with reports.
+
+## 2026-11-24: Round 2 (real data, amendments, freeze; owner-approved)
+
+**Milestone:** M1 gate. **Actor:** AI assistant, under the round-2 data-freeze brief. No confirmatory run; nothing pushed; no paid service.
+
+### Done
+
+1. **Licence check.** MovieLens 1M page and README opened 2026-11-24: research use allowed, no redistribution, no commercial use, citation and no-endorsement conditions. Matches the approval; adopted (D-009, `data/manifest.json`).
+2. **Download.** `scripts/download_movielens.py`: `ml-1m.zip`, 5,917,549 bytes, SHA-256 `a6898adb...4e20` (pinned in the script). `data/raw/` and `data/processed/` git-ignored; `users.dat` not extracted.
+3. **Ingestion.** `src/trust/ingest.py` (pure, schema validation, exclusion counts) with a synthetic fixture `tests/fixtures/movielens/`. Real data: 1,000,209 rows, 0 invalid, 0 unknown movie, 0 repeats; 3,883 movies, 177 unrated.
+4. **Protocol.** Section 13 written and committed (`2b8d447`) before the fit: calibration of the NegBin dispersion and the quality Beta on split F; no second test; A-1 to A-4 applied, D-008 A6 not applied (not approved).
+5. **Fit** (JRN-0005, exploratory, `7ef3853`, 20.8 s): dispersion 0.4909, Beta(4.2726, 3.1944), sigma 1.0521 (reference only). Values written to the seven confirmatory configs (`39392ab`).
+6. **Code.** Centred LCB prior (`prior: catalogue`), per-sigma pooled reporting (`analysis.pooled_by_level`), config-level freeze guard (`provenance.config_frozen`, `research/freeze.json`).
+7. **Freeze.** `research/freeze.json`, registry hashes, D-010.
+
+### Commands and actual outputs
+
+| Command | Output |
+|---|---|
+| `../.tools/py/bin/uv sync --frozen --all-groups --all-extras` | `Audited 13 packages` |
+| `.venv/bin/python -m pytest -q` (first run of the new ingest tests) | `1 failed, 7 passed`: my hand count of users in the fixture was wrong (5, not 6; user 14 rated only an unknown movie). Test corrected. |
+| `.venv/bin/python -m pytest -q` (before the freeze record existed) | `4 failed, 153 passed` (the four tests that read `research/freeze.json`) |
+| `.venv/bin/python -m pytest -q` (final) | `157 passed` |
+| smoke and EXP-001 corner pilot rerun into the session scratch directory | results.json byte-identical to the committed ones (`8fe78903...`, `52815070...`) |
+| `config_frozen` on the seven confirmatory configs | all `(True, 'frozen')` |
+| `trust.cli run --config <changed copy of EXP-001.json>` | `refused ... outside the repository`, exit 3 |
+
+### Next action
+
+M3, when the coordinator schedules it: `trust.cli run --exp EXP-001`, `EXP-002`, `EXP-003-S*` with reports, giving `D_sigma` next to `Dbar`.

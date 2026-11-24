@@ -49,3 +49,8 @@ Requires uv (the project pins dependencies in `uv.lock`).
     PYTHONPATH=src uv run --frozen python -m trust.cli test
 
 Documents are built with pandoc and the `typst` Python package (no TeX needed); pass `-V mainfont="Libertinus Serif"` to pandoc when targeting Typst.
+
+### Real-data calibration (round 2, 2026-11-24)
+
+    python scripts/download_movielens.py            # MovieLens 1M into git-ignored data/raw/, SHA-256 checked
+    PYTHONPATH=src .venv/bin/python scripts/fit_movielens.py   # exploratory fit, writes data/calibration/movielens-1m-fit.json

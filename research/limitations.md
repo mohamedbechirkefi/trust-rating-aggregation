@@ -12,3 +12,9 @@ Status at M0, 2026-11-24: no experiment has been run, so these are anticipated l
 7. **Estimator scope.** Three estimator families with fixed parameters; no learned or platform-specific ranking.
 8. **Exploratory versus confirmatory.** Until the owner freezes the protocol, any result is exploratory.
 9. **Toolchain.** `manuscript.tex` is generated but not compiled locally (no TeX distribution).
+
+## Calibration on MovieLens 1M (added 2026-11-24, protocol section 13)
+
+- The review-count dispersion and the quality distribution come from movie ratings, not product reviews; their transfer to product catalogues is an assumption.
+- The dispersion was fitted at a mean of about 252 ratings per movie and is applied at mean counts of 3 to 30, assuming the relative heterogeneity of exposure does not depend on the mean.
+- The single-noise ordered-probit model misfits the star shares of held-out movies (1-star and 4-star under-predicted, 2-star and 5-star over-predicted; JRN-0005). User leniency is folded into the noise term.
