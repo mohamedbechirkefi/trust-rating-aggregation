@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0 -->
 # EXP-002 protocol: reporting selection and quality-dependent missingness
 
-**Status: DRAFT v0.1, 2026-11-24, awaiting owner freeze (G-FREEZE). Not executed. Secondary experiment; its hypothesis is nondirectional and its results are reported as such.** Shared definitions are in `research/protocol.md` sections 2 to 5.
+**Status: v1.0, FROZEN 2026-11-24 by the owner (G-FREEZE, round 2), not yet run.** Amended before the freeze (protocol section 13): MovieLens-calibrated base `mu ~ 1 + 4 Beta(4.2726, 3.1944)` and NegBin dispersion 0.4909; LCB prior centred on the catalogue mean (A-1); 20 seeds kept (A-3). Hash in `research/freeze.json` and `research/decision_log.md` D-010. Shared definitions are in `research/protocol.md` sections 2 to 5.
 
 1. **Precise question.** When ratings are selectively reported (extreme ratings more likely to be posted) and the number of reviews depends on quality, does the advantage of SHRINK(5) and LCB over MEAN change?
 2. **Mechanism.** Under-reporting of moderate ratings shifts and spreads the observed rating distribution. Quality-dependent exposure changes which products are data-poor: with `gamma > 0` data-poor products tend to be poor products, so shrinking them up towards the catalogue mean may hurt; with `gamma < 0` the reverse.

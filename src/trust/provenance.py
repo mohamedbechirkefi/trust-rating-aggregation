@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import json
 import hashlib
 import importlib.metadata
 import platform
@@ -89,4 +90,39 @@ def protocol_frozen(exp_id: str, root: Path = REPO_ROOT) -> tuple[bool, str]:
         return False, f"{exp_id} protocol file no longer matches its recorded hash"
     if not log.exists() or h not in log.read_text(encoding="utf-8"):
         return False, f"{exp_id} freeze hash is not recorded in research/decision_log.md"
+    return True, "frozen"
+
+
+FREEZE_RECORD = Path("research") / "freeze.json"
+
+
+def config_frozen(exp_id: str, config_path: Path, root: Path = REPO_ROOT) -> tuple[bool, str]:
+    """A confirmatory config may run only if all of these hold (round-2 freeze, 2026-11-24):
+    protocol_frozen(exp_id) holds; research/freeze.json exists; the SHA-256 of research/protocol.md
+    and of data/manifest.json equal the values recorded there; and the config file, as a path
+    relative to the repository, is listed under exp_id with a SHA-256 equal to its current bytes.
+    A changed, unlisted or out-of-repository config is refused."""
+    ok, why = protocol_frozen(exp_id, root)
+    if not ok:
+        return ok, why
+    rec_path = root / FREEZE_RECORD
+    if not rec_path.exists():
+        return False, "research/freeze.json missing"
+    rec = json.loads(rec_path.read_text(encoding="utf-8"))
+    study = rec.get("study_protocol", {})
+    if sha256_file(root / study.get("path", "research/protocol.md")) != study.get("sha256"):
+        return False, "research/protocol.md no longer matches the freeze record"
+    dm = rec.get("data_manifest", {})
+    if dm and sha256_file(root / dm["path"]) != dm.get("sha256"):
+        return False, "data/manifest.json no longer matches the freeze record"
+    try:
+        rel = Path(config_path).resolve().relative_to(Path(root).resolve()).as_posix()
+    except ValueError:
+        return False, f"config {config_path} is outside the repository"
+    exp = rec.get("experiments", {}).get(exp_id, {})
+    expected = exp.get("configs", {}).get(rel)
+    if expected is None:
+        return False, f"config {rel} is not listed for {exp_id} in the freeze record"
+    if sha256_file(root / rel) != expected:
+        return False, f"config {rel} has changed since the freeze"
     return True, "frozen"

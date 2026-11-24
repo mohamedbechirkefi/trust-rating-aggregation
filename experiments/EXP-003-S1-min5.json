@@ -2,7 +2,7 @@
  "config_version": "1.0",
  "exp_id": "EXP-003",
  "label": "confirmatory",
- "description": "EXP-003 S1: EXP-001 catalogues, metrics on products with n >= 5.",
+ "description": "EXP-003 S1: EXP-001 catalogues, metrics on products with n >= 5. Frozen v1.0 (owner-approved 2026-11-24, round 2): MovieLens-calibrated base (protocol 13.1), LCB prior centred on the catalogue mean (13.2 A-1).",
  "seed_root": 20261124,
  "exp_number": 1,
  "n_seeds": 20,
@@ -30,7 +30,8 @@
   {
    "name": "LCB",
    "type": "lcb",
-   "z": 1.645
+   "z": 1.645,
+   "prior": "catalogue"
   },
   {
    "name": "ORACLE",
@@ -40,11 +41,11 @@
  "base": {
   "lam": 0.0,
   "gamma": 0.0,
-  "nb_dispersion": 1.0,
+  "nb_dispersion": 0.4909,
   "quality": [
    "beta",
-   4.0,
-   2.0
+   4.2726,
+   3.1944
   ]
  },
  "grid": {

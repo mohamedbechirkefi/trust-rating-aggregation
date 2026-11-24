@@ -77,14 +77,36 @@ def shrink_score(counts: ArrayLike, kappa: float, centre_offset: float = 0.0) ->
     return (s.n * np.nan_to_num(s.xbar) + kappa * centre) / (s.n + kappa)
 
 
-def dirichlet_posterior(counts: ArrayLike) -> tuple[NDArray[np.float64], NDArray[np.float64]]:
-    """Posterior mean and variance of sum_k k*p_k under a Dirichlet(1,...,1) prior on p.
+PRIOR_STRENGTH = 5.0  # total pseudo-ratings of the LCB prior, equal to Dirichlet(1, ..., 1)
 
-    With alpha_k = n_k + 1 and A = sum alpha_k: mean S = sum k alpha_k / A and
+
+def dirichlet_prior(counts: ArrayLike, prior: str = "uniform") -> NDArray[np.float64]:
+    """Prior pseudo-counts alpha_k (length 5).
+
+    uniform: Dirichlet(1, ..., 1), centred at 3 stars (Miller 2014; pilot arm).
+    catalogue: alpha_k = 5 * p_k with p_k the catalogue's share of star k among all reported
+    ratings, so the prior mean is the catalogue mean m (protocol section 13.2, A-1). Falls back to
+    uniform when the catalogue has no reported rating (the run is then flagged m_fallback).
+    """
+    c = check_counts(counts)
+    if prior == "uniform":
+        return np.ones(5)
+    if prior == "catalogue":
+        tot = c.sum(axis=0).astype(float)
+        if tot.sum() == 0:
+            return np.ones(5)
+        return PRIOR_STRENGTH * tot / tot.sum()
+    raise EstimatorError(f"unknown LCB prior {prior!r}")
+
+
+def dirichlet_posterior(counts: ArrayLike, prior: str = "uniform") -> tuple[NDArray[np.float64], NDArray[np.float64]]:
+    """Posterior mean and variance of sum_k k*p_k under a Dirichlet prior on p.
+
+    With alpha_k = n_k + prior_k and A = sum alpha_k: mean S = sum k alpha_k / A and
     Var = (sum k^2 alpha_k / A - S^2) / (A + 1) (exact Dirichlet moment; Miller 2014).
     """
     c = check_counts(counts)
-    alpha = c + 1.0
+    alpha = c + dirichlet_prior(c, prior)[None, :]
     a0 = alpha.sum(axis=1)
     mean = (alpha @ LEVELS) / a0
     second = (alpha @ LEVELS**2) / a0
@@ -92,16 +114,21 @@ def dirichlet_posterior(counts: ArrayLike) -> tuple[NDArray[np.float64], NDArray
     return mean, var
 
 
-def lcb_score(counts: ArrayLike, z: float = 1.645) -> NDArray[np.float64]:
+def lcb_score(counts: ArrayLike, z: float = 1.645, prior: str = "uniform") -> NDArray[np.float64]:
     """LCB: Dirichlet posterior mean minus z * posterior SD (stars)."""
     if not np.isfinite(z) or z < 0:
         raise EstimatorError("z must be finite and non-negative")
-    mean, var = dirichlet_posterior(counts)
+    mean, var = dirichlet_posterior(counts, prior)
     return mean - float(z) * np.sqrt(var)
 
 
 def intervals(
-    arm_type: str, counts: ArrayLike, z: float = 1.645, kappa: float | None = None, centre_offset: float = 0.0
+    arm_type: str,
+    counts: ArrayLike,
+    z: float = 1.645,
+    kappa: float | None = None,
+    centre_offset: float = 0.0,
+    prior: str = "uniform",
 ) -> tuple[NDArray[np.float64], NDArray[np.float64]]:
     """Nominal two-sided intervals used for the calibration metric (protocol section 5)."""
     s = summarise(counts)
@@ -114,7 +141,7 @@ def intervals(
         centre = shrink_score(counts, kappa, centre_offset)
         half = z * s.s_pool / np.sqrt(s.n + kappa)
     elif arm_type == "lcb":
-        centre, var = dirichlet_posterior(counts)
+        centre, var = dirichlet_posterior(counts, prior)
         half = z * np.sqrt(var)
     else:
         raise EstimatorError(f"no interval rule for arm type {arm_type!r}")

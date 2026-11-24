@@ -6,8 +6,8 @@
     PYTHONPATH=src uv run --frozen python -m trust.cli report --dir results/exploratory/<name> [--pdf]
     PYTHONPATH=src uv run --frozen python -m trust.cli test
 
-`run` refuses a confirmatory config unless its protocol is frozen (G-FREEZE; see
-trust.provenance.protocol_frozen). Exploratory outputs go to results/exploratory/.
+`run` refuses a confirmatory config unless its protocol and the config file itself are frozen
+(G-FREEZE; see trust.provenance.config_frozen and research/freeze.json). Exploratory outputs go to results/exploratory/.
 """
 
 from __future__ import annotations
@@ -19,7 +19,7 @@ import time
 from pathlib import Path
 
 from trust.config import ConfigError, load_config
-from trust.provenance import REPO_ROOT, git_revision, protocol_frozen
+from trust.provenance import REPO_ROOT, config_frozen, git_revision
 from trust.report import build_report
 from trust.results import build_manifest, build_result, export_result, now, write_json
 from trust.runner import run_experiment
@@ -43,9 +43,9 @@ def do_run(config_path: Path, out: str | None, quiet: bool, command: str) -> int
         print(f"error: {exc}", file=sys.stderr)
         return 2
     if cfg["label"] == "confirmatory":
-        ok, why = protocol_frozen(cfg["exp_id"])
+        ok, why = config_frozen(cfg["exp_id"], config_path)
         if not ok:
-            print(f"refused: {cfg['exp_id']} is confirmatory and its protocol is not frozen ({why}). "
+            print(f"refused: {cfg['exp_id']} is confirmatory and is not frozen as given ({why}). "
                   "Freezing is the owner's decision (G-FREEZE). Use an exploratory config.", file=sys.stderr)
             return EXIT_REFUSED
     dest = output_dir(cfg, config_path, out)

@@ -17,7 +17,7 @@ from pathlib import Path
 
 import numpy as np
 
-from trust.analysis import N_BOOT, paired_differences, pooled_stratified, summarise_diffs
+from trust.analysis import N_BOOT, paired_differences, pooled_by_level, pooled_stratified, summarise_diffs
 from trust.provenance import sha256_file
 from trust.results import import_result, write_json
 
@@ -144,6 +144,7 @@ def build_report(result_dir: Path, pdf: bool = False) -> dict:
         summary["contrasts"][arm] = {
             "per_cell": {cid: iv.__dict__ | {"half_width": iv.half_width} for cid, iv in per.items()},
             "pooled": pooled_stratified(diffs),
+            "per_sigma": pooled_by_level(doc, diffs, "sigma"),
         }
     if manifest:
         rt = np.array([t["runtime_s"] for t in manifest["runs"]])
@@ -277,6 +278,16 @@ def render_markdown(doc, summary, figs, manifest, n_csv, failed, degenerate) -> 
         p = cdata["pooled"]
         L.append(f"| {arm} minus MEAN | {p['n_cells']} | {fmt(p['dbar'])} | {fmt(p['lo95'])} to {fmt(p['hi95'])} | {fmt(p['lower_one_sided_95'])} |")
     L.append("")
+    if any(c.get("per_sigma") for c in summary["contrasts"].values()):
+        L.append("Per noise level (protocol section 13.2, A-2): equal-weight mean over the cells at each sigma, "
+                 "two-sided 95% stratified bootstrap interval. Descriptive; not in the Holm family.")
+        L.append("")
+        L.append("| Contrast | sigma (stars) | Cells | Mean | 95% interval |")
+        L.append("|---|---|---|---|---|")
+        for arm, cdata in summary["contrasts"].items():
+            for level, p in (cdata.get("per_sigma") or {}).items():
+                L.append(f"| {arm} minus MEAN | {level} | {p['n_cells']} | {fmt(p['mean'])} | {fmt(p['lo95'])} to {fmt(p['hi95'])} |")
+        L.append("")
     for name, title, desc in figs:
         L.append(f'![{title}. {desc}](figures/{name}){{fig-alt="{desc}"}}')
         L.append("")

@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0 -->
 # TRUST research protocol
 
-**Status: DRAFT v0.1, 2026-11-24. NOT FROZEN.** Freezing is the owner's decision (G-FREEZE). Until the owner freezes this protocol and its hash is recorded in `research/decision_log.md`, every run is exploratory and labelled so. Numbers marked "planning assumption" are not measurements.
+**Status: v1.0, FROZEN 2026-11-24 by the owner (G-FREEZE, owner-approved 2026-11-24, round 2), not yet run.** The SHA-256 of this file is recorded in `research/freeze.json` and `research/decision_log.md` (D-010), not here. Any later change is a dated deviation in the decision log. Section 13 holds the amendments made before the freeze and takes precedence over sections 1 to 12. Numbers marked "planning assumption" are not measurements.
 
 ## 1. Research question
 
@@ -13,10 +13,10 @@ Operationally: in simulated catalogues where the true quality of each product is
 
 A catalogue has `N = 200` products, indexed `i`.
 
-- **Latent quality.** `mu_i = 1 + 4 * B_i`, `B_i ~ Beta(4, 2)` (stars, range [1, 5]).
+- **Latent quality.** `mu_i = 1 + 4 * B_i`, `B_i ~ Beta(a, b)` (stars, range [1, 5]). Planning value Beta(4, 2); replaced by the MovieLens fit Beta(4.2726, 3.1944) (section 13.1, 13.3).
 - **Potential rating.** `r_ij = clip(floor(mu_i + sigma * e_ij + 0.5), 1, 5)`, `e_ij ~ N(0, 1)`, integer stars 1..5. `sigma` is rating noise in stars.
 - **True quality (ranking target).** `theta_i = E[r_ij | mu_i, sigma] = sum_k k * P(r = k | mu_i, sigma)`, computed exactly from the normal CDF. For fixed `sigma`, `theta_i` is strictly increasing in `mu_i`, so the true order does not depend on the rounding convention.
-- **Review count.** Potential raters `n*_i ~ NegBin(mean = nu * w_i, dispersion = 1)`, which allows zero reviews. Exposure weight `w_i = exp(gamma * z_i) / mean_i exp(gamma * z_i)`, `z_i` the standardised `mu_i`. `gamma = 0` means exposure independent of quality.
+- **Review count.** Potential raters `n*_i ~ NegBin(mean = nu * w_i, dispersion = r)`, planning value `r = 1`, replaced by the MovieLens fit `r = 0.4909` (section 13.1, 13.3), which allows zero reviews. Exposure weight `w_i = exp(gamma * z_i) / mean_i exp(gamma * z_i)`, `z_i` the standardised `mu_i`. `gamma = 0` means exposure independent of quality.
 - **Reporting selection (under-reporting bias, after Hu, Pavlou and Zhang).** A potential rating `r` is reported with probability `pi(r) = (1 + lambda * |r - 3| / 2) / (1 + lambda)`. `lambda = 0` means every potential rating is reported. `lambda > 0` makes extreme ratings more likely to be reported.
 - **Observed data.** For each product: reported count `n_i`, mean `xbar_i` (if `n_i >= 1`), counts `n_ik` per star level.
 - **Catalogue prior mean.** `m = ` mean of all reported ratings in the catalogue (empirical Bayes, computed from the same catalogue; no held-out information).
@@ -29,7 +29,7 @@ All arms score the same simulated catalogue (paired design, common random number
 |---|---|---|
 | MEAN (baseline) | `xbar_i` if `n_i >= 1`, else `m` | Simplest baseline and primary comparator |
 | SHRINK(kappa) | `(n_i * xbar_i + kappa * m) / (n_i + kappa)` | Bayesian average with `kappa` pseudo-reviews at `m`. `kappa` in {1, 5, 20}; `kappa = 5` is the prespecified primary arm, not tuned |
-| LCB | posterior mean minus `z * sqrt(var)` under a Dirichlet(1,...,1) prior on the five star levels (Miller 2014 formula), `z = 1.645` | Lower credible bound; `n_i = 0` gives the prior bound |
+| LCB | posterior mean minus `z * sqrt(var)` under a Dirichlet prior on the five star levels (Miller 2014 formula), `z = 1.645`. Amended (section 13.2 A-1): prior `alpha_k = 5 * p_k`, centred on the catalogue mean `m`, instead of Dirichlet(1,...,1) | Lower credible bound; `n_i = 0` gives the prior bound |
 | ORACLE (check only) | `theta_i` | Must give Kendall tau-b = 1; not a compared arm |
 
 Ranking: sort by score descending; ties broken by product id ascending. Sorting must be deterministic.
@@ -40,6 +40,7 @@ Ranking: sort by score descending; ties broken by product id ascending. Sorting 
   - H0: `Dbar <= 0` (shrinkage does not improve rank recovery over the mean).
   - H1: `Dbar > 0` (directional).
   - Contradiction: the one-sided 95% lower bound of `Dbar` is at or below 0. That outcome is reported as "not supported", and a confidence interval containing 0 is not read as equivalence.
+  - Amended (section 13.2 A-2): every report also gives `D_sigma` per noise level, with two-sided 95% intervals, next to `Dbar`.
 - **Secondary H1b ("when").** `E[D]` decreases as the mean review count `nu` increases (3 > 10 > 30), at every noise level. Contradicted if the per-cell estimates are not ordered this way in the majority of noise levels, or if the 95% intervals of the `nu = 3` and `nu = 30` cells overlap at every noise level.
 - **Secondary H1c.** `tau_b(LCB) - tau_b(MEAN) > 0`, pooled as for H1.
 - **Exploratory H2 (EXP-002), nondirectional.** The advantage `D` differs between reporting selection `lambda = 2` and `lambda = 0`, and between exposure coupling levels `gamma`.
@@ -58,7 +59,7 @@ Ranking: sort by score descending; ties broken by product id ascending. Sorting 
 
 - **Experimental unit:** one simulated catalogue (one cell, one seed). Products inside a catalogue are not independent units for inference.
 - **Seeds:** 20 seeds per cell (well above the minimum of 5). Seeds derive from `numpy.random.SeedSequence([20261124, exp_number, seed_index])` with separate child streams for quality, counts, ratings and reporting. The quality stream depends only on the seed index, so a given seed shares its latent qualities across cells (common random numbers).
-- **Sample-size rationale.** Compute is negligible (planning assumption: under one minute for the full EXP-001 matrix on the M1 Pro; to be measured at smoke). The smallest effect of interest is `Dbar = 0.02` tau units (planning assumption). If the between-catalogue SD of `D` is near 0.05 (planning assumption), 9 cells x 20 seeds give a pooled standard error near 0.004, adequate for that effect. The smoke run measures the SD. If a per-cell 95% half-width exceeds 0.02, the seed count is raised to 50 before the freeze, never after.
+- **Sample-size rationale.** Amended (section 13.2 A-4): the measured per-seed SD of `D` (0.0064 to 0.0128) replaces the 0.05 planning assumption below; 20 seeds kept. Original text: Compute is negligible (planning assumption: under one minute for the full EXP-001 matrix on the M1 Pro; to be measured at smoke). The smallest effect of interest is `Dbar = 0.02` tau units (planning assumption). If the between-catalogue SD of `D` is near 0.05 (planning assumption), 9 cells x 20 seeds give a pooled standard error near 0.004, adequate for that effect. The smoke run measures the SD. If a per-cell 95% half-width exceeds 0.02, the seed count is raised to 50 before the freeze, never after.
 - **Uncertainty method.** Per cell: mean paired difference with a 95% percentile bootstrap over seeds (10,000 resamples, fixed bootstrap seed) and a t interval as a cross-check. Pooled `Dbar`: stratified bootstrap resampling seeds within each cell. Report effect sizes (mean difference and paired standardised difference) and full per-seed distributions. Secondary contrasts use Holm correction across H1b, H1c and the other `kappa` values, labelled secondary.
 - **Exclusions.** No catalogue is excluded. Products with `n_i = 0` stay in the evaluation with the scoring rule above (sensitivity S1 removes them).
 - **Stopping rule.** The matrix is fixed and run in full; no optional stopping or peeking at confirmatory results. A run that raises is recorded and retried once with the same seed. A run that fails twice is reported as failed and never replaced by another seed. If a bug is found after confirmatory runs, the whole affected matrix is rerun and the deviation is dated in `research/decision_log.md`.
@@ -79,7 +80,7 @@ The main interpretation of a positive `Dbar` would be "accounting for sample siz
 - **S1, zero-review convention.** Recompute all metrics on products with `n_i >= 1`, and separately with `n_i >= 5`. If the advantage disappears with `n_i >= 1`, it is an artefact of how zero-review products are scored, not of uncertainty awareness.
 - **S2, prior misspecification.** Shrink towards `m + 0.5` and `m - 0.5` instead of `m`.
 - **S3, definition of truth under selection.** In EXP-002 catalogues, compare rankings against the full-population `theta_i` and against the expected reported rating `theta_rep_i`. If the winner depends on the definition, conclusions are restricted to the stated definition.
-- **S4, quality distribution.** Replace Beta(4, 2) by Beta(1, 1) and by a two-component mixture. If the advantage reverses, it depends on the prior matching the population.
+- **S4, quality distribution.** Replace the base Beta (Beta(4.2726, 3.1944) after section 13.1) by Beta(1, 1) and by a two-component mixture. If the advantage reverses, it depends on the prior matching the population.
 
 ## 9. Confounders and competing explanations
 
@@ -149,3 +150,16 @@ The approved TRUST text is: "Centre the LCB prior on the catalogue mean. Report 
 - **A-3, 20 seeds.** Kept at 20 seeds per cell in every confirmatory config (no change).
 - **A-4, measured SD (from D-008 A1).** The planning SD of `D` near 0.05 (section 6) is replaced by the measured per-seed SD 0.0064 to 0.0128 (JRN-0003, four EXP-001 corner cells, 10 seeds each, disjoint seed namespace 901). At 20 seeds the normal-approximation 95% half-width is about 0.003 to 0.006, below the 0.02 trigger, so the seed count stays at 20. Disclosure: this SD was measured under the planning generator (Beta(4, 2), dispersion 1, uncentred LCB). It was not re-measured under the calibrated generator, to avoid seeing further values of the primary contrast; the half-width would exceed 0.02 only if the per-seed SD exceeded about 0.046, 3.5 times the largest measured value.
 - **Not applied: D-008 A6** (wording on the calibration metric). It is not in the approved list. **D-008 A2 and A3** were measurements, not changes; they stand as recorded.
+
+### 13.3 Fitted values (exploratory fit JRN-0005, after the method above was committed)
+
+The method of section 13.1 was committed at `2b8d447` before any fit. The fit ran once at code revision `7ef3853` (clean tree) on MovieLens 1M (`ratings.dat` SHA-256 `506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f`). Record: `data/calibration/movielens-1m-fit.json`.
+
+| Quantity | Planning value | Fitted on split F | Used in configs |
+|---|---|---|---|
+| NegBin shape `r` (`nb_dispersion`) | 1 | 0.49090 (fitted mean 251.6 ratings per movie, 1,941 movies, zeros included) | 0.4909 |
+| Quality `Beta(a, b)` | Beta(4, 2) | a = 4.27261, b = 3.19443 (1,857 rated movies, 488,341 ratings; the three starts agree within 0.0003 in a and b) | Beta(4.2726, 3.1944) |
+| Noise `sigma` (reference only) | grid {0.5, 1.0, 1.5} | 1.05215 | not used; grid unchanged |
+
+Ingestion: 1,000,209 rating rows, 0 invalid, 0 of unknown movies, 0 repeated pairs; 3,883 listed movies, of which 177 (4.6%) unrated; 6,040 pseudonymous users. Check split H (1,942 movies; descriptive): count quantiles at 10, 25, 50, 75 and 90% are 2, 26, 114, 342.5 and 733 observed against 3, 24, 112, 332 and 684 predicted. Mean per-movie star shares are 0.110, 0.154, 0.284, 0.303 and 0.149 observed against 0.078, 0.187, 0.300, 0.268 and 0.168 predicted: the model under-predicts 1-star and 4-star shares and over-predicts 2-star and 5-star shares, a disclosed misfit of the single-noise ordered-probit form. The fitted mean of `mu` is 1 + 4 * 4.2726 / 7.4670 = 3.29 stars against 3.67 under the planning Beta(4, 2).
+

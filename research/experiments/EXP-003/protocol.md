@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0 -->
 # EXP-003 protocol: sensitivity analyses that could invalidate the main interpretation
 
-**Status: DRAFT v0.1, 2026-11-24, awaiting owner freeze (G-FREEZE). Not executed.** Depends on the EXP-001 and EXP-002 generators. Shared definitions are in `research/protocol.md`.
+**Status: v1.0, FROZEN 2026-11-24 by the owner (G-FREEZE, round 2), not yet run.** Amended before the freeze (protocol section 13): S1, S2 and S3 regenerate the calibrated EXP-001 and EXP-002 catalogues (Beta(4.2726, 3.1944), dispersion 0.4909); S4 keeps its registered alternative quality distributions with dispersion 0.4909; LCB prior centred on the catalogue mean (A-1); S1, S2 and S4 reports give `D_sigma` per noise level (A-2); 20 seeds kept (A-3). Hash in `research/freeze.json` and `research/decision_log.md` D-010. Depends on the EXP-001 and EXP-002 generators. Shared definitions are in `research/protocol.md`.
 
 1. **Precise question.** Does the EXP-001 conclusion about `D = tau_b(SHRINK(5)) - tau_b(MEAN)` survive changes to the zero-review convention, the prior centre, the definition of truth and the quality distribution?
 2. **Mechanism under test.** The interpretation "uncertainty awareness improves rank recovery" predicts an advantage that persists among reviewed products and degrades gracefully under prior misspecification.

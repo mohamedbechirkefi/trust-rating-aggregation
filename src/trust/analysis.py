@@ -86,3 +86,20 @@ def seeds_for_half_width(sd: float, target_half_width: float, z: float = 1.96) -
     if not (sd > 0) or not (target_half_width > 0):
         return None
     return int(math.ceil((z * sd / target_half_width) ** 2))
+
+
+def pooled_by_level(doc: dict, diffs: dict[str, np.ndarray], key: str = "sigma", n_boot: int = N_BOOT,
+                    seed: int = BOOTSTRAP_SEED) -> dict[str, dict]:
+    """Equal-weight pooled contrast within each level of one grid factor (protocol 13.2, A-2):
+    for each value of `key`, the cells holding that value are pooled as in pooled_stratified.
+    Descriptive; reported with a two-sided 95% interval. Empty if `key` is not a grid factor."""
+    groups: dict[str, dict[str, np.ndarray]] = {}
+    for c in doc["cells"]:
+        if key not in c["values"]:
+            return {}
+        groups.setdefault(repr(c["values"][key]), {})[c["cell_id"]] = diffs[c["cell_id"]]
+    out = {}
+    for level, sub in groups.items():
+        p = pooled_stratified(sub, n_boot=n_boot, seed=seed)
+        out[level] = {"n_cells": p["n_cells"], "mean": p["dbar"], "lo95": p["lo95"], "hi95": p["hi95"]}
+    return out

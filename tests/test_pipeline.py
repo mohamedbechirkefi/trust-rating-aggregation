@@ -148,21 +148,12 @@ def test_cli_run_and_report_end_to_end(tmp_path):
     assert ev["results_sha256"] == hashlib.sha256((out / "results.json").read_bytes()).hexdigest()
 
 
-def test_cli_refuses_unfrozen_confirmatory_config(tmp_path, capsys):
-    rc = cli.main(["run", "--config", str(REPO / "experiments" / "EXP-001.json"), "--out", str(tmp_path / "x")])
-    assert rc == cli.EXIT_REFUSED
-    assert "not frozen" in capsys.readouterr().err
-    assert not (tmp_path / "x").exists()
-
-
-def test_cli_refuses_by_registered_id(tmp_path):
+def test_cli_refuses_by_registered_id_when_config_changed(tmp_path, monkeypatch):
+    # the registered configs are frozen (round 2); a refusal is shown by pointing the guard at a
+    # registry that does not carry the hash, without running any confirmatory matrix
+    monkeypatch.setattr(cli, "config_frozen", lambda exp, path: (False, "test: not frozen"))
     assert cli.main(["run", "--exp", "EXP-002", "--out", str(tmp_path / "y")]) == cli.EXIT_REFUSED
     assert not (tmp_path / "y").exists()
-
-
-def test_repository_protocols_are_not_frozen():
-    for exp in ("EXP-001", "EXP-002", "EXP-003"):
-        assert protocol_frozen(exp)[0] is False
 
 
 def test_protocol_frozen_detects_a_recorded_hash(tmp_path):

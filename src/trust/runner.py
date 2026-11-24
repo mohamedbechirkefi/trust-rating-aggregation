@@ -35,7 +35,7 @@ def arm_scores(arm: dict, cat: Catalogue) -> np.ndarray:
     if t == "shrink":
         return shrink_score(cat.counts, arm["kappa"], arm.get("centre_offset", 0.0))
     if t == "lcb":
-        return lcb_score(cat.counts, arm.get("z", 1.645))
+        return lcb_score(cat.counts, arm.get("z", 1.645), arm.get("prior", "uniform"))
     if t == "oracle":
         return cat.theta.copy()
     raise ValueError(f"unknown arm type {t!r}")
@@ -78,7 +78,10 @@ def evaluate_catalogue(cfg: dict, cat: Catalogue) -> tuple[dict, dict]:
             if res["tau_b"] is None:
                 diag["degenerate"].append(f"{arm['name']}: tau_b undefined (constant scores)")
             if arm["type"] != "oracle":
-                lo, hi = intervals(arm["type"], cat.counts, ev["interval_z"], arm.get("kappa"), arm.get("centre_offset", 0.0))
+                lo, hi = intervals(
+                    arm["type"], cat.counts, ev["interval_z"], arm.get("kappa"), arm.get("centre_offset", 0.0),
+                    arm.get("prior", "uniform"),
+                )
                 mask = keep & (n >= ev["coverage_min_n"])
                 cov = _num(coverage(lo, hi, truth_all, mask))
                 res["coverage"] = cov

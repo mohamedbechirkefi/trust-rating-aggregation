@@ -1,0 +1,150 @@
+{
+ "kind": "TRUST calibration fit (exploratory, JRN-0005)",
+ "protocol_section": "research/protocol.md section 13.1",
+ "data": {
+  "dataset": "MovieLens 1M",
+  "ratings_sha256": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+  "movies_sha256": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9"
+ },
+ "code_revision": {
+  "revision": "7ef3853518b00a91e83775be045b82ce4a5281b4",
+  "dirty": false
+ },
+ "ingest_report": {
+  "movie_rows_invalid": 0,
+  "movie_rows_duplicate": 0,
+  "rating_rows": 1000209,
+  "rating_rows_invalid": 0,
+  "rating_rows_unknown_movie": 0,
+  "rating_rows_duplicate_pair": 0,
+  "ratings_kept": 1000209,
+  "n_users": 6040,
+  "n_movies": 3883,
+  "n_movies_unrated": 177,
+  "share_movies_unrated": 0.045583311872263714,
+  "star_shares": [
+   0.05616226208722377,
+   0.1075345252842156,
+   0.2611424212339621,
+   0.34889808030121705,
+   0.22626271109338147
+  ]
+ },
+ "split": {
+  "seed": [
+   20261124,
+   990
+  ],
+  "n_fit": 1941,
+  "n_check": 1942
+ },
+ "fit_negbin": {
+  "mean": 251.59246758583458,
+  "r": 0.49089508764909606,
+  "loglik": -12277.432831751608,
+  "converged": true,
+  "start": {
+   "mean": 251.59247810407007,
+   "r": 0.4612681522030249
+  },
+  "n_items": 1941
+ },
+ "fit_quality": {
+  "a": 4.272606917195697,
+  "b": 3.1944252167480487,
+  "sigma": 1.0521492789855704,
+  "loglik": -653048.6463029291,
+  "converged": true,
+  "starts": [
+   {
+    "start": [
+     4.0,
+     2.0,
+     1.0
+    ],
+    "a": 4.272645804941513,
+    "b": 3.194466073736368,
+    "sigma": 1.0521488648100759,
+    "loglik": -653048.6463029579,
+    "converged": true
+   },
+   {
+    "start": [
+     2.0,
+     2.0,
+     0.5
+    ],
+    "a": 4.272606917195697,
+    "b": 3.1944252167480487,
+    "sigma": 1.0521492789855704,
+    "loglik": -653048.6463029291,
+    "converged": true
+   },
+   {
+    "start": [
+     1.0,
+     1.0,
+     1.5
+    ],
+    "a": 4.272830992532515,
+    "b": 3.1945757015187386,
+    "sigma": 1.052149569865036,
+    "loglik": -653048.6463043315,
+    "converged": true
+   }
+  ],
+  "n_items": 1857,
+  "n_ratings": 488341,
+  "n_grid": 4000
+ },
+ "fitted_values_for_configs": {
+  "nb_dispersion": 0.4909,
+  "quality": [
+   "beta",
+   4.2726,
+   3.1944
+  ],
+  "sigma_hat_reference_only": 1.0521
+ },
+ "check_split_H": {
+  "n_movies": 1942,
+  "n_rated": 1849,
+  "star_shares_observed_item_mean": [
+   0.10995959504037746,
+   0.15380519269488727,
+   0.2841293552367577,
+   0.30337791640474254,
+   0.14872794062323466
+  ],
+  "star_shares_predicted": [
+   0.07790550234496686,
+   0.18675242251144372,
+   0.29977976877157675,
+   0.26768706813081755,
+   0.16787523824119482
+  ],
+  "count_quantiles": [
+   2.0,
+   26.0,
+   114.0,
+   342.5,
+   733.0
+  ],
+  "count_quantiles_nb_predicted": [
+   3.0,
+   24.0,
+   112.0,
+   332.0,
+   684.0
+  ],
+  "count_mean": 263.57775489186406,
+  "nb_loglik_per_movie": -6.342116838959761,
+  "quality_loglik_per_rated_movie": -372.06271263055044,
+  "quality_loglik_per_rated_movie_planning_beta42": {
+   "0.5": -509.322579007374,
+   "1.0": -372.7123381161281,
+   "1.5": -388.8020171960919
+  }
+ },
+ "runtime_s": 20.844507999998314
+}
