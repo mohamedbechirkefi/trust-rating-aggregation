@@ -10,7 +10,7 @@ authors:
     given-names: Mohamed Bechir
 version: 0.1.0
 date-released: "2026-11-24"
-abstract: "Simulation study, protocol v1.0 frozen on 2026-11-24, not yet run. Authorship: Mohamed Bechir Kefi, no affiliation. An AI system was used as a research and development assistant and is not an author. Simulation parameters are calibrated on MovieLens 1M (Harper and Konstan 2015), which is not redistributed."
+abstract: "Preregistered simulation study, protocol v1.0 frozen on 2026-11-24; all 1,560 confirmatory runs completed. In this model, shrinkage towards the catalogue mean ranks better than the average rating when ratings are noisy and worse when they are precise; the pooled SHRINK_5 minus MEAN difference in Kendall tau-b is 0.0046 (95% interval 0.0030 to 0.0061), and the advantage reverses under a misspecified shrinkage centre or population shape. All results are simulated; manuscript draft not peer-reviewed. Authorship: Mohamed Bechir Kefi, no affiliation. An AI system was used as a research and development assistant and is not an author. Simulation parameters are calibrated on MovieLens 1M (Harper and Konstan 2015), which is not redistributed."
 keywords:
   - rating aggregation
   - Bayesian shrinkage

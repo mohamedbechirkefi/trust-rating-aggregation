@@ -272,3 +272,64 @@ Section 11 (funding, competing interests, AI assistance) contains no placeholder
 ### Next action
 
 M5, with the placeholders above put to the owner.
+
+
+## 2026-11-25: M5 interactive experience
+
+**Starting state:** `53ce951`, working tree clean. Authority: owner, 2026-11-25, "Next" (`/Users/bechir/research/labs/_shared/owner-approvals-2026-11-25d.md`); brief `/Users/bechir/research/labs/_shared/M5-brief.md`. Decision D-016.
+
+### Done
+
+1. `demo/` from the shared template (TypeScript, React, Vite; pinned versions unchanged, no dependency added). Sections: overview with status label and value labels; published results (FIG-001 to FIG-003 as SVG dot-and-interval charts from the exported data, with data tables; one panel per experiment with status, frozen verdict, estimates, 95% intervals, claim ids and notes, including the exploratory M4 checks, labelled so); assumptions; method and limitations with D-011 and D-012 disclosed; source hashes; rating explorer sandbox.
+2. `scripts/export_demo_data.py` writes `demo/public/data/results.json` (deterministic, committed inputs only, sha256 of each source).
+3. `tests/test_demo_export.py` (8 tests): byte-identical re-export, every display string verbatim in the manuscript (one documented supplement-only exception, E3 intervals), figure strings in manuscript or supplement, rounding, source hashes, claim ids.
+4. Sandbox: `demo/src/engine.ts` port; `scripts/make_sandbox_fixture.py` (exploratory, two regenerated EXP-001 catalogues, committed tau-b reproduced exactly, 0.63 s wall); `demo/src/engine.test.ts`: exact part within 1e-12, generator part within 4 combined standard errors in all nine cells (largest observed 1.53).
+5. Text consistency: README, CITATION.cff, `articles/README.md`, `demo/README.md`, `results/README.md`, `research/paper/figures/README.md`, author-review status line, roadmap statuses. `docs/demo.png` (118,563 bytes) with alt text in the README. CONTRIBUTING gains the demo commands.
+
+### Commands and outputs
+
+    .venv/bin/python scripts/export_demo_data.py --check     -> export identical
+    .venv/bin/python scripts/make_sandbox_fixture.py         -> wrote demo/src/fixtures/sandbox_fixture.json (88311 bytes); committed tau-b reproduced for 2 catalogues
+    .venv/bin/python -m pytest -q                            -> 173 passed in 4.76s (165 before + 8 new)
+    cd demo && npm ci --prefer-offline                       -> added 53 packages
+    npm test                                                 -> Test Files 2 passed (2); Tests 28 passed (28)
+    npm run build                                            -> built (tsc --noEmit clean)
+    node tools/a11y_check.mjs dist --screenshots <scratchpad>/trust-rating-aggregation/shots
+
+    PASS results render (no fail-closed panel): 4 experiment panels
+    PASS text contrast, light scheme (WCAG AA)
+    PASS text contrast, dark scheme (WCAG AA)
+    PASS keyboard reaches every focusable element: 25 reached of 25
+    PASS visible focus indicator
+    PASS no horizontal page scroll at 360 px: overflow 0px
+    PASS reduced motion: no running animations: 0 running
+    PASS no request leaves the local origin
+    PASS offline after first load: results stay, sandbox runs: Sandbox output (seed 1, 1 replicate): tau-b of SHRINK minus MEAN -0.0097 (one re
+    PASS with sandbox output: text contrast, light scheme
+    PASS with sandbox output: text contrast, dark scheme
+    PASS with sandbox output: keyboard reaches every focusable element: 34 reached of 34
+    PASS with sandbox output: visible focus indicator
+    PASS with sandbox output: no horizontal page scroll at 360 px: overflow 0px
+    A11Y-CHECK PASS
+
+Negative control: the same checker on a copy of `dist/` whose results file had one figure interval removed printed `FAIL results render (no fail-closed panel): 0 experiment panels` and `A11Y-CHECK FAIL (2)`. Screenshots (desktop light, desktop dark, mobile, and the sandbox with output) were inspected; fixed during the session: overlapping row labels on narrow charts (halo), squeezed tables on phones (stacked rows), a caption squeezed to one word per line, a literal `{params.top_k}` label, and an explorer axis too compressed on phones (domain now fits the values shown).
+
+### Failures during the session
+
+- First checker run: keyboard 22 of 28 reached. Cause: the checker keys elements by id or text, and identical scroll regions collided; then closed `details` content still counted. Fixed by unique ids and by rendering disclosure content only when open.
+- A file named `sandbox.ts` clashed in case with `Sandbox.tsx` under tsc; renamed to `sandboxRun.ts`.
+
+### Gate (master prompt M5)
+
+Offline after initial load, responsive at 360 px, keyboard usable with visible focus, reduced motion respected, no fabricated data (every number exported from committed results and checked verbatim against the manuscript), no runtime service (static files, no foreign request). Holds; M5 marked done.
+
+### Owner items
+
+- Placeholders: repository URL (manuscript section 10 and page footer), demo URL (README, `demo/README.md`).
+- The TRUST manuscript title was not in the owner's 2026-11-25 title approvals; it remains for the owner.
+- Full-text review of the manuscript and the author-review checklist (M6). No checklist box is ticked.
+- Frozen protocols still say "not yet run" in their status lines; left untouched (G-FREEZE).
+
+### Next action
+
+M6 (release candidate), on the owner's word: articles, PDFs, clean-clone reproduction, owner review checklist.
