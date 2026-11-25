@@ -250,3 +250,25 @@ None from frozen protocols, configs or seeds; no confirmatory rerun.
 ### Next action
 
 M5 (interactive explorer, identical numbers and labels), when the coordinator schedules it. The owner may want to read `research/publication/review_pass_2.md` section 7.
+
+
+## 2026-11-25: post-M4 owner decisions (statements)
+
+**Starting state:** `3d4346e`, working tree clean. Authority: owner, 2026-11-25, "Approve all" (post-M4) (`/Users/bechir/research/labs/_shared/owner-approvals-2026-11-25c.md`, item 2; coordinator brief `/Users/bechir/research/labs/_shared/POST-M4-brief.md`, item 2 only).
+
+- Item 2: the funding, competing-interest and AI-use wording in manuscript section 11 is recorded as owner-approved (D-015). No wording changed.
+- No frozen protocol, config, seed or result changed. No computation. No manuscript rebuild (the manuscript text did not change).
+
+### Owner placeholders for M5
+
+1. Manuscript section 10: "Repository: `<repository URL: not yet published>`". Only the owner can supply the repository URL, at a release decision (G-PUBLIC).
+
+Section 11 (funding, competing interests, AI assistance) contains no placeholder.
+
+### Tests
+
+`.venv/bin/python -m pytest -q`: 165 passed in 5.68s (after the changes; src/ and tests/ unchanged).
+
+### Next action
+
+M5, with the placeholders above put to the owner.
