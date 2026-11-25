@@ -8,8 +8,8 @@ Target: five focused development days (planning estimate, never a reason to weak
 | M0 | Bootstrap and feasibility | none | P0 | 0.5 | done (pending owner review of this session) | none |
 | M1 | Research and preregistration | M0 | P0 | 0.5 | done (protocol v1.0 frozen by the owner 2026-11-24; gate passed) | none |
 | M2 | Core implementation | M1 drafts (implementation may start before the freeze) | P0 | 1.0 | done (pending owner review) | none |
-| M3 | Experiments | M1 freeze, M2 | P0 | 0.5 | in progress: complete planned matrix run (1,560 of 1,560 runs ok), analysed and recorded; the three standalone 11.3 reports are still to be written | EXP reports |
-| M4 | Interpretation | M3 | P0 | 1.0 | not started | M3 |
+| M3 | Experiments | M1 freeze, M2 | P0 | 0.5 | done (2026-11-25): 1,560 of 1,560 runs ok; reports written (D-013) | none |
+| M4 | Interpretation | M3 | P0 | 1.0 | done (2026-11-25) | M3 |
 | M5 | Interactive experience | M3 results (demo shell may start at M2) | P1 | 1.0 | not started | none |
 | M6 | Release candidate | M4, M5 | P0 | 0.5 | not started | owner approval for any publication (G-PUBLIC) |
 
@@ -38,13 +38,13 @@ If the five-day target is threatened, cut in this order: optional EXP-003 sub-an
 
 - Deliverables: smoke run; frozen matrices EXP-001 to EXP-003; raw machine-readable results; plots with uncertainty; a standalone report per experiment generated as each finishes.
 - Acceptance: complete planned matrix or documented failure; no silently dropped runs; provenance captured at run time.
-- Status: in progress (2026-11-25). Smoke and metric validation done (JRN-0006). Every frozen matrix ran in full at `bd9e146`: EXP-001 180, EXP-002 240, EXP-003 1,140 runs, 0 failed (JRN-0007 to JRN-0009). Frozen analysis (D-011), generated tables and FIG-001 to FIG-003, claims CLM-001 to CLM-011, D-012. Gate condition "complete planned matrix" holds; M3 is not marked done because the standalone experiment reports (11.3) are not yet written.
+- Status: in progress (2026-11-25). Smoke and metric validation done (JRN-0006). Every frozen matrix ran in full at `bd9e146`: EXP-001 180, EXP-002 240, EXP-003 1,140 runs, 0 failed (JRN-0007 to JRN-0009). Frozen analysis (D-011), generated tables and FIG-001 to FIG-003, claims CLM-001 to CLM-011, D-012. Gate condition "complete planned matrix" holds. The standalone reports were written on the owner's approval (D-013); M3 done 2026-11-25 (status line updated at M4).
 
 ## M4: Interpretation (with 11.6 additions)
 
 - Deliverables: confounder inspection, sensitivity analyses, expected versus observed, claims register, limitations, finished experiment reports, evidence audit, integrated manuscript including contradictory results.
 - Acceptance: every numerical claim maps to result id, config and figure; every external claim maps to a verified source; second review pass challenges the preferred hypothesis.
-- Status: not started.
+- Status: done (2026-11-25). Interpretation and confounder review (`research/publication/interpretation.md`), exploratory checks E1 to E3 (JRN-0010), claims register CLM-001 to CLM-026, evidence audit (`research/publication/evidence_audit.md`, JRN-0011), integrated manuscript and supplement drafted, second review pass (`research/publication/review_pass_2.md`) with revisions applied, D-014. Gate: every numerical claim maps to a result id, config and figure or table; every external claim to a source with recorded access status.
 
 ## M5: Interactive experience (with 11.6 additions)
 

@@ -1,6 +1,449 @@
 {
-  "schema_version": "0.1.0",
-  "project": "TRUST",
-  "status": "M0: no artifacts generated yet",
-  "artifacts": []
+ "schema_version": "1.0.0",
+ "project": "TRUST",
+ "status": "M4 evidence manifest",
+ "generated_by": "scripts/audit_evidence.py",
+ "generator_revision": {
+  "revision": "eaaef1a01c27ae13d241a8a696166252f5faec79",
+  "dirty": true
+ },
+ "study_protocol_sha256": "3226e302fb4758327d50a5f583026d469d7ccbc5ad7c72b458fcd8bf2b702f03",
+ "run_code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1",
+ "artifacts": [
+  {
+   "artifact": "Table 1",
+   "experiment": "EXP-001",
+   "run_ids": "RUN-EXP-001-c00-s000 to RUN-EXP-001-c08-s019",
+   "metric": "D = Kendall tau-b(arm) minus tau-b(MEAN) against true quality theta over the evaluated products (unitless); arm SHRINK_5",
+   "result_path": "results/confirmatory/analysis/EXP-001.json",
+   "generator": "scripts/analyse_confirmatory.py",
+   "config_sha256": {
+    "experiments/EXP-001.json": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279"
+   },
+   "protocol_sha256": {
+    "research/experiments/EXP-001/protocol.md": "27766885e692caa61253528fe5d959ab25f4b64db65bfde28c301671df31ce50"
+   },
+   "code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1 (runs)"
+  },
+  {
+   "artifact": "FIG-001",
+   "experiment": "EXP-001",
+   "run_ids": "RUN-EXP-001-*",
+   "metric": "D = Kendall tau-b(arm) minus tau-b(MEAN) against true quality theta over the evaluated products (unitless); arm SHRINK_5",
+   "result_path": "research/experiments/EXP-001/figures/FIG-001.svg",
+   "generator": "scripts/analyse_confirmatory.py",
+   "config_sha256": {
+    "experiments/EXP-001.json": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279"
+   },
+   "protocol_sha256": {
+    "research/experiments/EXP-001/protocol.md": "27766885e692caa61253528fe5d959ab25f4b64db65bfde28c301671df31ce50"
+   },
+   "code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1 (runs)"
+  },
+  {
+   "artifact": "Table 2",
+   "experiment": "EXP-002",
+   "run_ids": "RUN-EXP-002-c00-s000 to RUN-EXP-002-c11-s019",
+   "metric": "Same-seed paired difference of D between factor levels, averaged over strata",
+   "result_path": "results/confirmatory/analysis/EXP-002.json",
+   "generator": "scripts/analyse_confirmatory.py",
+   "config_sha256": {
+    "experiments/EXP-002.json": "325df0660716aa3be368cd85ae912184139617bc1b217488a7a98e79bf6b5bd9"
+   },
+   "protocol_sha256": {
+    "research/experiments/EXP-002/protocol.md": "47459d4b5c8d0f9ab2911be068929c6ada9253ec7a601004893c731b0b1fcf27"
+   },
+   "code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1 (runs)"
+  },
+  {
+   "artifact": "FIG-002",
+   "experiment": "EXP-002",
+   "run_ids": "RUN-EXP-002-*",
+   "metric": "as Table 2",
+   "result_path": "research/experiments/EXP-002/figures/FIG-002.svg",
+   "generator": "scripts/analyse_confirmatory.py",
+   "config_sha256": {
+    "experiments/EXP-002.json": "325df0660716aa3be368cd85ae912184139617bc1b217488a7a98e79bf6b5bd9"
+   },
+   "protocol_sha256": {
+    "research/experiments/EXP-002/protocol.md": "47459d4b5c8d0f9ab2911be068929c6ada9253ec7a601004893c731b0b1fcf27"
+   },
+   "code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1 (runs)"
+  },
+  {
+   "artifact": "Table 3",
+   "experiment": "EXP-003",
+   "run_ids": "RUN-EXP-003-<S>-* for S1-min1, S1-min5, S2, S3, S4",
+   "metric": "D = Kendall tau-b(arm) minus tau-b(MEAN) against true quality theta over the evaluated products (unitless)",
+   "result_path": "results/confirmatory/analysis/EXP-003.json",
+   "generator": "scripts/analyse_confirmatory.py",
+   "config_sha256": {
+    "experiments/EXP-003-S1-min1.json": "7e9683ea0e8f31689e5846474b0f15175aaaa1cc04dbc7cd20675729fe60a564",
+    "experiments/EXP-003-S1-min5.json": "5b948ab09d3fb99421c487b14ddd1fb644ff71e33d7e49bc75597fbdc69ddc89",
+    "experiments/EXP-003-S2.json": "fecaa2f8523f360fd5270a3481222e47aea88c27dc125a58c44592aefb22ff18",
+    "experiments/EXP-003-S3.json": "4385405824d78de6b48b14392d094df0277c7cf4bfec44dc359668dc2768d4d7",
+    "experiments/EXP-003-S4.json": "e788afa2ac3733cb22ff639d558c285fefea89aa47814025407ccdfcb3054d89"
+   },
+   "protocol_sha256": {
+    "research/experiments/EXP-003/protocol.md": "cb4568fa37e4feaa1bd1a79a71fafa47a96fcad13d8b8b2d6605932c71b19b81"
+   },
+   "code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1 (runs)"
+  },
+  {
+   "artifact": "FIG-003",
+   "experiment": "EXP-003",
+   "run_ids": "as Table 3",
+   "metric": "D = Kendall tau-b(arm) minus tau-b(MEAN) against true quality theta over the evaluated products (unitless)",
+   "result_path": "research/experiments/EXP-003/figures/FIG-003.svg",
+   "generator": "scripts/analyse_confirmatory.py",
+   "config_sha256": {
+    "experiments/EXP-003-S1-min1.json": "7e9683ea0e8f31689e5846474b0f15175aaaa1cc04dbc7cd20675729fe60a564",
+    "experiments/EXP-003-S1-min5.json": "5b948ab09d3fb99421c487b14ddd1fb644ff71e33d7e49bc75597fbdc69ddc89",
+    "experiments/EXP-003-S2.json": "fecaa2f8523f360fd5270a3481222e47aea88c27dc125a58c44592aefb22ff18",
+    "experiments/EXP-003-S3.json": "4385405824d78de6b48b14392d094df0277c7cf4bfec44dc359668dc2768d4d7",
+    "experiments/EXP-003-S4.json": "e788afa2ac3733cb22ff639d558c285fefea89aa47814025407ccdfcb3054d89"
+   },
+   "protocol_sha256": {
+    "research/experiments/EXP-003/protocol.md": "cb4568fa37e4feaa1bd1a79a71fafa47a96fcad13d8b8b2d6605932c71b19b81"
+   },
+   "code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1 (runs)"
+  },
+  {
+   "artifact": "Table S1",
+   "experiment": "all",
+   "run_ids": "all 1,560 runs",
+   "metric": "run counts by status",
+   "result_path": "results/confirmatory/*/results.json",
+   "generator": "scripts/audit_evidence.py",
+   "config_sha256": {},
+   "protocol_sha256": {},
+   "code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1 (runs)"
+  },
+  {
+   "artifact": "Table S2",
+   "experiment": "EXP-001",
+   "run_ids": "RUN-EXP-001-*",
+   "metric": "D = Kendall tau-b(arm) minus tau-b(MEAN) against true quality theta over the evaluated products (unitless)",
+   "result_path": "research/experiments/EXP-001/results_tables.md",
+   "generator": "scripts/analyse_confirmatory.py",
+   "config_sha256": {
+    "experiments/EXP-001.json": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279"
+   },
+   "protocol_sha256": {
+    "research/experiments/EXP-001/protocol.md": "27766885e692caa61253528fe5d959ab25f4b64db65bfde28c301671df31ce50"
+   },
+   "code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1 (runs)"
+  },
+  {
+   "artifact": "Table S3",
+   "experiment": "EXP-002",
+   "run_ids": "RUN-EXP-002-*",
+   "metric": "D = Kendall tau-b(arm) minus tau-b(MEAN) against true quality theta over the evaluated products (unitless); realised counts from run diagnostics",
+   "result_path": "research/experiments/EXP-002/results_tables.md; results/confirmatory/EXP-002/report.md",
+   "generator": "scripts/analyse_confirmatory.py; trust.cli report",
+   "config_sha256": {
+    "experiments/EXP-002.json": "325df0660716aa3be368cd85ae912184139617bc1b217488a7a98e79bf6b5bd9"
+   },
+   "protocol_sha256": {
+    "research/experiments/EXP-002/protocol.md": "47459d4b5c8d0f9ab2911be068929c6ada9253ec7a601004893c731b0b1fcf27"
+   },
+   "code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1 (runs)"
+  },
+  {
+   "artifact": "Table S4",
+   "experiment": "EXP-003",
+   "run_ids": "RUN-EXP-003-*",
+   "metric": "D = Kendall tau-b(arm) minus tau-b(MEAN) against true quality theta over the evaluated products (unitless)",
+   "result_path": "research/experiments/EXP-003/results_tables.md",
+   "generator": "scripts/analyse_confirmatory.py",
+   "config_sha256": {
+    "experiments/EXP-003-S1-min1.json": "7e9683ea0e8f31689e5846474b0f15175aaaa1cc04dbc7cd20675729fe60a564",
+    "experiments/EXP-003-S1-min5.json": "5b948ab09d3fb99421c487b14ddd1fb644ff71e33d7e49bc75597fbdc69ddc89",
+    "experiments/EXP-003-S2.json": "fecaa2f8523f360fd5270a3481222e47aea88c27dc125a58c44592aefb22ff18",
+    "experiments/EXP-003-S4.json": "e788afa2ac3733cb22ff639d558c285fefea89aa47814025407ccdfcb3054d89"
+   },
+   "protocol_sha256": {
+    "research/experiments/EXP-003/protocol.md": "cb4568fa37e4feaa1bd1a79a71fafa47a96fcad13d8b8b2d6605932c71b19b81"
+   },
+   "code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1 (runs)"
+  },
+  {
+   "artifact": "Table S6 (E1 to E3, exploratory)",
+   "experiment": "EXP-001 (exploratory reuse)",
+   "run_ids": "RUN-EXP-001-*; RUN-EXP-003-S1-min1-*",
+   "metric": "arm minus MEAN on tau-b, Spearman, precision at 10, regret at 10 (stars), RMSE (stars); tie shares",
+   "result_path": "results/exploratory/m4-sensitivity/m4_exploratory.json",
+   "generator": "scripts/m4_exploratory.py",
+   "config_sha256": {
+    "experiments/EXP-001.json": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279",
+    "experiments/EXP-003-S1-min1.json": "7e9683ea0e8f31689e5846474b0f15175aaaa1cc04dbc7cd20675729fe60a564"
+   },
+   "protocol_sha256": {
+    "research/experiments/EXP-001/protocol.md": "27766885e692caa61253528fe5d959ab25f4b64db65bfde28c301671df31ce50"
+   },
+   "code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1 (runs); 4a2b47861ffd4cdcda08b407b7e75a5336490fb8 (exploratory)"
+  }
+ ],
+ "claims": [
+  {
+   "claim_id": "CLM-001",
+   "type": "measured (simulated, confirmatory)",
+   "result_id": "EXP-001 H1; RUN-EXP-001-c00-s000 to c08-s019",
+   "config_sha256": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279",
+   "figure_or_table": "FIG-001; Table 1",
+   "manuscript_section": "5.1",
+   "evidence_path_or_source": "results/confirmatory/analysis/EXP-001.json#H1; results/confirmatory/EXP-001/results.json; FIG-001; config bb3bec3b; revision bd9e146",
+   "status": "supported by frozen rule; must be stated together with CLM-002"
+  },
+  {
+   "claim_id": "CLM-002",
+   "type": "measured (simulated, confirmatory)",
+   "result_id": "EXP-001 D_sigma (A-2); RUN-EXP-001-*",
+   "config_sha256": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279",
+   "figure_or_table": "FIG-001; Table 1",
+   "manuscript_section": "5.1",
+   "evidence_path_or_source": "results/confirmatory/analysis/EXP-001.json#D_sigma; FIG-001",
+   "status": "measured; descriptive (A-2, outside Holm)"
+  },
+  {
+   "claim_id": "CLM-003",
+   "type": "measured (simulated, confirmatory)",
+   "result_id": "EXP-001 H1b; RUN-EXP-001-*",
+   "config_sha256": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279",
+   "figure_or_table": "Table 1; Table S2",
+   "manuscript_section": "5.1, 5.4",
+   "evidence_path_or_source": "results/confirmatory/analysis/EXP-001.json#H1b",
+   "status": "contradicted under frozen rule"
+  },
+  {
+   "claim_id": "CLM-004",
+   "type": "measured (simulated, confirmatory)",
+   "result_id": "EXP-001 Holm family (H1c); RUN-EXP-001-*",
+   "config_sha256": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279",
+   "figure_or_table": "Section 5.1 text; Table S2",
+   "manuscript_section": "5.1",
+   "evidence_path_or_source": "results/confirmatory/analysis/EXP-001.json#holm",
+   "status": "not supported"
+  },
+  {
+   "claim_id": "CLM-005",
+   "type": "measured (simulated, confirmatory, secondary)",
+   "result_id": "EXP-001 Holm family; RUN-EXP-001-*",
+   "config_sha256": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279",
+   "figure_or_table": "Section 5.1 text; Table S2",
+   "manuscript_section": "5.1",
+   "evidence_path_or_source": "results/confirmatory/analysis/EXP-001.json#secondary",
+   "status": "secondary; Holm with bootstrap p-values (D-011)"
+  },
+  {
+   "claim_id": "CLM-006",
+   "type": "measured (simulated, confirmatory)",
+   "result_id": "EXP-002 lambda contrast; RUN-EXP-002-c00-s000 to c11-s019",
+   "config_sha256": "325df0660716aa3be368cd85ae912184139617bc1b217488a7a98e79bf6b5bd9",
+   "figure_or_table": "FIG-002; Table 2",
+   "manuscript_section": "5.2",
+   "evidence_path_or_source": "results/confirmatory/analysis/EXP-002.json#contrasts; FIG-002",
+   "status": "no detected average difference; frozen per-stratum rule not met"
+  },
+  {
+   "claim_id": "CLM-007",
+   "type": "measured (simulated, confirmatory)",
+   "result_id": "EXP-002 gamma contrasts; RUN-EXP-002-*",
+   "config_sha256": "325df0660716aa3be368cd85ae912184139617bc1b217488a7a98e79bf6b5bd9",
+   "figure_or_table": "FIG-002; Table 2",
+   "manuscript_section": "5.2",
+   "evidence_path_or_source": "results/confirmatory/analysis/EXP-002.json#contrasts; FIG-002",
+   "status": "detected difference (Holm)"
+  },
+  {
+   "claim_id": "CLM-008",
+   "type": "measured (simulated, confirmatory)",
+   "result_id": "EXP-003 S2; RUN-EXP-003-S2-*",
+   "config_sha256": "fecaa2f8523f360fd5270a3481222e47aea88c27dc125a58c44592aefb22ff18",
+   "figure_or_table": "FIG-003; Table 3; Table S4",
+   "manuscript_section": "5.3",
+   "evidence_path_or_source": "results/confirmatory/analysis/EXP-003.json#S2; FIG-003",
+   "status": "invalidation criterion met"
+  },
+  {
+   "claim_id": "CLM-009",
+   "type": "measured (simulated, confirmatory)",
+   "result_id": "EXP-003 S1; RUN-EXP-003-S1-min1-* and S1-min5-*",
+   "config_sha256": "7e9683ea0e8f31689e5846474b0f15175aaaa1cc04dbc7cd20675729fe60a564 / 5b948ab09d3fb99421c487b14ddd1fb644ff71e33d7e49bc75597fbdc69ddc89",
+   "figure_or_table": "FIG-003; Table 3; Table S4",
+   "manuscript_section": "5.3",
+   "evidence_path_or_source": "results/confirmatory/analysis/EXP-003.json#S1; FIG-003",
+   "status": "S1 criterion not met"
+  },
+  {
+   "claim_id": "CLM-010",
+   "type": "measured (simulated, confirmatory)",
+   "result_id": "EXP-003 S4; RUN-EXP-003-S4-*",
+   "config_sha256": "e788afa2ac3733cb22ff639d558c285fefea89aa47814025407ccdfcb3054d89",
+   "figure_or_table": "FIG-003; Table 3; Table S4",
+   "manuscript_section": "5.3",
+   "evidence_path_or_source": "results/confirmatory/analysis/EXP-003.json#S4; FIG-003",
+   "status": "invalidation criterion met"
+  },
+  {
+   "claim_id": "CLM-011",
+   "type": "measured and analytic (simulated)",
+   "result_id": "EXP-003 S3; RUN-EXP-003-S3-*",
+   "config_sha256": "4385405824d78de6b48b14392d094df0277c7cf4bfec44dc359668dc2768d4d7",
+   "figure_or_table": "Table 3",
+   "manuscript_section": "5.3",
+   "evidence_path_or_source": "results/confirmatory/analysis/EXP-003.json#S3; research/decision_log.md D-012",
+   "status": "criterion not met, vacuously"
+  },
+  {
+   "claim_id": "CLM-012",
+   "type": "exploratory (simulated, JRN-0010)",
+   "result_id": "E1 on committed EXP-001 results",
+   "config_sha256": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279",
+   "figure_or_table": "Table S6 (E1)",
+   "manuscript_section": "5.4, 6",
+   "evidence_path_or_source": "results/exploratory/m4-sensitivity/m4_exploratory.json#E1",
+   "status": "exploratory; changes no frozen verdict"
+  },
+  {
+   "claim_id": "CLM-013",
+   "type": "exploratory (simulated, JRN-0010)",
+   "result_id": "E2, regenerated EXP-001 catalogues",
+   "config_sha256": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279",
+   "figure_or_table": "Section S6 (E2)",
+   "manuscript_section": "5.4",
+   "evidence_path_or_source": "results/exploratory/m4-sensitivity/m4_exploratory.json#E2",
+   "status": "exploratory"
+  },
+  {
+   "claim_id": "CLM-014",
+   "type": "exploratory (simulated, JRN-0010)",
+   "result_id": "E1 (LCB) on committed EXP-001 results",
+   "config_sha256": "bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279",
+   "figure_or_table": "Table S6 (E1)",
+   "manuscript_section": "5.4, 6",
+   "evidence_path_or_source": "results/exploratory/m4-sensitivity/m4_exploratory.json#E1_LCB",
+   "status": "exploratory; hypothesis for a follow-up"
+  },
+  {
+   "claim_id": "CLM-015",
+   "type": "exploratory (simulated, JRN-0010)",
+   "result_id": "E3 on committed EXP-003-S1-min1 results",
+   "config_sha256": "7e9683ea0e8f31689e5846474b0f15175aaaa1cc04dbc7cd20675729fe60a564",
+   "figure_or_table": "Table S6 (E3)",
+   "manuscript_section": "5.4, 6",
+   "evidence_path_or_source": "results/exploratory/m4-sensitivity/m4_exploratory.json#E3",
+   "status": "exploratory interpretation"
+  },
+  {
+   "claim_id": "CLM-016",
+   "type": "measured (simulated, confirmatory, descriptive)",
+   "result_id": "EXP-002 run diagnostics; RUN-EXP-002-*",
+   "config_sha256": "325df0660716aa3be368cd85ae912184139617bc1b217488a7a98e79bf6b5bd9",
+   "figure_or_table": "Table S3",
+   "manuscript_section": "5.2",
+   "evidence_path_or_source": "results/confirmatory/EXP-002/report.md#Cells; results/confirmatory/EXP-002/results.json",
+   "status": "descriptive"
+  },
+  {
+   "claim_id": "CLM-017",
+   "type": "exploratory fit (JRN-0005), real data used for calibration only",
+   "result_id": "data/calibration/movielens-1m-fit.json",
+   "config_sha256": "fit record SHA-256 in research/freeze.json (real_data.fit_record)",
+   "figure_or_table": "Section 4.2",
+   "manuscript_section": "4.2",
+   "evidence_path_or_source": "data/calibration/movielens-1m-fit.json; research/protocol.md 13.3",
+   "status": "measured (calibration)"
+  },
+  {
+   "claim_id": "CLM-018",
+   "type": "measured (provenance)",
+   "result_id": "results/confirmatory/*/run_manifest.json; provenance.csv",
+   "config_sha256": "see Table S5",
+   "figure_or_table": "Table S1",
+   "manuscript_section": "4.5; S1",
+   "evidence_path_or_source": "results/confirmatory/provenance.csv; research/publication/evidence_audit.json#sample_counts",
+   "status": "verified by audit"
+  },
+  {
+   "claim_id": "CLM-019",
+   "type": "external",
+   "result_id": "miller2009",
+   "config_sha256": "n/a",
+   "figure_or_table": "n/a",
+   "manuscript_section": "1, 2",
+   "evidence_path_or_source": "miller2009 (opened 2026-11-24)",
+   "status": "source read"
+  },
+  {
+   "claim_id": "CLM-020",
+   "type": "external",
+   "result_id": "miller2014",
+   "config_sha256": "n/a",
+   "figure_or_table": "n/a",
+   "manuscript_section": "2, 3; EXP-003 report 3",
+   "evidence_path_or_source": "miller2014 (opened 2026-11-24; re-opened 2026-11-25 to verify the approximation statement)",
+   "status": "source read"
+  },
+  {
+   "claim_id": "CLM-021",
+   "type": "external",
+   "result_id": "miller2012",
+   "config_sha256": "n/a",
+   "figure_or_table": "n/a",
+   "manuscript_section": "1, 2",
+   "evidence_path_or_source": "miller2012 (opened 2026-11-24)",
+   "status": "source read"
+  },
+  {
+   "claim_id": "CLM-022",
+   "type": "external",
+   "result_id": "algolia",
+   "config_sha256": "n/a",
+   "figure_or_table": "n/a",
+   "manuscript_section": "1, 2",
+   "evidence_path_or_source": "algolia (opened 2026-11-24)",
+   "status": "source read"
+  },
+  {
+   "claim_id": "CLM-023",
+   "type": "external",
+   "result_id": "efron1975",
+   "config_sha256": "n/a",
+   "figure_or_table": "n/a",
+   "manuscript_section": "1, 2; EXP-001 and EXP-003 reports 3",
+   "evidence_path_or_source": "efron1975: first page only read",
+   "status": "partially read"
+  },
+  {
+   "claim_id": "CLM-024",
+   "type": "external",
+   "result_id": "hu2007wp",
+   "config_sha256": "n/a",
+   "figure_or_table": "n/a",
+   "manuscript_section": "2; EXP-002 report 3",
+   "evidence_path_or_source": "hu2007wp: title page and abstract only",
+   "status": "abstract only"
+  },
+  {
+   "claim_id": "CLM-025",
+   "type": "external",
+   "result_id": "li2008",
+   "config_sha256": "n/a",
+   "figure_or_table": "n/a",
+   "manuscript_section": "2; EXP-002 report 3",
+   "evidence_path_or_source": "li2008: abstract only",
+   "status": "abstract only"
+  },
+  {
+   "claim_id": "CLM-026",
+   "type": "external",
+   "result_id": "harper2015",
+   "config_sha256": "n/a",
+   "figure_or_table": "n/a",
+   "manuscript_section": "Front matter; 4.2",
+   "evidence_path_or_source": "harper2015: metadata only (citation from dataset documentation)",
+   "status": "metadata only"
+  }
+ ]
 }

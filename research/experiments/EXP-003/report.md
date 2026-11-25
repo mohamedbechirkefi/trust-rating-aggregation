@@ -30,7 +30,7 @@ All numbers are simulated. Every number is copied from `research/experiments/EXP
 
 ## 3. Rationale
 
-Shrinkage gains depend on the prior (Efron and Morris 1975), and Miller (2014) notes that the lower-bound method is approximate. The checks target the assumptions the EXP-001 result could silently depend on: zero-review imputation, the prior centre, the truth definition under selection and the match between the prior family and the population.
+Shrinkage pulls estimates towards a chosen target (Efron and Morris 1975, first page only read), so its gains can depend on that target; and Miller (2014) notes that the lower-bound method is approximate. The checks target the assumptions the EXP-001 result could silently depend on: zero-review imputation, the prior centre, the truth definition under selection and the match between the prior family and the population.
 
 ## 4. Hypotheses and operational definitions
 

@@ -210,3 +210,43 @@ Write the three standalone reports from the generated tables, then M4. The owner
 ## 2026-11-25: M3 done (coordinator)
 
 The owner approved the experiment reports (owner, 2026-11-25, "approve all recommendations, RIGGED A", item 4). Subagents may not write report files, so the reports were composed by the M3 session from committed results only and written by the coordinator: 3 report(s). The coordinator checked that every decimal number in them appears in a committed file. With the complete matrices (or documented failures) recorded above, the M3 gate holds. M3 is **done**. Next: M4 (interpretation), not started.
+
+## 2026-11-25: M4 interpretation, evidence audit and manuscript
+
+**Milestone:** M4. **Actor:** AI assistant, under the M4 brief (owner, 2026-11-25, "Approve all recommendations, push then next"). Nothing pushed; no paid service; no download. The 25b approvals contain no TRUST-specific follow-up.
+
+### Commands and actual outputs
+
+| Command | Output |
+|---|---|
+| `git status`; `git log -1` | clean; `cad0c35` |
+| `PYTHONPATH=src nice -n 10 .venv/bin/python scripts/m4_exploratory.py` (first run) | E1 to E3 written; manifest `dirty: true` (uncommitted script edits) |
+| same, after committing the script and outputs | identical result files; manifest clean at `4a2b478` (JRN-0010) |
+| `PYTHONPATH=src .venv/bin/python scripts/audit_evidence.py` (final) | freeze hashes 12/12; generated artifacts 20/20; checksums 70/70; re-analysis 0 differences for EXP-001, EXP-002, EXP-003; 1,560/1,560 runs ok; 236 interval triples and 1,464 decimals traced, 0 unmatched |
+| WebFetch of miller2014 (free, public page) | confirms "the method here is not exact" and "a normal approximation" |
+| `pandoc research/paper/manuscript.md -s -t latex` with SPDX header | `research/paper/manuscript.tex` regenerated (not compiled; no TeX) |
+| `.venv/bin/python -m pytest -q` | `165 passed` |
+
+The first version of the audit's number trace was far too permissive (a random four-decimal number matched 63% of the time); it was narrowed, a strict interval-triple trace was added, and the measured chance-match rate is now reported with the audit.
+
+### Done
+
+1. Confounder and sensitivity review per conclusion, expected versus observed table: `research/publication/interpretation.md`.
+2. Exploratory checks (`scripts/m4_exploratory.py`, `results/exploratory/m4-sensitivity/`): E1 noise sign pattern holds on all five metrics; LCB better on top-10 metrics at sigma 1.5. E2 ties depend on `nu`, not sigma. E3 H1b increase at sigma 1.5 is mostly dilution.
+3. Claims register: new columns; CLM-012 to CLM-026; CLM-003, CLM-004, CLM-009 qualified.
+4. Evidence audit (`scripts/audit_evidence.py`, `research/publication/evidence_audit.md` and `.json`, `artifact_manifest.json`); fixes F1 to F9 (citation scope, access status, stale README and registry, addenda).
+5. Manuscript and supplement drafted to 11.4 (about 5,300 words); second review pass and revisions (`research/publication/review_pass_2.md`).
+6. Records: limitations, D-014, journal JRN-0010 and JRN-0011, literature review audit note, roadmap.
+
+### Deviations
+
+None from frozen protocols, configs or seeds; no confirmatory rerun.
+
+### Risks
+
+- The frozen headline "H1 supported" is easy to misquote; public text should lead with the conditional statement.
+- The manuscript's `[@key]` citations are not yet rendered by citeproc; the PDF build is M6.
+
+### Next action
+
+M5 (interactive explorer, identical numbers and labels), when the coordinator schedules it. The owner may want to read `research/publication/review_pass_2.md` section 7.

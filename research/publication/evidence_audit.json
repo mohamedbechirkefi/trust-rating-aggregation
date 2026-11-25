@@ -7,14 +7,18 @@
   "files": 12,
   "mismatches": []
  },
+ "generated_artifacts": {
+  "files": 20,
+  "mismatches": []
+ },
  "generator": "scripts/audit_evidence.py",
  "git": {
   "dirty": true,
-  "revision": "6d13cfcc019074a41535b8420aefc948665b7b29"
+  "revision": "eaaef1a01c27ae13d241a8a696166252f5faec79"
  },
  "interval_trace": {
   "research/claims_register.csv": {
-   "triples": 15,
+   "triples": 17,
    "unmatched": []
   },
   "research/experiments/EXP-001/report.md": {
@@ -34,25 +38,37 @@
    "unmatched": []
   },
   "research/paper/manuscript.md": {
-   "triples": 0,
+   "triples": 25,
    "unmatched": []
   },
   "research/paper/supplementary.md": {
+   "triples": 92,
+   "unmatched": []
+  },
+  "research/publication/evidence_audit.md": {
    "triples": 0,
+   "unmatched": []
+  },
+  "research/publication/interpretation.md": {
+   "triples": 6,
+   "unmatched": []
+  },
+  "research/publication/review_pass_2.md": {
+   "triples": 1,
    "unmatched": []
   }
  },
  "number_trace": {
   "research/claims_register.csv": {
-   "decimal_numbers": 64,
+   "decimal_numbers": 108,
    "unmatched": []
   },
   "research/experiments/EXP-001/report.md": {
-   "decimal_numbers": 210,
+   "decimal_numbers": 218,
    "unmatched": []
   },
   "research/experiments/EXP-002/report.md": {
-   "decimal_numbers": 207,
+   "decimal_numbers": 210,
    "unmatched": []
   },
   "research/experiments/EXP-003/report.md": {
@@ -60,22 +76,34 @@
    "unmatched": []
   },
   "research/limitations.md": {
-   "decimal_numbers": 6,
+   "decimal_numbers": 9,
    "unmatched": []
   },
   "research/paper/manuscript.md": {
-   "decimal_numbers": 1,
+   "decimal_numbers": 227,
    "unmatched": []
   },
   "research/paper/supplementary.md": {
-   "decimal_numbers": 1,
+   "decimal_numbers": 381,
+   "unmatched": []
+  },
+  "research/publication/evidence_audit.md": {
+   "decimal_numbers": 16,
+   "unmatched": []
+  },
+  "research/publication/interpretation.md": {
+   "decimal_numbers": 112,
+   "unmatched": []
+  },
+  "research/publication/review_pass_2.md": {
+   "decimal_numbers": 22,
    "unmatched": []
   }
  },
  "number_trace_chance_match_rate_in_[-0.1,0.1]": {
   "2dp": 1.0,
-  "3dp": 0.7,
-  "4dp": 0.537
+  "3dp": 0.7845,
+  "4dp": 0.544
  },
  "reanalysis": {
   "EXP-001": {

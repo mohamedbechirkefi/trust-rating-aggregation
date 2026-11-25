@@ -3,7 +3,7 @@
 
 **Question.** When do average ratings misrank products compared with uncertainty-aware estimators?
 
-**Status: protocol v1.0 frozen by the owner on 2026-11-24 (`research/freeze.json`); no registered experiment has been run and there are no findings.** Only exploratory, simulated smoke and pilot runs exist (`results/exploratory/`), and they are not evidence.
+**Status: protocol v1.0 frozen by the owner on 2026-11-24 (`research/freeze.json`); all three registered experiments ran in full on 2026-11-24 (1,560 of 1,560 simulated runs ok) and have standalone reports. The integrated manuscript is a draft (M4): independent research manuscript / preprint draft, not peer-reviewed.** All results are simulated. In this model, shrinkage towards the catalogue mean ranks better than the average rating when ratings are noisy and worse when they are precise, and the advantage reverses under a misspecified shrinkage centre or population shape (`research/paper/manuscript.md`).
 
 ## Why it matters
 
@@ -14,19 +14,19 @@ Ranking products by their average star rating lets products with very few review
 - Control files: `CLAUDE.md`, `roadmap.md`, `progress.md`.
 - Draft protocol: `research/protocol.md`; registered experiments in `research/experiment_registry.csv`.
 - Literature scoping: `research/literature_review.md`. Data candidates and their licences: `data/manifest.json`.
-- Manuscript skeleton: `research/paper/manuscript.md`.
+- Manuscript draft: `research/paper/manuscript.md` and `research/paper/supplementary.md`; experiment reports `research/experiments/EXP-00N/report.md`; evidence audit `research/publication/evidence_audit.md`.
 
 - Engine (M2): `src/trust/` (simulation, MEAN, SHRINK, LCB, metrics, runner, versioned schemas, run manifests, report generator, CLI) and `tests/`.
 
-What is not implemented yet: the confirmatory experiments (frozen, scheduled for M3), their reports, the manuscript results and the demo.
+What is not implemented yet: the demo (M5) and the release package (M6).
 
 ## Experiments
 
 | ID | Title | Status |
 |---|---|---|
-| EXP-001 | Mean versus uncertainty-aware ranking under random reporting | frozen (owner-approved 2026-11-24), not yet run |
-| EXP-002 | Reporting selection and quality-dependent missingness | frozen (owner-approved 2026-11-24), not yet run |
-| EXP-003 | Sensitivity analyses that could invalidate the main interpretation | frozen (owner-approved 2026-11-24), not yet run |
+| EXP-001 | Mean versus uncertainty-aware ranking under random reporting | complete (confirmatory); report in `research/experiments/EXP-001/report.md` |
+| EXP-002 | Reporting selection and quality-dependent missingness | complete (confirmatory); report in `research/experiments/EXP-002/report.md` |
+| EXP-003 | Sensitivity analyses that could invalidate the main interpretation | complete (confirmatory); report in `research/experiments/EXP-003/report.md` |
 
 ## Quick start
 

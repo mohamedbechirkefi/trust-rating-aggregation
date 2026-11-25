@@ -28,7 +28,7 @@ All numbers below are simulated and hold only under the model of `research/proto
 
 ## 3. Rationale
 
-Efron and Morris (1975) show that Stein-type shrinkage lowers total squared error relative to separate means. Miller (2009, 2014) argues that sorting by a raw average promotes items with few ratings and proposes lower bounds. These sources support the mechanism, not the size or sign of a ranking effect in a given population (`research/literature_review.md`). The gap addressed here: whether lower squared error translates into better whole-list rank recovery, and under which review-count and noise conditions.
+Efron and Morris (1975) study Stein-type estimators that shrink separate means towards a common value (only the first page was read for this project, so the paper is cited for that general idea, not for a specific result). Miller (2009, 2014) argues that sorting by a raw average promotes items with few ratings and proposes lower bounds. These sources support the mechanism, not the size or sign of a ranking effect in a given population (`research/literature_review.md`). The gap addressed here: whether lower squared error translates into better whole-list rank recovery, and under which review-count and noise conditions.
 
 ## 4. Hypotheses and operational definitions
 
@@ -137,7 +137,7 @@ H1c is not supported: the centred LCB ranks clearly worse than the mean at every
 
 **Measured observations.** Under this model, SHRINK_5 ranks slightly better than MEAN on average over the grid, worse when noise is low and better when it is high. The centred LCB ranks worse than MEAN everywhere.
 
-**Model-dependent inference.** At low noise a few ratings already place a product well, so pulling data-poor products towards `m` mainly moves genuinely good or bad products into the middle and costs rank accuracy. At high noise the variance reduction dominates. This fits the bias-variance reading of Efron and Morris. It does not support the simpler reading "shrinkage always helps with few reviews", but this experiment does not test any source directly.
+**Model-dependent inference.** At low noise a few ratings already place a product well, so pulling data-poor products towards `m` mainly moves genuinely good or bad products into the middle and costs rank accuracy. At high noise the variance reduction dominates. This fits a bias-variance reading of shrinkage. It does not support the simpler reading "shrinkage always helps with few reviews", but this experiment does not test any source directly.
 
 **Dependence on the grid.** With equal weight on sigma 0.5, 1.0 and 1.5, the two positive levels outweigh the negative one. A grid weighted towards precise ratings would give a negative `Dbar`. The MovieLens reference noise (sigma 1.05, protocol section 13.3) lies near the middle level, but carrying it over to products is an assumption.
 
@@ -153,6 +153,14 @@ H1c is not supported: the centred LCB ranks clearly worse than the mean at every
 ## 11. Conclusion and next experiment
 
 Under the frozen rule, H1 is supported (`Dbar = 0.0046`, one-sided lower bound 0.0032), but the direction depends on rating noise: shrinkage hurts rank recovery at sigma 0.5 and helps at sigma 1.0 and 1.5. H1b is contradicted and H1c is not supported. The supported statement is conditional: under this model, accounting for sample size helps ranking when individual ratings are noisy and can hurt when they are precise. A follow-up that registers a sigma-direction hypothesis would be informed by these results and would need a new EXP id and the owner's approval.
+
+## M4 addendum (2026-11-25, exploratory, D-014)
+
+Three exploratory checks made at M4 (JRN-0010; `results/exploratory/m4-sensitivity/m4_exploratory.md`) qualify sections 8 and 9 without changing any frozen verdict:
+
+- **H1b.** Section 8 says that at sigma 1.5 "the advantage grows with `nu`". Among reviewed products (EXP-003 S1 catalogues) `D` at sigma 1.5 is flat: 0.0426, 0.0414 and 0.0405 at `nu` 3, 10 and 30. The growth seen here is largely dilution by unreviewed products, which both arms score identically and which are more common at small `nu`. The verdict (contradicted) stands.
+- **Metric choice.** The sign pattern by noise holds on Spearman, precision at 10, regret at 10 and RMSE as well as tau-b, so it is not a tau-b or tie artefact.
+- **H1c.** LCB is worse than MEAN on whole-list metrics at every noise level, but at sigma 1.5 it is better on precision at 10 (+0.1067, 0.0717 to 0.1417) and regret at 10 (lower by 0.2245 stars). "LCB ranks worse" applies to whole-list recovery.
 
 ## 12. Reproduction appendix
 

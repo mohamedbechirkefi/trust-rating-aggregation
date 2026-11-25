@@ -27,3 +27,13 @@ Status at M0, 2026-11-24: no experiment has been run, so these are anticipated l
 - **Small effect.** `Dbar` is 0.0046 tau-b units, small next to the per-cell tau-b of the arms (`results/confirmatory/EXP-001/report.md`); top-of-list metrics were secondary and untested.
 - **Holm p-value method** was fixed at M3 before data (D-011), not in the frozen text.
 - **Owner-accepted deviations (D-013).** D-011 (bootstrap p-values for the Holm families) and D-012 (S3 non-diagnostic for rank metrics) were accepted by the owner on 2026-11-25 ("approve all recommendations, RIGGED A") and are disclosed wherever the affected results appear.
+
+## After interpretation and the evidence audit (M4, 2026-11-25)
+
+- **Noise dependence seen before the freeze.** The sign change by noise was observed in exploratory pilots under the planning generator (`research/freeze.json`, C4) and motivated amendment A-2. The confirmatory result replicates it; it was not predicted blind.
+- **H1b pattern partly a dilution effect.** The increase of `D` with `nu` at sigma 1.5 largely disappears among reviewed products (exploratory E3, JRN-0010). Unreviewed products are tied under both arms and dilute `D` most where they are most common.
+- **H1c is about whole-list recovery.** On top-of-list metrics the centred LCB beats MEAN at sigma 1.5 in an exploratory check (E1); that check has 30 uncorrected intervals and is a hypothesis, not a finding.
+- **EXP-002 cannot separate selection from sample size** at sigma 1.0, where `D` barely depends on `nu`.
+- **Rounding and clipping near the scale ends** are not separated from population shape by any registered or exploratory analysis.
+- **Pooled estimand depends on grid weights.** The positive `Dbar` would turn negative under a grid weighted towards precise ratings.
+- **Citations.** efron1975 was read on its first page only, hu2007wp and li2008 on their abstracts only, and harper2015 is metadata only; the manuscript cites them for nothing beyond that.

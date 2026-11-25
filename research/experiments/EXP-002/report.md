@@ -28,7 +28,7 @@ All numbers are simulated and hold only under the model of `research/protocol.md
 
 ## 3. Rationale
 
-Hu, Pavlou and Zhang (2007 working paper, opened) describe purchasing and under-reporting biases that make the mean a biased estimator of quality and produce J-shaped rating distributions. Li and Hitt (2008, abstract opened) describe self-selection of early reviewers. These sources motivate the selection model; they do not validate its parameter values. The gap: whether stylised under-reporting and quality-dependent exposure change the relative ranking performance of shrinkage and lower bounds.
+Hu, Pavlou and Zhang (2007 working paper; title page and abstract read) describe purchasing and under-reporting biases that make the mean a biased estimator of quality and produce J-shaped rating distributions. Li and Hitt (2008, abstract opened) describe self-selection of early reviewers. These sources motivate the selection model; they do not validate its parameter values. The gap: whether stylised under-reporting and quality-dependent exposure change the relative ranking performance of shrinkage and lower bounds.
 
 ## 4. Hypotheses and operational definitions
 
@@ -136,6 +136,10 @@ Per-stratum LCB values are in `research/experiments/EXP-002/results_tables.md`.
 ## 11. Conclusion and next experiment
 
 Under this model, reporting selection of the form tested does not change the average advantage of shrinkage over the mean (lambda contrast -0.0001, -0.0015 to 0.0012), while quality-dependent exposure in either direction reduces it (-0.0112 and -0.0091). The frozen per-stratum rule for lambda is formally not met because two of six strata exclude 0 in opposite directions. The lower bound reacts strongly to both factors. A follow-up could cross exposure coupling with rating noise, since EXP-001 shows that noise sets the sign of `D`; it would need a new EXP id and the owner's approval.
+
+## M4 addendum (2026-11-25, D-014)
+
+On competing explanation (b): at sigma 1.0, EXP-001 shows that `D` depends only weakly on `nu` (0.0078, 0.0069, 0.0107). A selection effect acting only through fewer reported ratings would therefore also be small at this noise level, so the null lambda contrast cannot separate selection from reduced sample size. The verdict is unchanged. See `research/publication/interpretation.md`.
 
 ## 12. Reproduction appendix
 
