@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0 -->
 # TRUST roadmap
 
-Target: five focused development days (planning estimate, never a reason to weaken evidence). Effort is in focused days. Status values: done, in progress, not started, blocked. Last updated 2026-11-25 (M5). The owner's full review of the work is the M6 owner review checklist (`research/publication/author_review.md`); no milestone is marked as owner-reviewed before it.
+Target: five focused development days (planning estimate, never a reason to weaken evidence). Effort is in focused days. Status values: done, in progress, not started, blocked. Last updated 2026-11-25 (M6). The owner's full review of the work is the M6 owner review checklist (`research/publication/author_review.md`); no milestone is marked as owner-reviewed before it.
 
 | ID | Milestone | Depends on | Priority | Effort | Status | Blockers |
 |---|---|---|---|---|---|---|
@@ -11,7 +11,7 @@ Target: five focused development days (planning estimate, never a reason to weak
 | M3 | Experiments | M1 freeze, M2 | P0 | 0.5 | done (2026-11-25): 1,560 of 1,560 runs ok; reports written (D-013) | none |
 | M4 | Interpretation | M3 | P0 | 1.0 | done (2026-11-25) | M3 |
 | M5 | Interactive experience | M3 results (demo shell may start at M2) | P1 | 1.0 | done (2026-11-25): static offline demo, gate checks pass (D-016) | none |
-| M6 | Release candidate | M4, M5 | P0 | 0.5 | not started | owner approval for any publication (G-PUBLIC) |
+| M6 | Release candidate | M4, M5 | P0 | 0.5 | release candidate prepared, awaiting owner review and G-PUBLIC | owner sign-off of `research/publication/author_review.md`; owner approval for any publication (G-PUBLIC) |
 
 If the five-day target is threatened, cut in this order: optional EXP-003 sub-analysis S4, demo extras, EXP-002 cells. Never cut controls, reports or the evidence audit.
 
@@ -56,4 +56,4 @@ If the five-day target is threatened, cut in this order: optional EXP-003 sub-an
 
 - Deliverables: clean-clone reproduction, locked install, tests, smoke reproduction, demo build, manifest and link checks, secret and licence scan, compiled and visually inspected PDFs, owner review checklist.
 - Acceptance: actual command outputs recorded; verified facts only; publication only with owner approval.
-- Status: not started.
+- Status: release candidate prepared, awaiting owner review and G-PUBLIC (2026-11-25, D-017). Clean clone at `a5f3abf`: locked install, 173 tests passed, smoke `results.json` byte-identical, demo 28 tests, `A11Y-CHECK PASS`, deterministic export. PDFs: manuscript 13 pages, supplement 6, reports 7, 6 and 6, all inspected. Links, manifests, secret and licence scans in `research/publication/reproducibility_report.md`, `release_checklist.md` and `dependency_licences.md`. Not done until the owner signs off.

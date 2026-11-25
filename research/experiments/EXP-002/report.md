@@ -28,7 +28,7 @@ All numbers are simulated and hold only under the model of `research/protocol.md
 
 ## 3. Rationale
 
-Hu, Pavlou and Zhang (2007 working paper; title page and abstract read) describe purchasing and under-reporting biases that make the mean a biased estimator of quality and produce J-shaped rating distributions. Li and Hitt (2008, abstract opened) describe self-selection of early reviewers. These sources motivate the selection model; they do not validate its parameter values. The gap: whether stylised under-reporting and quality-dependent exposure change the relative ranking performance of shrinkage and lower bounds.
+Hu, Pavlou and Zhang (2007 working paper; abstract and introduction read) describe purchasing and under-reporting biases that make the mean a biased estimator of quality and produce J-shaped rating distributions. Li and Hitt (2008; abstract, and abstract and introduction of a 2007 working-paper version, read) describe self-selection of early reviewers. These sources motivate the selection model; they do not validate its parameter values. The gap: whether stylised under-reporting and quality-dependent exposure change the relative ranking performance of shrinkage and lower bounds.
 
 ## 4. Hypotheses and operational definitions
 

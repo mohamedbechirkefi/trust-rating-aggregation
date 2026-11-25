@@ -68,3 +68,24 @@ No mismatch between a printed number and the raw results was found. No number in
 - Every numerical claim in the manuscript maps to a claim row with a result id, a config hash and a figure or table (`research/claims_register.csv`, `research/publication/artifact_manifest.json`).
 - Every external claim maps to a source whose access status is recorded; abstract-only and metadata-only sources are labelled in the manuscript references and the register.
 - The M4 gate condition holds.
+
+## 6. M6 addendum (2026-11-25): references and access status
+
+**Keys.** The manuscript cites 8 keys (16 citation groups); all 8 resolve in `research/paper/references.bib`, and all 8 bib entries are cited. No other document uses `[@key]` citations. The PDFs render the citations with citeproc (author-date); the manuscript keeps its own reference list with access statuses.
+
+**Access status per entry** (after M6):
+
+| Key | Label | What was read, and where the cited statement was checked |
+|---|---|---|
+| algolia | read in full | web page opened 2026-11-24 |
+| miller2009 | read in full | web page opened 2026-11-24 |
+| miller2012 | read in full | web page opened 2026-11-24 |
+| miller2014 | read in full | web page opened 2026-11-24, re-opened 2026-11-25 (M4) |
+| hu2007wp | full text opened, cited passages read (not read in full) | 35-page working paper, open archive (NYU); M6: abstract (PDF page 2) and introduction (PDF pages 4 and 5) state that purchasing and under-reporting biases produce the J-shaped distribution and make the mean a biased estimator of product quality. CLM-024 holds as worded |
+| li2008 | abstract only for the published article; working-paper version read in its abstract and section 1 | M6: author-hosted working paper (Wharton faculty page, September 2007, 38 pages): abstract (page 1) and section 1 (page 2) state that early buyers self-select and may hold preferences different from later consumers. CLM-025 holds as worded; the manuscript now names the version read |
+| harper2015 | full text opened (author preprint), cited passage read | M6: preprint at files.grouplens.org (20 pages; placeholder article number and DOI, so it predates the typeset version). Table II (page 13): MovieLens 1M, 4/2000 to 2/2003, 1 to 5 stars, 6,040 users, 3,706 movies, 1,000,209 ratings. Consistent with the manuscript's 1,000,209 ratings and with protocol section 13 (3,883 listed movies, of which 177 unrated, so 3,706 rated) |
+| efron1975 | first page only (partial) | M6: no legal open full text of the journal article was found; the free RAND report version (R-1394-OEO, 1974, rand.org) was downloaded, but it is an encrypted scan whose text could not be extracted with the tools available; not read. The claim stays qualified ("cited for the general idea only") |
+
+Counts: read in full 4; full text opened with the cited passages read 2 (hu2007wp, harper2015); abstract only, plus a working-paper version's abstract and introduction, 1 (li2008); first page only 1 (efron1975); unverified 0. No claim needed further qualification: CLM-023 to CLM-026 already limited each source to what was read. Wording of the access statuses updated in the manuscript (section 2 and references), the EXP-002 report (section 3), `research/limitations.md`, `research/literature_review.md`, `research/paper/references.bib` and `research/claims_register.csv`; the artifact manifest was regenerated from the register. No number changed. Sources not cited in the manuscript (wilson1927, hu2009, muchnik2013) keep their statuses in the literature review.
+
+No paid access, login or shadow library was used. Course-hosted copies of efron1975 were found by search and not used for M6, because their redistribution rights are unclear.

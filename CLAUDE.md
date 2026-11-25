@@ -34,8 +34,8 @@ Then run `git status` and inspect existing files. Do not overwrite changes made 
 
 ## 4. Scope
 
-- Work only inside this repository. Tools outside it are used read-only: `/Users/bechir/research/labs/.tools/py/bin/` (uv, python with typst, pypdf, pillow), `/Users/bechir/research/labs/.tools/pandoc`, and Node at `/Users/bechir/research/helix/.tools/node/bin` (never modify that folder).
-- Do not touch any other folder under `/Users/bechir/research`.
+- Work only inside this repository. Tools outside it are used read-only: `../.tools/py/bin/` (uv, python with typst, pypdf, pillow), `../.tools/pandoc` (both relative to this repository), and Node at `helix/.tools/node/bin` in the owner's research workspace, two levels above this repository (never modify that folder; the session brief gives the absolute path).
+- Do not touch any other folder of the owner's research workspace (the folder two levels above this repository).
 - Never kill processes you did not start. Never delete anything you did not create in the current session.
 
 ## 5. Truthfulness

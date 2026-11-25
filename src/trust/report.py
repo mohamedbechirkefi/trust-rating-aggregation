@@ -303,12 +303,71 @@ def render_markdown(doc, summary, figs, manifest, n_csv, failed, degenerate) -> 
     return "\n".join(L)
 
 
-def build_pdf(md_path: Path, pdf_path: Path) -> None:
-    """pandoc (Markdown to Typst, -V mainfont="Libertinus Serif") then the typst Python package."""
+def pandoc_publication_args(bibliography: Path | None) -> list[str]:
+    """Options shared by the M6 publication builds (scripts/build_publication.py).
+
+    The first-level heading becomes the document title (PDF metadata), and citations are
+    rendered by citeproc from ``bibliography`` without a generated list, because the manuscript
+    carries its own reference list with access statuses.
+    """
+    args = ["--shift-heading-level-by=-1"]
+    if bibliography is not None:
+        args += ["--citeproc", f"--bibliography={Path(bibliography).resolve()}",
+                 "-M", "suppress-bibliography=true"]
+    return args
+
+
+# Typst rules for the M6 publication builds: captions already carry "Figure N (FIG-NNN)", so
+# Typst's own figure numbering is off; table cells are left-aligned, unjustified and smaller.
+TYPST_PUBLICATION_RULES = (
+    "#set figure(numbering: none)\n"
+    "#show table: set par(justify: false)\n"
+    "#show table: set text(size: 9pt)\n"
+)
+
+
+def publication_source(md_path: Path) -> str:
+    """Markdown text without leading one-line HTML comments (the SPDX header).
+
+    pandoc promotes the first-level heading to the document title only when it is the first
+    block; a leading comment would otherwise turn the title into a plain paragraph.
+    """
+    lines = Path(md_path).read_text(encoding="utf-8").splitlines(keepends=True)
+    while lines and (not lines[0].strip() or (lines[0].lstrip().startswith("<!--") and lines[0].rstrip().endswith("-->"))):
+        lines.pop(0)
+    return "".join(lines)
+
+
+def build_pdf(md_path: Path, pdf_path: Path, *, bibliography: Path | None = None,
+              publication: bool = False, root: Path | None = None,
+              png_dir: Path | None = None, png_ppi: int = 60) -> None:
+    """pandoc (Markdown to Typst, -V mainfont="Libertinus Serif") then the typst Python package.
+
+    The defaults reproduce the M2 behaviour used by ``build_report``. ``publication=True`` adds
+    the M6 options of ``pandoc_publication_args``; ``root`` is the Typst project root (needed
+    when figures sit above the Markdown file); ``png_dir`` also renders every page to
+    ``<png_dir>/<pdf stem>-<page>.png`` at ``png_ppi`` (for visual inspection).
+    """
     md_path, pdf_path = Path(md_path).resolve(), Path(pdf_path).resolve()
     typ = pdf_path.with_suffix(".typ")
-    subprocess.run([PANDOC, str(md_path), "-s", "-t", "typst", "-V", "mainfont=Libertinus Serif",
-                    "-V", "papersize=a4", "-o", str(typ)], check=True, cwd=md_path.parent)
-    subprocess.run([TYPST_PYTHON, "-c", "import sys, typst; typst.compile(sys.argv[1], output=sys.argv[2])",
-                    str(typ), str(pdf_path)], check=True, cwd=md_path.parent)
+    if publication:
+        subprocess.run([PANDOC, "-f", "markdown", "-s", "-t", "typst-citations",
+                        "-V", "mainfont=Libertinus Serif", "-V", "papersize=a4",
+                        "--columns=10000", "-V", f"header-includes={TYPST_PUBLICATION_RULES}",
+                        *pandoc_publication_args(bibliography), "-o", str(typ)],
+                       input=publication_source(md_path), text=True, check=True, cwd=md_path.parent)
+    else:
+        subprocess.run([PANDOC, str(md_path), "-s", "-t", "typst", "-V", "mainfont=Libertinus Serif",
+                        "-V", "papersize=a4", "-o", str(typ)], check=True, cwd=md_path.parent)
+    root_dir = str(Path(root).resolve()) if root is not None else str(typ.parent)
+    subprocess.run([TYPST_PYTHON, "-c",
+                    "import sys, typst; typst.compile(sys.argv[1], output=sys.argv[2], root=sys.argv[3])",
+                    str(typ), str(pdf_path), root_dir], check=True, cwd=md_path.parent)
+    if png_dir is not None:
+        Path(png_dir).mkdir(parents=True, exist_ok=True)
+        pattern = str(Path(png_dir).resolve() / f"{pdf_path.parent.name}-{pdf_path.stem}-{{p}}.png")
+        subprocess.run([TYPST_PYTHON, "-c",
+                        "import sys, typst; typst.compile(sys.argv[1], output=sys.argv[2], root=sys.argv[3],"
+                        " format='png', ppi=float(sys.argv[4]))",
+                        str(typ), pattern, root_dir, str(png_ppi)], check=True, cwd=md_path.parent)
     typ.unlink()

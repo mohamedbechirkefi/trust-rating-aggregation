@@ -61,3 +61,8 @@ Documents are built with pandoc and the `typst` Python package (no TeX needed); 
     .venv/bin/python scripts/make_sandbox_fixture.py      # Python fixture for the sandbox port test (exploratory)
     cd demo && npm ci && npm test && npm run build && npm run preview
     node tools/a11y_check.mjs dist --screenshots <scratch dir>   # offline and accessibility check, from demo/
+
+### Release candidate (M6, 2026-11-25)
+
+    PYTHONPATH=src .venv/bin/python scripts/build_publication.py [--png-dir <scratch dir>]   # manuscript, supplement and report PDFs, manuscript.tex; optional PNG pages for inspection
+    .venv/bin/python scripts/check_links.py                # every relative Markdown link resolves (LINK-CHECK PASS)

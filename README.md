@@ -3,7 +3,7 @@
 
 **Question.** When do average ratings misrank products compared with uncertainty-aware estimators?
 
-**Status: protocol v1.0 frozen by the owner on 2026-11-24 (`research/freeze.json`); all three registered experiments ran in full on 2026-11-24 (1,560 of 1,560 simulated runs ok) and have standalone reports. The integrated manuscript is a draft (M4): independent research manuscript / preprint draft, not peer-reviewed. A static, offline interactive demo exists (M5, `demo/`). The owner approved the funding, competing-interest and AI-use statements on 2026-11-25; the owner's full-text review of the manuscript is pending (M6).** All results are simulated. In this model, shrinkage towards the catalogue mean ranks better than the average rating when ratings are noisy and worse when they are precise, and the advantage reverses under a misspecified shrinkage centre or population shape (`research/paper/manuscript.md`).
+**Status: protocol v1.0 frozen by the owner on 2026-11-24 (`research/freeze.json`); all three registered experiments ran in full on 2026-11-24 (1,560 of 1,560 simulated runs ok) and have standalone reports. The integrated manuscript is a draft (M4): independent research manuscript / preprint draft, not peer-reviewed. A static, offline interactive demo exists (M5, `demo/`). The owner approved the funding, competing-interest and AI-use statements on 2026-11-25. A release candidate (M6) is prepared and awaits the owner's review; nothing is published.** All results are simulated. In this model, shrinkage towards the catalogue mean ranks better than the average rating when ratings are noisy and worse when they are precise, and the advantage reverses under a misspecified shrinkage centre or population shape (`research/paper/manuscript.md`).
 
 ## Why it matters
 
@@ -20,7 +20,9 @@ Ranking products by their average star rating lets products with very few review
 
 - Interactive demo (M5): `demo/`, a static page with the published results, effect sizes and intervals, and a rating explorer sandbox. Its numbers come from `demo/public/data/results.json`, written by `scripts/export_demo_data.py` from committed results only; `tests/test_demo_export.py` checks that every number it shows is printed verbatim in the manuscript.
 
-Drafts of the Medium and LinkedIn articles are in `articles/` (not published). What is not done yet: the release package (M6), including the owner's review of those drafts, compiled and inspected PDFs and the clean-clone reproduction.
+Drafts of the Medium and LinkedIn articles are in `articles/` (not published).
+
+- Release candidate (M6): PDFs of the manuscript, supplement and reports (`research/paper/manuscript.pdf`, `research/paper/supplementary.pdf`, `research/experiments/EXP-00N/report.pdf`, built by `scripts/build_publication.py` and visually inspected), a clean-clone reproduction (`research/publication/reproducibility_report.md`), dependency licences (`research/publication/dependency_licences.md`) and the owner review checklist (`research/publication/author_review.md`). What is not done: the owner's review and any publication.
 
 ## Key results (simulated, confirmatory)
 

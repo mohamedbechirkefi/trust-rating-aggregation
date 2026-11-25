@@ -36,4 +36,4 @@ Status at M0, 2026-11-24: no experiment has been run, so these are anticipated l
 - **EXP-002 cannot separate selection from sample size** at sigma 1.0, where `D` barely depends on `nu`.
 - **Rounding and clipping near the scale ends** are not separated from population shape by any registered or exploratory analysis.
 - **Pooled estimand depends on grid weights.** The positive `Dbar` would turn negative under a grid weighted towards precise ratings.
-- **Citations.** efron1975 was read on its first page only, hu2007wp and li2008 on their abstracts only, and harper2015 is metadata only; the manuscript cites them for nothing beyond that.
+- **Citations.** efron1975 was read on its first page only; hu2007wp and li2008 (a working-paper version) were read in their abstracts and introductions only; harper2015 was checked in its author preprint for the dataset counts only (M6, 2026-11-25). The manuscript cites them for nothing beyond that.

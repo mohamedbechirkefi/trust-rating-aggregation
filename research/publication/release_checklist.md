@@ -1,14 +1,15 @@
 <!-- SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0 -->
 # Release checklist
 
-Status: not started (M0). Nothing is published without the owner's explicit approval.
+Status (2026-11-25, M6): release candidate prepared, awaiting owner review and G-PUBLIC. The ticked items were verified in the M6 session of 2026-11-25; the evidence follows each item. Nothing is published without the owner's explicit approval.
 
-- [ ] Every registered experiment has a truthful standalone report (`research/experiments/EXP-NNN/report.md`).
-- [ ] Integrated manuscript complete; PDF built locally and visually inspected.
-- [ ] README states verified findings only, with experiment table and status.
-- [ ] Articles (`articles/medium.md`, `articles/linkedin.md`) use the same verified numbers and caveats.
-- [ ] Demo uses the same results, labels and scope; offline after initial load; accessibility checks done.
-- [ ] Reproducibility report complete.
-- [ ] Licence files and NOTICE intact; third-party licences listed.
-- [ ] No large generated files, secrets or personal identifiers committed.
-- [ ] Owner approval recorded.
+- [x] Every registered experiment has a truthful standalone report (`research/experiments/EXP-NNN/report.md`). Evidence: 3 registered experiments in `research/experiment_registry.csv`, 3 reports; their intervals trace to the frozen analysis (`scripts/audit_evidence.py`: 26, 35 and 34 triples, 0 unmatched) and the re-analysis from raw results gives 0 differences.
+- [x] Integrated manuscript complete; PDF built locally and visually inspected. Evidence: `scripts/build_publication.py` built `research/paper/manuscript.pdf` (13 pages), the supplement (6) and three reports (7, 6, 6); all 13 manuscript pages and the first and figure pages of each report inspected as PNG; four builder fixes (`research/publication/reproducibility_report.md` section 4).
+- [x] README states verified findings only, with experiment table and status. Evidence: `tests/test_release_checks.py`: all 29 numbers of `README.md` appear verbatim in the manuscript; experiment table lists EXP-001 to EXP-003 with status; status sentence updated for M6.
+- [x] Articles (`articles/medium.md`, `articles/linkedin.md`) use the same verified numbers and caveats. Evidence: same test, 40 and 9 numbers, 0 missing; status label "independent research manuscript / preprint draft, not peer-reviewed" in both. Their wording still needs the owner's review (`research/publication/author_review.md`).
+- [x] Demo uses the same results, labels and scope; offline after initial load; accessibility checks done. Evidence: clean clone `npm test` 28 passed, `npm run build`, `node tools/a11y_check.mjs dist` `A11Y-CHECK PASS`; `tests/test_demo_export.py` passes; re-export left the clone clean.
+- [x] Reproducibility report complete. Evidence: `research/publication/reproducibility_report.md` (clean clone at `a5f3abf`: 173 passed; smoke `results.json` and `metrics.csv` byte-identical).
+- [x] Licence files and NOTICE intact; third-party licences listed. Evidence: `git diff a5f3abf -- LICENSE NOTICE.md LICENSE_HISTORY.md CLA.md .github` empty; `research/publication/dependency_licences.md` (13 Python, 53 npm packages; flags: pandoc and Chrome, build tools only).
+- [x] No large generated files, secrets or personal identifiers committed. Evidence: scan of the tracked files (236 before M6) plus the new files: 0 e-mail addresses, 0 key or token patterns, 0 private-key headers, 0 `.env` files; absolute home-directory paths in 18 lines of 11 files, of which `CLAUDE.md` (2 lines) was fixed, and the rest are in append-only journals (`progress.md` 3, `research/decision_log.md` 2, with a note appended), the frozen `research/protocol.md` (4) and checksummed run logs (7), left unchanged and listed for the owner. Largest new file: `research/paper/manuscript.pdf`, 219,036 bytes; every PDF under 5 MB. PDF metadata: titles set, no e-mail, no path.
+- [ ] Owner sign-off of `research/publication/author_review.md` (the owner only).
+- [ ] Owner approval to publish, push or release (G-PUBLIC; the owner only).

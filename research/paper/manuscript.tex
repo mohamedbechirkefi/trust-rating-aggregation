@@ -71,17 +71,17 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
+  pdftitle={When does shrinkage beat the average star rating? A preregistered simulation of rank recovery under noise, sparsity and misspecification},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
+\title{When does shrinkage beat the average star rating? A preregistered
+simulation of rank recovery under noise, sparsity and misspecification}
 \author{}
 \date{}
 
 \begin{document}
-
-\section{When does shrinkage beat the average star rating? A
-preregistered simulation of rank recovery under noise, sparsity and
-misspecification}\label{when-does-shrinkage-beat-the-average-star-rating-a-preregistered-simulation-of-rank-recovery-under-noise-sparsity-and-misspecification}
+\maketitle
 
 \textbf{Author:} Mohamed Bechir Kefi (no affiliation).
 
@@ -90,11 +90,11 @@ peer-reviewed. Version M4, 2026-11-25. Protocol v1.0 frozen by the owner
 on 2026-11-24 before any confirmatory run.
 
 \textbf{Data:} all results are simulated. Two simulation parameters are
-calibrated on MovieLens 1M {[}@harper2015{]}, which is not
+calibrated on MovieLens 1M (Harper and Konstan 2015), which is not
 redistributed. Real product quality is unobserved, and nothing here
 describes any commercial platform or labels any review.
 
-\subsection{Abstract}\label{abstract}
+\section{Abstract}\label{abstract}
 
 Sorting products by their average star rating favours items with few
 reviews; Bayesian averages and lower credible bounds are common
@@ -123,18 +123,18 @@ and hurt it otherwise.
 ranking under uncertainty; Kendall tau; simulation study;
 preregistration.
 
-\subsection{1. Introduction}\label{introduction}
+\section{1. Introduction}\label{introduction}
 
 Online catalogues commonly summarise each product by the arithmetic mean
 of its star ratings and sort by that number. A product with one
 five-star review then outranks a product with hundreds of reviews
 averaging 4.8. Practitioner guidance has long pointed this out and
 proposes two remedies: a Bayesian average, which adds pseudo-reviews at
-a global mean {[}@miller2012; @algolia{]}, and a lower bound on a
-posterior or confidence interval {[}@miller2009; @miller2014{]}. The
-statistical idea behind the first remedy, shrinking separate estimates
-towards a common value, goes back at least to the empirical Bayes work
-of Efron and Morris {[}@efron1975{]}.
+a global mean (Miller 2012; Algolia, n.d.), and a lower bound on a
+posterior or confidence interval (Miller 2009, 2014). The statistical
+idea behind the first remedy, shrinking separate estimates towards a
+common value, goes back at least to the empirical Bayes work of Efron
+and Morris (Efron and Morris 1975).
 
 These remedies are standard; this paper does not propose a new
 estimator. The gap it addresses is narrower: whether, and under which
@@ -178,7 +178,7 @@ the main interpretation.
   analysis from the raw results (section 10).
 \end{enumerate}
 
-\subsection{2. Related work}\label{related-work}
+\section{2. Related work}\label{related-work}
 
 This is a scoping review, not a systematic one; the access status of
 each source is listed in the references and in
@@ -187,32 +187,35 @@ each source is listed in the references and in
 \textbf{Ranking by average rating.} Miller argues that sorting by a raw
 average or by the difference of positive and negative votes misorders
 items with few ratings, and proposes the lower bound of the Wilson score
-interval for binary ratings {[}@miller2009{]}. For star ratings he
-proposes a Dirichlet posterior over the five star levels and sorting by
-the posterior mean minus a multiple of its standard deviation
-{[}@miller2014{]}; our LCB arm follows that formula, with the prior
-recentred as described in section 3. A related note frames the ranking
-criterion as the result of an asymmetric loss chosen by the designer
-{[}@miller2012{]}. A practitioner guide documents the Bayesian average
-\((n\bar{x} + C m)/(n + C)\) as a common way to rank by rating
-{[}@algolia{]}; it shows that SHRINK is current practice rather than a
+interval for binary ratings (Miller 2009). For star ratings he proposes
+a Dirichlet posterior over the five star levels and sorting by the
+posterior mean minus a multiple of its standard deviation (Miller 2014);
+our LCB arm follows that formula, with the prior recentred as described
+in section 3. A related note frames the ranking criterion as the result
+of an asymmetric loss chosen by the designer (Miller 2012). A
+practitioner guide documents the Bayesian average
+\((n\bar{x} + C m)/(n + C)\) as a common way to rank by rating (Algolia,
+n.d.); it shows that SHRINK is current practice rather than a
 contribution.
 
 \textbf{Shrinkage.} Efron and Morris study Stein-type estimators that
-shrink separate means towards a common value {[}@efron1975{]}. Only the
-first page of that article was read for this project, so it is cited for
-the general idea and not for any specific result. Whether shrinkage
-improves the ordering of items, as opposed to their estimates, is the
-question tested here.
+shrink separate means towards a common value (Efron and Morris 1975).
+Only the first page of that article was read for this project, so it is
+cited for the general idea and not for any specific result. Whether
+shrinkage improves the ordering of items, as opposed to their estimates,
+is the question tested here.
 
 \textbf{Selection in online ratings.} Hu, Pavlou and Zhang describe
 purchasing and under-reporting biases that produce J-shaped rating
-distributions and make the mean a biased estimator of quality
-{[}@hu2007wp{]}; only the title page and abstract were read. Li and Hitt
-describe self-selection of early reviewers {[}@li2008{]}; only the
-abstract was read. These works motivate the selection and exposure
-factors of EXP-002. They do not validate the functional forms or
-parameter values used here.
+distributions and make the mean a biased estimator of quality (Hu,
+Pavlou, and Zhang 2007); the full working paper was opened and this
+statement was checked against its abstract and introduction, but the
+paper was not read in full. Li and Hitt describe self-selection of early
+reviewers (Li and Hitt 2008); this statement was checked against the
+abstract and introduction of an author-hosted 2007 working-paper
+version, not against the published article. These works motivate the
+selection and exposure factors of EXP-002. They do not validate the
+functional forms or parameter values used here.
 
 \textbf{Relation to this study.} The study replicates no prior
 experiment. It extends the practitioner argument by measuring, against a
@@ -221,7 +224,7 @@ dependence on noise, sparsity, selection and prior misspecification.
 Statistical work on ranking under uncertainty (for example posterior
 expected ranks) was not searched, so we claim no novelty relative to it.
 
-\subsection{3. Formal model}\label{formal-model}
+\section{3. Formal model}\label{formal-model}
 
 All quantities are synthetic; protocol \texttt{research/protocol.md}
 sections 2 to 5 gives the full definitions.
@@ -292,10 +295,9 @@ interval coverage and RMSE.
 tau-b is computed in \(O(N \log N)\) and validated against an \(O(N^2)\)
 reference. A full experiment runs in seconds on a laptop (section 4.5).
 
-\subsection{4. Methods}\label{methods}
+\section{4. Methods}\label{methods}
 
-\subsubsection{4.1 Design and
-registration}\label{design-and-registration}
+\subsection{4.1 Design and registration}\label{design-and-registration}
 
 Three experiments were registered
 (\texttt{research/experiment\_registry.csv}) and frozen by the owner on
@@ -328,15 +330,15 @@ All arms score the same catalogue (paired design). Seeds derive from
 separate streams for quality, counts, ratings and reporting, so a seed
 shares its latent qualities across cells.
 
-\subsubsection{4.2 Calibration on MovieLens
+\subsection{4.2 Calibration on MovieLens
 1M}\label{calibration-on-movielens-1m}
 
 MovieLens 1M (1,000,209 ratings of 3,883 listed movies) was used for
-calibration only {[}@harper2015{]}; the data are fetched by script and
-never committed. Movies were split once into a fit half (1,941 movies)
-and a check half (1,942). On the fit half, a negative binomial fitted by
-maximum likelihood gave the shape \(r = 0.49090\), and a marginal
-maximum-likelihood fit of the model of section 3 gave
+calibration only (Harper and Konstan 2015); the data are fetched by
+script and never committed. Movies were split once into a fit half
+(1,941 movies) and a check half (1,942). On the fit half, a negative
+binomial fitted by maximum likelihood gave the shape \(r = 0.49090\),
+and a marginal maximum-likelihood fit of the model of section 3 gave
 \(\mathrm{Beta}(4.27261, 3.19443)\) and a reference noise
 \(\sigma = 1.05215\), which is not used (the noise grid is a design
 factor). The fit computed no estimator, catalogue or contrast. On the
@@ -345,7 +347,7 @@ are under-predicted (0.078 and 0.268 predicted against 0.110 and 0.303
 observed) and 2-star and 5-star shares over-predicted. The fitted values
 entered the configs rounded to four decimals.
 
-\subsubsection{4.3 Statistical analysis}\label{statistical-analysis}
+\subsection{4.3 Statistical analysis}\label{statistical-analysis}
 
 Per cell, the mean paired difference has a 95\% percentile bootstrap
 interval over seeds (10,000 resamples, fixed seed) with a t interval as
@@ -368,7 +370,7 @@ before any confirmatory catalogue existed, uses bootstrap p-values from
 the same resamples (decision D-011, accepted by the owner with
 disclosure, D-013).
 
-\subsubsection{4.4 Confirmatory versus exploratory
+\subsection{4.4 Confirmatory versus exploratory
 work}\label{confirmatory-versus-exploratory-work}
 
 Every result in section 5.1 to 5.3 is confirmatory. Before the freeze,
@@ -380,7 +382,7 @@ confirmatory replication of a pattern seen in pilots, not a prediction
 made blind to it. Section 5.4 reports three post-hoc exploratory checks
 made at M4 (journal JRN-0010); they never change a frozen verdict.
 
-\subsubsection{4.5 Implementation, compute and
+\subsection{4.5 Implementation, compute and
 reproducibility}\label{implementation-compute-and-reproducibility}
 
 Python 3.12.1 with numpy 2.3.4 and scipy 1.16.2, locked by
@@ -391,12 +393,12 @@ wall time. No run failed or was retried. Before the runs, the test suite
 passed (165 tests), 26 of 26 metric-validation checks passed, and the
 ORACLE arm gave tau-b = 1 in every confirmatory run.
 
-\subsection{5. Results}\label{results}
+\section{5. Results}\label{results}
 
 All values are simulated and unitless (tau-b differences) unless stated.
 Intervals are two-sided 95\% stratified bootstrap intervals.
 
-\subsubsection{5.1 EXP-001: shrinkage versus the mean
+\subsection{5.1 EXP-001: shrinkage versus the mean
 (primary)}\label{exp-001-shrinkage-versus-the-mean-primary}
 
 \textbf{H1.} \(\bar{D} = 0.0046\) (0.0030 to 0.0061), one-sided 95\%
@@ -470,7 +472,7 @@ larger low-noise loss (-0.0478 at sigma 0.5, 0.0183 at sigma 1.5).
 \textbf{Realised sparsity.} The share of products with no review was
 0.381, 0.220 and 0.132 at \(\nu\) = 3, 10 and 30.
 
-\subsubsection{5.2 EXP-002: reporting selection and quality-dependent
+\subsection{5.2 EXP-002: reporting selection and quality-dependent
 exposure}\label{exp-002-reporting-selection-and-quality-dependent-exposure}
 
 Table 2. EXP-002 (sigma 1.0), change in \(D\) between factor levels,
@@ -539,8 +541,7 @@ strata of 20 same-seed pairs; bars are two-sided 95\% stratified
 bootstrap intervals. Dashed line at zero. Simulated.}
 \end{figure}
 
-\subsubsection{5.3 EXP-003: sensitivity analyses that could invalidate
-the
+\subsection{5.3 EXP-003: sensitivity analyses that could invalidate the
 interpretation}\label{exp-003-sensitivity-analyses-that-could-invalidate-the-interpretation}
 
 Table 3. EXP-003, pooled \(D\) against MEAN under each condition
@@ -624,7 +625,7 @@ sensitivity condition next to the EXP-001 reference. Each row pools 9 or
 intervals (10,000 resamples). Dashed line at zero. Simulated.}
 \end{figure}
 
-\subsubsection{5.4 Exploratory checks at M4 (not
+\subsection{5.4 Exploratory checks at M4 (not
 confirmatory)}\label{exploratory-checks-at-m4-not-confirmatory}
 
 Three cheap checks, run after the confirmatory analysis and labelled
@@ -668,7 +669,7 @@ E1 alone contains 30 uncorrected intervals; isolated favourable rows,
 such as LCB's top-of-list gains at sigma 1.5, are hypotheses for a
 registered follow-up, not findings.
 
-\subsection{6. Discussion}\label{discussion}
+\section{6. Discussion}\label{discussion}
 
 \textbf{What the evidence supports.} Under this model, shrinking towards
 the catalogue mean helps whole-list rank recovery when individual
@@ -718,9 +719,9 @@ than the mean, as designed: it penalises uncertainty and so moves
 data-poor products down regardless of their quality. On top-of-list
 metrics at higher noise it did better than the mean in an exploratory
 check, consistent with Miller's motivation of protecting the top of a
-list {[}@miller2014{]}. Its strong reaction to exposure coupling
-(EXP-002) shows that its behaviour depends on whether data-poor products
-are good or bad, which a platform cannot observe directly.
+list (Miller 2014). Its strong reaction to exposure coupling (EXP-002)
+shows that its behaviour depends on whether data-poor products are good
+or bad, which a platform cannot observe directly.
 
 \textbf{Selection.} Under-reporting of moderate ratings, in the stylised
 form used here, did not change the shrinkage advantage on average.
@@ -731,11 +732,11 @@ explanations the protocol named.
 
 \textbf{Relation to prior work.} The results agree with the practitioner
 view that the raw mean is not a safe default in sparse, noisy data
-{[}@miller2009; @miller2014{]}, and they qualify it: the same remedy can
-do harm when ratings are precise or the prior is off. They do not test
-any claim of the cited works directly.
+(Miller 2009, 2014), and they qualify it: the same remedy can do harm
+when ratings are precise or the prior is off. They do not test any claim
+of the cited works directly.
 
-\subsection{7. Limitations and threats to
+\section{7. Limitations and threats to
 validity}\label{limitations-and-threats-to-validity}
 
 \begin{itemize}
@@ -788,7 +789,7 @@ validity}\label{limitations-and-threats-to-validity}
   not searched.
 \end{itemize}
 
-\subsection{8. Ethics and responsible
+\section{8. Ethics and responsible
 research}\label{ethics-and-responsible-research}
 
 The study uses simulated data and a public research dataset used for
@@ -801,7 +802,7 @@ ethics approval was sought or claimed. Nothing in this work labels any
 review as fraudulent, infers anything about real products, or describes
 the internals of any commercial platform.
 
-\subsection{9. Conclusion and future
+\section{9. Conclusion and future
 work}\label{conclusion-and-future-work}
 
 Under the frozen rule the primary hypothesis is supported, but the
@@ -818,7 +819,7 @@ shifts and population shapes; exposure and selection crossed with noise;
 a value-based truth-definition check; and top-of-list metrics as a
 primary outcome.
 
-\subsection{10. Data, code availability and
+\section{10. Data, code availability and
 reproducibility}\label{data-code-availability-and-reproducibility}
 
 Repository:
@@ -864,7 +865,7 @@ commands are in section 12 of each report. MovieLens 1M must be fetched
 with \texttt{scripts/download\_movielens.py} and is needed only to
 repeat the calibration.
 
-\subsection{11. Funding, competing interests and AI
+\section{11. Funding, competing interests and AI
 assistance}\label{funding-competing-interests-and-ai-assistance}
 
 No funding. The author declares no competing interests. An AI system was
@@ -876,53 +877,55 @@ not an author. AI review in this project
 (\texttt{research/publication/review\_pass\_2.md}) is internal quality
 control, not peer review.
 
-\subsection{References}\label{references}
+\section{References}\label{references}
 
 Access status as recorded in \texttt{research/literature\_review.md}.
 
 \begin{itemize}
 \tightlist
 \item
-  {[}@algolia{]} Algolia. ``Bayesian average'' (documentation how-to).
+  (Algolia, n.d.) Algolia. ``Bayesian average'' (documentation how-to).
   https://www.algolia.com/doc/guides/managing-results/must-do/custom-ranking/how-to/bayesian-average/.
   Opened 2026-11-24.
 \item
-  {[}@efron1975{]} B. Efron and C. Morris. Data Analysis Using Stein's
-  Estimator and its Generalizations. \emph{Journal of the American
-  Statistical Association} 70(350):311-319, 1975.
+  (Efron and Morris 1975) B. Efron and C. Morris. Data Analysis Using
+  Stein's Estimator and its Generalizations. \emph{Journal of the
+  American Statistical Association} 70(350):311-319, 1975.
   doi:10.1080/01621459.1975.10479864. First page only read
   (bibliographic details confirmed; body not read).
 \item
-  {[}@harper2015{]} F. M. Harper and J. A. Konstan. The MovieLens
-  Datasets: History and Context. \emph{ACM Transactions on Interactive
-  Intelligent Systems} 5(4), 2015. doi:10.1145/2827872. Metadata only
-  (citation taken from the dataset documentation); cited as the
-  dataset's required reference.
+  (Harper and Konstan 2015) F. M. Harper and J. A. Konstan. The
+  MovieLens Datasets: History and Context. \emph{ACM Transactions on
+  Interactive Intelligent Systems} 5(4), 2015. doi:10.1145/2827872.
+  Author preprint opened 2026-11-25 (Table II checked: MovieLens 1M has
+  1,000,209 ratings); cited as the dataset's required reference.
 \item
-  {[}@hu2007wp{]} N. Hu, P. A. Pavlou and J. Zhang. Why do Online
-  Product Reviews have a J-shaped Distribution? Overcoming Biases in
-  Online Word-of-Mouth Communication. Working paper, 2007.
-  https://archive.nyu.edu/bitstream/2451/14951/2/usedbook1.pdf. Title
-  page and abstract only.
+  (Hu, Pavlou, and Zhang 2007) N. Hu, P. A. Pavlou and J. Zhang. Why do
+  Online Product Reviews have a J-shaped Distribution? Overcoming Biases
+  in Online Word-of-Mouth Communication. Working paper, 2007.
+  https://archive.nyu.edu/bitstream/2451/14951/2/usedbook1.pdf. Full
+  text opened 2026-11-25; abstract and introduction read.
 \item
-  {[}@li2008{]} X. Li and L. M. Hitt. Self-Selection and Information
-  Role of Online Product Reviews. \emph{Information Systems Research}
-  19(4):456-474, 2008. doi:10.1287/isre.1070.0154. Abstract only.
+  (Li and Hitt 2008) X. Li and L. M. Hitt. Self-Selection and
+  Information Role of Online Product Reviews. \emph{Information Systems
+  Research} 19(4):456-474, 2008. doi:10.1287/isre.1070.0154. Abstract
+  read; author-hosted working-paper version (September 2007) opened
+  2026-11-25, abstract and section 1 read; published version not read.
 \item
-  {[}@miller2009{]} E. Miller. How Not To Sort By Average Rating. 2009.
+  (Miller 2009) E. Miller. How Not To Sort By Average Rating. 2009.
   https://www.evanmiller.org/how-not-to-sort-by-average-rating.html.
   Opened 2026-11-24.
 \item
-  {[}@miller2012{]} E. Miller. Bayesian Average Ratings. 2012.
+  (Miller 2012) E. Miller. Bayesian Average Ratings. 2012.
   https://evanmiller.org/bayesian-average-ratings.html. Opened
   2026-11-24.
 \item
-  {[}@miller2014{]} E. Miller. Ranking Items With Star Ratings. 2014.
+  (Miller 2014) E. Miller. Ranking Items With Star Ratings. 2014.
   https://www.evanmiller.org/ranking-items-with-star-ratings.html.
   Opened 2026-11-24.
 \end{itemize}
 
-\subsection{Supplementary appendix}\label{supplementary-appendix}
+\section{Supplementary appendix}\label{supplementary-appendix}
 
 See \texttt{research/paper/supplementary.md}: complete experimental
 matrix (S1), extended tables (S2 to S4), configurations (S5), robustness

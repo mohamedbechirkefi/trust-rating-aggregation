@@ -4,8 +4,8 @@
  "status": "M4 evidence manifest",
  "generated_by": "scripts/audit_evidence.py",
  "generator_revision": {
-  "revision": "c732fd8a6738ae9b41b188d2ddae6651bd86f560",
-  "dirty": false
+  "revision": "a5f3abf45fe69d3ea56e3e8c91f1fa165c32db9a",
+  "dirty": true
  },
  "study_protocol_sha256": "3226e302fb4758327d50a5f583026d469d7ccbc5ad7c72b458fcd8bf2b702f03",
  "run_code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1",
@@ -422,8 +422,8 @@
    "config_sha256": "n/a",
    "figure_or_table": "n/a",
    "manuscript_section": "2; EXP-002 report 3",
-   "evidence_path_or_source": "hu2007wp: title page and abstract only",
-   "status": "abstract only"
+   "evidence_path_or_source": "hu2007wp: abstract and introduction read (full text opened 2026-11-25)",
+   "status": "partially read"
   },
   {
    "claim_id": "CLM-025",
@@ -432,8 +432,8 @@
    "config_sha256": "n/a",
    "figure_or_table": "n/a",
    "manuscript_section": "2; EXP-002 report 3",
-   "evidence_path_or_source": "li2008: abstract only",
-   "status": "abstract only"
+   "evidence_path_or_source": "li2008: abstract read; abstract and section 1 of a 2007 working-paper version read 2026-11-25",
+   "status": "partially read"
   },
   {
    "claim_id": "CLM-026",
@@ -442,8 +442,8 @@
    "config_sha256": "n/a",
    "figure_or_table": "n/a",
    "manuscript_section": "Front matter; 4.2",
-   "evidence_path_or_source": "harper2015: metadata only (citation from dataset documentation)",
-   "status": "metadata only"
+   "evidence_path_or_source": "harper2015: author preprint Table II checked 2026-11-25 (dataset counts only)",
+   "status": "partially read"
   }
  ]
 }

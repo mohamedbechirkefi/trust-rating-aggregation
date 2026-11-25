@@ -350,3 +350,55 @@ Also changed: `articles/README.md` (drafts exist), `README.md` (status sentence)
 Tests: `.venv/bin/python -m pytest -q` -> `173 passed in 4.79s`. No demo or Python code changed, so vitest and the checker were not rerun.
 
 Next action: M6 (release candidate) on the owner's word, including the owner's review of the article drafts.
+
+## 2026-11-25: M6 release candidate
+
+**Starting state:** `a5f3abf`, working tree clean. Authority: owner, 2026-11-25, "Next" (second) (`labs/_shared/owner-approvals-2026-11-25e.md`); brief `labs/_shared/M6-brief.md`. Decision D-017. Current milestone M6; bounded task: clean clone, PDFs, checks and the owner review checklist, no publication.
+
+### Commands and actual outputs
+
+Clean clone (session scratch, deleted at the end):
+
+    git clone -q <repository> <scratch>/clone                    -> HEAD a5f3abf
+    uv sync --frozen --all-groups --all-extras                   -> locked set installed
+    .venv/bin/python -m pytest -q                                -> 173 passed in 74.21s
+    PYTHONPATH=src .venv/bin/python -m trust.cli smoke           -> exploratory: 6 runs (0 failed) in 0.02 s
+      results.json and metrics.csv byte-identical; 4 files differ in revision, timings, command and an empty per_sigma key only (finding R1)
+    cd demo && npm ci --prefer-offline                           -> added 53 packages in 1s
+    npm test                                                     -> Test Files 2 passed (2); Tests 28 passed (28)
+    npm run build                                                -> built in 359ms
+    node tools/a11y_check.mjs dist                               -> 14 PASS lines, A11Y-CHECK PASS
+    .venv/bin/python scripts/export_demo_data.py; git status     -> 0 changed files
+
+Working repository:
+
+    PYTHONPATH=src .venv/bin/python scripts/build_publication.py --png-dir <scratch>/png
+      -> manuscript.pdf 13 pages (219,036 bytes), supplementary.pdf 6 (140,602), EXP-001 report.pdf 7 (145,206), EXP-002 6 (136,590), EXP-003 6 (124,547); manuscript.tex rewritten
+    pypdf metadata                                               -> titles set; no e-mail or path in metadata or text
+    .venv/bin/python scripts/check_links.py                      -> 53 Markdown files; 22 relative links ...; LINK-CHECK PASS
+    PYTHONPATH=src .venv/bin/python scripts/audit_evidence.py    -> 12 frozen hashes, 20 artifacts, 70 checksums: 0 mismatches; re-analysis 0 differences; all traces 0 unmatched
+    artifact_manifest.json paths and hashes                      -> 15 paths, 0 missing; 32 hashes, 0 mismatched
+    shasum -a 256 data/raw/ml-1m.zip data/raw/ml-1m/*            -> 4 of 4 equal to data/manifest.json
+    CITATION.cff against the CFF 1.2.0 schema (jsonschema)       -> 0 errors
+    .venv/bin/python -m pytest -q                                -> 176 passed in 5.62s (173 + 3 new)
+    cd demo && npm test; npm run build; node tools/a11y_check.mjs dist -> 28 passed; built; A11Y-CHECK PASS
+
+### Failures and fixes
+
+- First PDF build: Typst error "file not found ... references.bib" (pandoc's Typst writer emits a Typst bibliography call even with citeproc). Fixed by the `typst-citations` writer.
+- Inspection of the PNG pages: title rendered as a plain paragraph (the SPDX comment came before the heading), doubled figure numbering ("Figure 1: Figure 1 (FIG-001)"), equal-width table columns with justified, hyphenated cells. Fixed in the builder (D-017); no PDF edited.
+- `scripts/audit_evidence.py --help` runs the full audit (it has no argument parser) and rewrote `evidence_audit.json` and `artifact_manifest.json` with `dirty: true`; regenerated after the commit at a clean revision.
+
+### Other changes
+
+References (evidence audit section 6): hu2007wp, li2008 (working paper) and harper2015 (author preprint) opened in full text and their cited statements checked; access statuses updated in the manuscript, EXP-002 report, limitations, literature review, bib and claims register; efron1975 unchanged (RAND version unreadable scan). CITATION.cff: `date-released` removed, version `0.1.0-rc1`. CLAUDE.md: absolute paths replaced. New: `scripts/build_publication.py`, `scripts/check_links.py`, `tests/test_release_checks.py`, `research/publication/dependency_licences.md`. Rewritten: reproducibility report, release checklist, owner review checklist (no box ticked). README, CONTRIBUTING and roadmap updated.
+
+Note on identifiers: earlier entries of this file (lines 18, 257 and 279 as of this entry) and two entries of the decision log contain absolute home-directory paths. They are left as written (append-only) and listed for the owner in `research/publication/author_review.md`.
+
+### Owner items
+
+See `research/publication/author_review.md`, section "Prepared for the owner (M6, 2026-11-25)": G-PUBLIC, the checklist boxes, the manuscript title, the CITATION.cff title, the AI wording in the articles ("Claude Code") against the manuscript ("an AI system"), the repository and demo URLs (6 placeholder lines), the owner-only facts, `date-released` and the version, the frozen "not yet run" status lines, the pandoc and Chrome licence flags and the remaining absolute paths.
+
+### Next action
+
+The owner reviews the release candidate and signs off `research/publication/author_review.md`; any publication waits for G-PUBLIC.
