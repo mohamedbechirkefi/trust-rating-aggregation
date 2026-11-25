@@ -1,8 +1,8 @@
 {
  "generator": "scripts/m4_exploratory.py",
  "git": {
-  "dirty": true,
-  "revision": "bd953e0cc6ff5d3192a681170fcd83fe98b8613e"
+  "dirty": false,
+  "revision": "4a2b47861ffd4cdcda08b407b7e75a5336490fb8"
  },
  "outputs": {
   "m4_exploratory.json": "72ff96c6fce9887597e2459bf3634177dd914ecf169255297cf8bfbf7bd3a9b8",
