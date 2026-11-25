@@ -402,3 +402,7 @@ See `research/publication/author_review.md`, section "Prepared for the owner (M6
 ### Next action
 
 The owner reviews the release candidate and signs off `research/publication/author_review.md`; any publication waits for G-PUBLIC.
+
+### M6 addendum: fresh-clone re-check (2026-11-25)
+
+Commits `a52eee9` (M6 work) and `86e9984` (evidence audit and artifact manifest regenerated at the clean revision `a52eee9`: `"dirty": false`; demo export refreshed; 176 passed, demo 28 passed, A11Y-CHECK PASS). A fresh clone of `86e9984`: 176 passed in 23.81s; smoke `metrics.csv` and `results.json` byte-identical; export left 0 changed files; LINK-CHECK PASS; npm ci added 53 packages; Tests 28 passed (28); build ok; A11Y-CHECK PASS. Recorded in `research/publication/reproducibility_report.md` section 6. Both clones deleted.

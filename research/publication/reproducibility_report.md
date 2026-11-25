@@ -65,3 +65,16 @@ PDF metadata (pypdf): each title is the document's first heading; no author e-ma
 ## 5. Scans
 
 See `research/publication/release_checklist.md` (secrets and identifiers) and `research/publication/dependency_licences.md` (licences).
+
+## 6. Re-check in a fresh clone of the release candidate (revision 86e9984)
+
+After the M6 commits (`a52eee9`, `86e9984`), a second clone was made and checked the same way, then deleted.
+
+| Command | Actual output |
+|---|---|
+| `git clone -q <repository> <scratch>/clone` | HEAD `86e9984` |
+| `uv sync --frozen --all-groups --all-extras`; `.venv/bin/python -m pytest -q` | `176 passed in 23.81s` |
+| `PYTHONPATH=src .venv/bin/python -m trust.cli smoke` | `exploratory: 6 runs (0 failed) in 0.01 s`; `metrics.csv` and `results.json` byte-identical |
+| `.venv/bin/python scripts/export_demo_data.py` | `git status --short`: 0 lines |
+| `.venv/bin/python scripts/check_links.py` | `LINK-CHECK PASS` |
+| `cd demo && npm ci --prefer-offline && npm test && npm run build && node tools/a11y_check.mjs dist` | `added 53 packages in 511ms`; `Tests 28 passed (28)`; `built in 262ms`; `A11Y-CHECK PASS` |
