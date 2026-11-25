@@ -38,7 +38,7 @@ If the five-day target is threatened, cut in this order: optional EXP-003 sub-an
 
 - Deliverables: smoke run; frozen matrices EXP-001 to EXP-003; raw machine-readable results; plots with uncertainty; a standalone report per experiment generated as each finishes.
 - Acceptance: complete planned matrix or documented failure; no silently dropped runs; provenance captured at run time.
-- Status: in progress (2026-11-25). Smoke and metric validation done (JRN-0006). Every frozen matrix ran in full at `bd9e146`: EXP-001 180, EXP-002 240, EXP-003 1,140 runs, 0 failed (JRN-0007 to JRN-0009). Frozen analysis (D-011), generated tables and FIG-001 to FIG-003, claims CLM-001 to CLM-011, D-012. Gate condition "complete planned matrix" holds. The standalone reports were written on the owner's approval (D-013); M3 done 2026-11-25 (status line updated at M4).
+- Status: done (2026-11-25). Smoke and metric validation done (JRN-0006). Every frozen matrix ran in full at `bd9e146`: EXP-001 180, EXP-002 240, EXP-003 1,140 runs, 0 failed (JRN-0007 to JRN-0009). Frozen analysis (D-011), generated tables and FIG-001 to FIG-003, claims CLM-001 to CLM-011, D-012. Gate condition "complete planned matrix" holds. The standalone reports were written on the owner's approval (D-013); M3 done 2026-11-25 (status line updated at M4).
 
 ## M4: Interpretation (with 11.6 additions)
 

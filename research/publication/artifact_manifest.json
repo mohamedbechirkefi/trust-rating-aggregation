@@ -4,8 +4,8 @@
  "status": "M4 evidence manifest",
  "generated_by": "scripts/audit_evidence.py",
  "generator_revision": {
-  "revision": "eaaef1a01c27ae13d241a8a696166252f5faec79",
-  "dirty": true
+  "revision": "c732fd8a6738ae9b41b188d2ddae6651bd86f560",
+  "dirty": false
  },
  "study_protocol_sha256": "3226e302fb4758327d50a5f583026d469d7ccbc5ad7c72b458fcd8bf2b702f03",
  "run_code_revision": "bd9e1460e29389def8baa43d6ca7cc553d659ff1",

@@ -13,8 +13,8 @@
  },
  "generator": "scripts/audit_evidence.py",
  "git": {
-  "dirty": true,
-  "revision": "eaaef1a01c27ae13d241a8a696166252f5faec79"
+  "dirty": false,
+  "revision": "c732fd8a6738ae9b41b188d2ddae6651bd86f560"
  },
  "interval_trace": {
   "research/claims_register.csv": {
