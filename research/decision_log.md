@@ -123,3 +123,11 @@ Append-only. Each entry: id, date, decision, decided by, rationale, consequences
 - **Frozen verdicts.** H1 supported (`Dbar` 0.0046, one-sided lower bound 0.0032) with direction depending on sigma (A-2); H1b contradicted; H1c not supported; EXP-002 lambda: no average difference, per-stratum rule not met; S1 not invalidating; S2 and S4 invalidation criteria met; S3 vacuous.
 - **Analysis provenance note.** The first `scripts/analyse_confirmatory.py` invocations wrote their own outputs (tables and figures under `research/experiments/`) before reading the git state, so their manifests recorded `dirty: true`. The analysis was re-run unchanged after the results were committed; outputs were identical and the manifests then record a clean revision.
 - **Reports pending.** The standalone 11.3 reports (`research/experiments/EXP-NNN/report.md`) were drafted but the session's file tool refused to write them; the generated tables and figures they rely on are committed. Writing them is the next task.
+
+## D-013: Owner decisions closing M3 (2026-11-25)
+
+- **Date:** 2026-11-25
+- **Decided by:** the owner, 2026-11-25, "approve all recommendations, RIGGED A" (`owner-approvals-2026-11-25.md` in the labs workspace, outside this repository). Applied by the AI assistant.
+- **Item 5 (TRUST).** "D-011 (bootstrap p-values for Holm) and D-012 (S3 cannot discriminate by design) are accepted, with both disclosed." Both are owner-accepted deviations, disclosed in each experiment report, in the claims register (CLM-005, CLM-011), in `research/limitations.md` and in the `deviations` list of `research/freeze.json`. Adding that list changes no hash the run guard checks.
+- **Item 4 (experiment reports).** "The owner approves writing the missing 11.3/11.6 experiment reports ... They are written from the committed results, tables and figures only." and "Nothing is recomputed and no numbers change." `research/experiments/EXP-001/report.md`, `EXP-002/report.md` and `EXP-003/report.md` are written on that basis; every number in them is copied from committed result files. This repository has no `reproduction.md`; section 12 of each report is its reproduction appendix.
+- **Consequences.** No frozen protocol, config, seed or result changes. With the reports written, the M3 gate holds.

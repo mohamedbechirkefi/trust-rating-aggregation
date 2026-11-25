@@ -24,5 +24,6 @@ Status at M0, 2026-11-24: no experiment has been run, so these are anticipated l
 - **Direction depends on noise.** Shrinkage ranks worse than the mean at sigma 0.5 and better at sigma 1.0 and 1.5 (EXP-001). The pooled `Dbar > 0` reflects the equal weighting of this grid and must not be read as a uniform effect.
 - **Fragile to the prior.** Moving the shrinkage centre by 0.5 stars (S2) or changing the quality distribution (S4) reverses the sign of `Dbar`. The positive result holds only when the prior centre and population shape match the generator.
 - **S3 is non-diagnostic for rank metrics.** `theta_rep` is a monotone transform of `mu`, so the two truth definitions give identical rankings (D-012).
-- **Small effect.** `Dbar` is about 0.005 tau-b units against a MEAN tau-b near 0.53; top-of-list metrics differ more but were secondary and untested.
+- **Small effect.** `Dbar` is 0.0046 tau-b units, small next to the per-cell tau-b of the arms (`results/confirmatory/EXP-001/report.md`); top-of-list metrics were secondary and untested.
 - **Holm p-value method** was fixed at M3 before data (D-011), not in the frozen text.
+- **Owner-accepted deviations (D-013).** D-011 (bootstrap p-values for the Holm families) and D-012 (S3 non-diagnostic for rank metrics) were accepted by the owner on 2026-11-25 ("approve all recommendations, RIGGED A") and are disclosed wherever the affected results appear.

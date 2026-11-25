@@ -140,5 +140,17 @@
  "git_revision": "39392ab5864ae2c398b226409a765808c80eda6e",
  "git_revision_note": "commit holding the frozen protocols, configs, data manifest and code; this record is committed on top of it",
  "guard": "trust.provenance.config_frozen: run refuses a confirmatory config unless the EXP protocol hash is in the registry and decision log, research/protocol.md and data/manifest.json match this record, and the config file is listed here with its current SHA-256",
- "authorship": "Mohamed Bechir Kefi (C3)"
+ "authorship": "Mohamed Bechir Kefi (C3)",
+ "deviations": [
+  {
+   "id": "D-011",
+   "what": "The frozen text names Holm but no p-value. Bootstrap p-values from the same stratified bootstrap (one-sided for the EXP-001 secondary family, two-sided for the EXP-002 lambda and gamma contrasts), fixed and committed at bd9e146 before any confirmatory catalogue existed.",
+   "owner_decision": "accepted, with disclosure (owner, 2026-11-25, \"approve all recommendations, RIGGED A\"; D-013)"
+  },
+  {
+   "id": "D-012",
+   "what": "EXP-003 S3 cannot discriminate between theta and theta_rep for rank metrics: theta_rep is strictly increasing in mu, so its frozen criterion is not met by construction.",
+   "owner_decision": "accepted, with disclosure (owner, 2026-11-25, \"approve all recommendations, RIGGED A\"; D-013)"
+  }
+ ]
 }
