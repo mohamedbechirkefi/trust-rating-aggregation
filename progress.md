@@ -333,3 +333,20 @@ Offline after initial load, responsive at 360 px, keyboard usable with visible f
 ### Next action
 
 M6 (release candidate), on the owner's word: articles, PDFs, clean-clone reproduction, owner review checklist.
+
+## 2026-11-25: M5 follow-up, article drafts
+
+The M5 commit (d542119) missed one item of the M5 brief, task 6: the article drafts of the master prompt's README paragraph. Written now:
+
+- `articles/medium.md`: title, accessible opening, research question, estimators, method, measured results (pooled estimand, per-noise signs), negative findings (H1b contradicted, H1c not supported, SHRINK_20 loss, S2 and S4 invalidation criteria met, no detected selection effect), limitations, reproducibility section with repository and demo URL placeholders, figure alt text for FIG-001 and `docs/demo.png`, AI-assistance note.
+- `articles/linkedin.md`: hook, what was built, one finding (pooled 0.0046 with interval, sign follows noise), caveat, repository and demo placeholders, image alt text.
+
+Status label in both: "independent research manuscript / preprint draft, not peer-reviewed". No link, citation, metric, endorsement or peer-review status was invented; no claim about any real platform.
+
+Number check (shell loop extracting every numeric token from both drafts, excluding the SPDX and comment header lines, and searching each with `grep -F` in `research/paper/manuscript.md`): no token missing. No em dash in either file.
+
+Also changed: `articles/README.md` (drafts exist), `README.md` (status sentence), `roadmap.md` (M5 status line). `research/publication/release_checklist.md` item on articles left unticked for the M6 review.
+
+Tests: `.venv/bin/python -m pytest -q` -> `173 passed in 4.79s`. No demo or Python code changed, so vitest and the checker were not rerun.
+
+Next action: M6 (release candidate) on the owner's word, including the owner's review of the article drafts.

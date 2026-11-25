@@ -20,7 +20,7 @@ Ranking products by their average star rating lets products with very few review
 
 - Interactive demo (M5): `demo/`, a static page with the published results, effect sizes and intervals, and a rating explorer sandbox. Its numbers come from `demo/public/data/results.json`, written by `scripts/export_demo_data.py` from committed results only; `tests/test_demo_export.py` checks that every number it shows is printed verbatim in the manuscript.
 
-What is not done yet: the release package (M6), including the Medium and LinkedIn drafts, compiled and inspected PDFs and the clean-clone reproduction.
+Drafts of the Medium and LinkedIn articles are in `articles/` (not published). What is not done yet: the release package (M6), including the owner's review of those drafts, compiled and inspected PDFs and the clean-clone reproduction.
 
 ## Key results (simulated, confirmatory)
 
