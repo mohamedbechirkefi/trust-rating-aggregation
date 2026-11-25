@@ -1,0 +1,152 @@
+{
+ "checksums": {
+  "files": 70,
+  "mismatches": []
+ },
+ "freeze_hashes": {
+  "files": 12,
+  "mismatches": []
+ },
+ "generator": "scripts/audit_evidence.py",
+ "git": {
+  "dirty": true,
+  "revision": "6d13cfcc019074a41535b8420aefc948665b7b29"
+ },
+ "interval_trace": {
+  "research/claims_register.csv": {
+   "triples": 15,
+   "unmatched": []
+  },
+  "research/experiments/EXP-001/report.md": {
+   "triples": 26,
+   "unmatched": []
+  },
+  "research/experiments/EXP-002/report.md": {
+   "triples": 35,
+   "unmatched": []
+  },
+  "research/experiments/EXP-003/report.md": {
+   "triples": 34,
+   "unmatched": []
+  },
+  "research/limitations.md": {
+   "triples": 0,
+   "unmatched": []
+  },
+  "research/paper/manuscript.md": {
+   "triples": 0,
+   "unmatched": []
+  },
+  "research/paper/supplementary.md": {
+   "triples": 0,
+   "unmatched": []
+  }
+ },
+ "number_trace": {
+  "research/claims_register.csv": {
+   "decimal_numbers": 64,
+   "unmatched": []
+  },
+  "research/experiments/EXP-001/report.md": {
+   "decimal_numbers": 210,
+   "unmatched": []
+  },
+  "research/experiments/EXP-002/report.md": {
+   "decimal_numbers": 207,
+   "unmatched": []
+  },
+  "research/experiments/EXP-003/report.md": {
+   "decimal_numbers": 161,
+   "unmatched": []
+  },
+  "research/limitations.md": {
+   "decimal_numbers": 6,
+   "unmatched": []
+  },
+  "research/paper/manuscript.md": {
+   "decimal_numbers": 1,
+   "unmatched": []
+  },
+  "research/paper/supplementary.md": {
+   "decimal_numbers": 1,
+   "unmatched": []
+  }
+ },
+ "number_trace_chance_match_rate_in_[-0.1,0.1]": {
+  "2dp": 1.0,
+  "3dp": 0.7,
+  "4dp": 0.537
+ },
+ "reanalysis": {
+  "EXP-001": {
+   "differences": [],
+   "n_differences": 0
+  },
+  "EXP-002": {
+   "differences": [],
+   "n_differences": 0
+  },
+  "EXP-003": {
+   "differences": [],
+   "n_differences": 0
+  }
+ },
+ "sample_counts": {
+  "EXP-001": {
+   "cells": 9,
+   "failed": 0,
+   "ok": 180,
+   "planned": 180,
+   "runs": 180,
+   "seeds": 20
+  },
+  "EXP-002": {
+   "cells": 12,
+   "failed": 0,
+   "ok": 240,
+   "planned": 240,
+   "runs": 240,
+   "seeds": 20
+  },
+  "EXP-003-S1-min1": {
+   "cells": 9,
+   "failed": 0,
+   "ok": 180,
+   "planned": 180,
+   "runs": 180,
+   "seeds": 20
+  },
+  "EXP-003-S1-min5": {
+   "cells": 9,
+   "failed": 0,
+   "ok": 180,
+   "planned": 180,
+   "runs": 180,
+   "seeds": 20
+  },
+  "EXP-003-S2": {
+   "cells": 9,
+   "failed": 0,
+   "ok": 180,
+   "planned": 180,
+   "runs": 180,
+   "seeds": 20
+  },
+  "EXP-003-S3": {
+   "cells": 12,
+   "failed": 0,
+   "ok": 240,
+   "planned": 240,
+   "runs": 240,
+   "seeds": 20
+  },
+  "EXP-003-S4": {
+   "cells": 18,
+   "failed": 0,
+   "ok": 360,
+   "planned": 360,
+   "runs": 360,
+   "seeds": 20
+  }
+ }
+}
