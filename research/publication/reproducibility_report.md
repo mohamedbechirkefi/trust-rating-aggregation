@@ -78,3 +78,16 @@ After the M6 commits (`a52eee9`, `86e9984`), a second clone was made and checked
 | `.venv/bin/python scripts/export_demo_data.py` | `git status --short`: 0 lines |
 | `.venv/bin/python scripts/check_links.py` | `LINK-CHECK PASS` |
 | `cd demo && npm ci --prefer-offline && npm test && npm run build && node tools/a11y_check.mjs dist` | `added 53 packages in 511ms`; `Tests 28 passed (28)`; `built in 262ms`; `A11Y-CHECK PASS` |
+
+## 7. Local home paths remaining (B9, 2026-11-26)
+
+Owner, 2026-11-26, decision sheet (B9): local home paths are removed from editable files in a new commit, with no history rewrite. A scan of the tracked files on 2026-11-26 (`git ls-files | xargs grep -c "/Users/"`) found no home path in any editable file (`CLAUDE.md` was already cleaned at M6). The 16 remaining lines in 10 files are left untouched, by rule:
+
+| File | Lines | Why it stays |
+|---|---|---|
+| `progress.md` | 3 | append-only session journal; its dated entries stay true for their date |
+| `research/decision_log.md` | 2 | append-only decision log |
+| `research/protocol.md` | 4 | frozen protocol; its SHA-256 is recorded in `research/freeze.json` (D-010) |
+| `results/confirmatory/logs/EXP-001.log`, `EXP-002.log`, `EXP-003-S1-min1.log`, `EXP-003-S1-min5.log`, `EXP-003-S2.log`, `EXP-003-S3.log`, `EXP-003-S4.log` | 1 each (7) | confirmatory run logs, kept byte for byte as written at run time |
+
+These files have been public since 2026-11-25; rewriting history would break the published commit ids and the freeze hashes (option (c) of B9, not chosen).

@@ -54,7 +54,8 @@ export function App() {
           <p>
             Runs offline after the first load. No data about visitors is collected, stored or sent anywhere. All results
             are simulated; real product quality is unobserved, nothing here describes any real platform, and nothing
-            labels any review as fraudulent. Repository: <code>&lt;repository URL: not yet published&gt;</code>.
+            labels any review as fraudulent. Mohamed Bechir Kefi, independent researcher. Repository:{" "}
+            <a href="https://github.com/mohamedbechirkefi/trust-rating-aggregation">https://github.com/mohamedbechirkefi/trust-rating-aggregation</a>.
           </p>
         </div>
       </footer>

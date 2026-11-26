@@ -1,5 +1,5 @@
 <!-- SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0 -->
-<!-- Draft for LinkedIn (master prompt section 8). Not published. Numbers copied from research/paper/manuscript.md. Links are placeholders until the owner releases the repository. -->
+<!-- Draft for LinkedIn (master prompt section 8). Not published. Numbers copied from research/paper/manuscript.md. Repository and demo links filled on 2026-11-26 (owner, 2026-11-26, decision sheet). -->
 
 Does a Bayesian average rank products better than the plain star average? In a simulation, it depends on how noisy the ratings are.
 
@@ -9,8 +9,8 @@ One defensible finding: the pooled advantage of a five-pseudo-review Bayesian av
 
 Caveat: everything is simulated, and the results depend on the model's assumptions. They say nothing about any real platform, product or review.
 
-Manuscript (independent research manuscript / preprint draft, not peer-reviewed), experiment reports and an offline interactive demo: `<repository URL: not yet published>`, `<demo URL: not yet published>` (to be added by the owner at release).
+Manuscript (independent research manuscript / preprint draft, not peer-reviewed), experiment reports and an offline interactive demo: https://github.com/mohamedbechirkefi/trust-rating-aggregation, demo https://trust-rating-aggregation.kefimohamedbechir.workers.dev.
 
-Developed with an AI research and development assistant (Claude Code), which is not an author.
+Developed with an AI system used as a research and development assistant, which is not an author.
 
 *Image (alt text, if the demo screenshot is attached): The TRUST demo page showing the question, the status label and a dot-and-interval chart of the shrinkage-minus-mean difference in Kendall tau-b for nine simulated cells, three noise levels and the pooled estimate.*

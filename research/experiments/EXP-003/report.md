@@ -8,7 +8,7 @@
 | Experiment | EXP-003 (confirmatory sensitivity analyses S1 to S4 of the EXP-001 conclusion) |
 | Status | Complete. All five frozen configs ran in full: 1,140 of 1,140 runs ok, 0 failed, 0 retried |
 | Report version | 1.0 (M3), 2026-11-25, written under the owner's approval of 2026-11-25 (D-013) from committed results only |
-| Authorship | Mohamed Bechir Kefi (owner-approved, C3). The AI assistant ran the experiment and drafted this report; it is not an author |
+| Authorship | Mohamed Bechir Kefi, independent researcher (owner-approved, C3; owner, 2026-11-26, decision sheet). An AI system, used as a research and development assistant, ran the experiment and drafted this report; it is not an author |
 | Protocol | `research/experiments/EXP-003/protocol.md` v1.0, SHA-256 `cb4568fa37e4feaa1bd1a79a71fafa47a96fcad13d8b8b2d6605932c71b19b81`; study protocol `research/protocol.md` `3226e302fb4758327d50a5f583026d469d7ccbc5ad7c72b458fcd8bf2b702f03` |
 | Configs (file SHA-256, equal to the freeze record) | `EXP-003-S1-min1.json` `7e9683ea0e8f31689e5846474b0f15175aaaa1cc04dbc7cd20675729fe60a564`; `EXP-003-S1-min5.json` `5b948ab09d3fb99421c487b14ddd1fb644ff71e33d7e49bc75597fbdc69ddc89`; `EXP-003-S2.json` `fecaa2f8523f360fd5270a3481222e47aea88c27dc125a58c44592aefb22ff18`; `EXP-003-S3.json` `4385405824d78de6b48b14392d094df0277c7cf4bfec44dc359668dc2768d4d7`; `EXP-003-S4.json` `e788afa2ac3733cb22ff639d558c285fefea89aa47814025407ccdfcb3054d89` |
 | Provenance revision | `bd9e1460e29389def8baa43d6ca7cc553d659ff1`, clean tree |

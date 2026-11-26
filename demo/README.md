@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0 -->
 # demo/
 
-Static, offline research page for TRUST (M5, 2026-11-25). Stack: TypeScript, React and Vite, pinned versions from the shared lab template (owner, 2026-11-25, "Next"; decision D-016). Demo URL: `<demo URL: not yet published>`.
+Static, offline research page for TRUST (M5, 2026-11-25). Stack: TypeScript, React and Vite, pinned versions from the shared lab template (owner, 2026-11-25, "Next"; decision D-016). Demo URL: <https://trust-rating-aggregation.kefimohamedbechir.workers.dev>. The built page (`dist/`) is hosted as Cloudflare Workers static assets on the free plan, configured by `wrangler.jsonc` (assets only, no Worker script); it is deployed by the coordinator, not by any script of this repository.
 
 ## What it shows
 

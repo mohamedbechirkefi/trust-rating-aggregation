@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0 -->
 # Supplementary material
 
-Supplement to `research/paper/manuscript.md` (version M4, 2026-11-25). Independent research manuscript / preprint draft, not peer-reviewed. All values are simulated. Every table is copied from a generated file named in its caption; nothing is retyped from memory.
+Supplement to `research/paper/manuscript.md` (version M4, 2026-11-25). Author: Mohamed Bechir Kefi, independent researcher. Independent research manuscript / preprint draft, not peer-reviewed. All values are simulated. Every table is copied from a generated file named in its caption; nothing is retyped from memory.
 
 ## S1. Complete experimental matrix
 

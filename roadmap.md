@@ -11,7 +11,7 @@ Target: five focused development days (planning estimate, never a reason to weak
 | M3 | Experiments | M1 freeze, M2 | P0 | 0.5 | done (2026-11-25): 1,560 of 1,560 runs ok; reports written (D-013) | none |
 | M4 | Interpretation | M3 | P0 | 1.0 | done (2026-11-25) | M3 |
 | M5 | Interactive experience | M3 results (demo shell may start at M2) | P1 | 1.0 | done (2026-11-25): static offline demo, gate checks pass (D-016) | none |
-| M6 | Release candidate | M4, M5 | P0 | 0.5 | release candidate prepared, awaiting owner review and G-PUBLIC | owner sign-off of `research/publication/author_review.md`; owner approval for any publication (G-PUBLIC) |
+| M6 | Release candidate | M4, M5 | P0 | 0.5 | release candidate prepared; repository public since 2026-11-25; owner answers of 2026-11-26 applied (D-018); awaiting the owner's full-text review, sign-off and release | owner sign-off of `research/publication/author_review.md`; owner approval for any publication (G-PUBLIC) |
 
 If the five-day target is threatened, cut in this order: optional EXP-003 sub-analysis S4, demo extras, EXP-002 cells. Never cut controls, reports or the evidence audit.
 

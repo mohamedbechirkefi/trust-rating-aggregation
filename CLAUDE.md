@@ -27,7 +27,7 @@ Then run `git status` and inspect existing files. Do not overwrite changes made 
 
 ## 3. Gates (the owner decides)
 
-- **G-PUBLIC.** Never push, add a remote, create a GitHub repository or publish anything.
+- **G-PUBLIC.** Never push, add a remote, create a GitHub repository, deploy or publish anything. The repository has been public at `https://github.com/mohamedbechirkefi/trust-rating-aggregation` since 2026-11-25 and the demo is hosted at `https://trust-rating-aggregation.kefimohamedbechir.workers.dev`; pushes and deploys are made by the coordinator on the owner's word, never by a session of this repository.
 - **No paid service** of any kind. No paid APIs, inference, datasets, hosting or compute. The coding subscription is not an inference backend.
 - **G-FREEZE.** Never freeze a protocol yourself. Freezing is the owner's decision, recorded with a hash in `research/decision_log.md`. Until then all runs are exploratory and labelled so.
 - No confirmatory experiments before the owner freezes the protocol. Small exploratory smoke checks are allowed and labelled exploratory.

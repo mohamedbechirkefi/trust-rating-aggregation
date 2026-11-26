@@ -1,9 +1,11 @@
 <!-- SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0 -->
 # TRUST: rating aggregation under uncertainty
 
+Author: Mohamed Bechir Kefi, independent researcher. Repository: <https://github.com/mohamedbechirkefi/trust-rating-aggregation>.
+
 **Question.** When do average ratings misrank products compared with uncertainty-aware estimators?
 
-**Status: protocol v1.0 frozen by the owner on 2026-11-24 (`research/freeze.json`); all three registered experiments ran in full on 2026-11-24 (1,560 of 1,560 simulated runs ok) and have standalone reports. The integrated manuscript is a draft (M4): independent research manuscript / preprint draft, not peer-reviewed. A static, offline interactive demo exists (M5, `demo/`). The owner approved the funding, competing-interest and AI-use statements on 2026-11-25. A release candidate (M6) is prepared and awaits the owner's review; nothing is published.** All results are simulated. In this model, shrinkage towards the catalogue mean ranks better than the average rating when ratings are noisy and worse when they are precise, and the advantage reverses under a misspecified shrinkage centre or population shape (`research/paper/manuscript.md`).
+**Status: protocol v1.0 frozen by the owner on 2026-11-24 (`research/freeze.json`); all three registered experiments ran in full on 2026-11-24 (1,560 of 1,560 simulated runs ok) and have standalone reports. The integrated manuscript is a draft (M4): independent research manuscript / preprint draft, not peer-reviewed. A static, offline interactive demo exists (M5, `demo/`). The owner approved the funding, competing-interest and AI-use statements on 2026-11-25. A release candidate (M6) is prepared and awaits the owner's review; the repository has been public since 2026-11-25, and no tag or release exists yet.** All results are simulated. In this model, shrinkage towards the catalogue mean ranks better than the average rating when ratings are noisy and worse when they are precise, and the advantage reverses under a misspecified shrinkage centre or population shape (`research/paper/manuscript.md`).
 
 ## Why it matters
 
@@ -12,7 +14,7 @@ Ranking products by their average star rating lets products with very few review
 ## What exists now
 
 - Control files: `CLAUDE.md`, `roadmap.md`, `progress.md`.
-- Frozen protocol (v1.0, 2026-11-24): `research/protocol.md`; registered experiments in `research/experiment_registry.csv`.
+- Frozen protocol (v1.0, 2026-11-24): `research/protocol.md`; registered experiments in `research/experiment_registry.csv`. The status lines of the frozen protocols (`research/protocol.md`, `research/experiments/EXP-00N/protocol.md`) still say "not yet run" because frozen files are not edited; the experiment registry and the reports give the current state.
 - Literature scoping: `research/literature_review.md`. Data candidates and their licences: `data/manifest.json`.
 - Manuscript draft: `research/paper/manuscript.md` and `research/paper/supplementary.md`; experiment reports `research/experiments/EXP-00N/report.md`; evidence audit `research/publication/evidence_audit.md`.
 
@@ -22,7 +24,7 @@ Ranking products by their average star rating lets products with very few review
 
 Drafts of the Medium and LinkedIn articles are in `articles/` (not published).
 
-- Release candidate (M6): PDFs of the manuscript, supplement and reports (`research/paper/manuscript.pdf`, `research/paper/supplementary.pdf`, `research/experiments/EXP-00N/report.pdf`, built by `scripts/build_publication.py` and visually inspected), a clean-clone reproduction (`research/publication/reproducibility_report.md`), dependency licences (`research/publication/dependency_licences.md`) and the owner review checklist (`research/publication/author_review.md`). What is not done: the owner's review and any publication.
+- Release candidate (M6): PDFs of the manuscript, supplement and reports (`research/paper/manuscript.pdf`, `research/paper/supplementary.pdf`, `research/experiments/EXP-00N/report.pdf`, built by `scripts/build_publication.py` and visually inspected), a clean-clone reproduction (`research/publication/reproducibility_report.md`), dependency licences (`research/publication/dependency_licences.md`) and the owner review checklist (`research/publication/author_review.md`). What is not done: the owner's full-text review and sign-off, and the release (tag and GitHub release).
 
 ## Key results (simulated, confirmatory)
 
@@ -56,7 +58,7 @@ PYTHONPATH=src uv run --frozen python -m trust.cli report --dir results/explorat
 
 ![TRUST demo page: the question, the status label, the three value labels (published result, assumption, sandbox output) and FIG-001, a dot-and-interval chart of SHRINK_5 minus MEAN in Kendall tau-b for the nine EXP-001 cells, the three noise levels and the pooled estimate.](docs/demo.png)
 
-The demo is a static page that runs offline after the first load and sends nothing anywhere. Demo URL: `<demo URL: not yet published>`.
+The demo is a static page that runs offline after the first load and sends nothing anywhere. Demo URL: <https://trust-rating-aggregation.kefimohamedbechir.workers.dev> (Cloudflare Workers static assets, free plan; see `demo/README.md`).
 
 ```sh
 cd demo && npm ci && npm run build && npm run preview

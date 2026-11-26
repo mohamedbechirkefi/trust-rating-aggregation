@@ -406,3 +406,31 @@ The owner reviews the release candidate and signs off `research/publication/auth
 ### M6 addendum: fresh-clone re-check (2026-11-25)
 
 Commits `a52eee9` (M6 work) and `86e9984` (evidence audit and artifact manifest regenerated at the clean revision `a52eee9`: `"dirty": false`; demo export refreshed; 176 passed, demo 28 passed, A11Y-CHECK PASS). A fresh clone of `86e9984`: 176 passed in 23.81s; smoke `metrics.csv` and `results.json` byte-identical; export left 0 changed files; LINK-CHECK PASS; npm ci added 53 packages; Tests 28 passed (28); build ok; A11Y-CHECK PASS. Recorded in `research/publication/reproducibility_report.md` section 6. Both clones deleted.
+
+## 2026-11-26: owner answers of 2026-11-26 applied (D-018)
+
+**Starting state:** `39cef21`, working tree clean. Authority: owner, 2026-11-26, decision sheet (`labs/_shared/owner-decision-sheet-2026-11-26.md`, `labs/_shared/owner-approvals-2026-11-26.md`); brief `labs/_shared/OWNER-ANSWERS-brief.md`. Wording and configuration only; no result, analysis, figure, config, seed, frozen protocol, hash or checksummed output changed.
+
+### Changes
+
+A1 (repository public since 2026-11-25; out-of-date sentences corrected), B1 and B2 (repository and demo URLs filled; `CITATION.cff` `repository-code`; new `demo/wrangler.jsonc`, assets `./dist`), B3 (author line "Mohamed Bechir Kefi, independent researcher"; `CITATION.cff` affiliation), B4 ("No funding was received."), B5 ("an AI system" in the articles and reports), B6 and B7 (`CITATION.cff` title = manuscript title), B8, B10, B11, B13, B14 (release checklist: version policy and "Release notes (draft)"), B9 (no home path in editable files; 16 lines in 10 append-only, frozen or run-log files listed in the reproducibility report section 7), B12 (README sentence). Records: decision D-018, `author_review.md` section "Owner answers recorded (2026-11-26)" (no box ticked; placeholder list now empty), `roadmap.md` M6 status.
+
+### Commands and actual outputs
+
+    git ls-files | xargs grep -c "/Users/"                         -> progress.md 3, research/decision_log.md 2, research/protocol.md 4, 7 run logs 1 each; 0 in editable files
+    PYTHONPATH=src .venv/bin/python scripts/build_publication.py --png-dir <scratch>/png
+      -> manuscript.pdf 219403 bytes (13 pages), supplementary.pdf 140610 (6), EXP-001 report.pdf 145311 (7), EXP-002 136693 (6), EXP-003 124688 (6); manuscript.tex rewritten
+    pypdf text scan                                                -> author line on page 1 of manuscript, supplement and reports; URLs and funding sentence on manuscript page 12; no "not yet published" left
+    PNG inspection                                                 -> manuscript pages 1 and 12, supplement page 1, EXP-001 report page 1: author line, URLs and statements render correctly
+    .venv/bin/python -m pytest -q                                  -> 176 passed in 6.48s
+    .venv/bin/python -m pytest -q tests/test_demo_export.py        -> 8 passed in 0.02s
+    .venv/bin/python scripts/check_links.py                        -> 54 Markdown files; 22 relative links ...; LINK-CHECK PASS
+    cd demo && npm test                                            -> Test Files 2 passed (2); Tests 28 passed (28)
+    npm run build                                                  -> built in 136ms (dist/assets/index-96GTScmF.js 249.71 kB)
+    node tools/a11y_check.mjs dist                                 -> 14 PASS lines (keyboard 26 of 26, 35 of 35 with sandbox output; no request leaves the local origin), A11Y-CHECK PASS
+    built page origins                                             -> index.html loads ./assets only; the only external URL in the bundle besides XML namespaces and react.dev error text is the repository link (not loaded)
+    .venv/bin/python scripts/export_demo_data.py; git status       -> results.json unchanged
+
+### Next action
+
+The owner reviews the articles (B15), reviews the full text and signs off `research/publication/author_review.md` (B16), then decides the release (B18). The coordinator pushes and deploys on the owner's word.

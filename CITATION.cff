@@ -3,13 +3,15 @@
 # The licence is deliberately not given as an SPDX "license" field because it is not an SPDX-listed licence.
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below. Status: unpublished research in progress, not peer-reviewed."
-title: "TRUST: when do average ratings misrank products compared with uncertainty-aware estimators?"
+title: "When does shrinkage beat the average star rating? A preregistered simulation of rank recovery under noise, sparsity and misspecification"
 type: software
 authors:
   - family-names: Kefi
     given-names: Mohamed Bechir
+    affiliation: "Independent researcher"
 version: 0.1.0-rc1
-abstract: "Preregistered simulation study, protocol v1.0 frozen on 2026-11-24; all 1,560 confirmatory runs completed. In this model, shrinkage towards the catalogue mean ranks better than the average rating when ratings are noisy and worse when they are precise; the pooled SHRINK_5 minus MEAN difference in Kendall tau-b is 0.0046 (95% interval 0.0030 to 0.0061), and the advantage reverses under a misspecified shrinkage centre or population shape. All results are simulated; manuscript draft not peer-reviewed. Authorship: Mohamed Bechir Kefi, no affiliation. An AI system was used as a research and development assistant and is not an author. Simulation parameters are calibrated on MovieLens 1M (Harper and Konstan 2015), which is not redistributed."
+repository-code: "https://github.com/mohamedbechirkefi/trust-rating-aggregation"
+abstract: "Preregistered simulation study, protocol v1.0 frozen on 2026-11-24; all 1,560 confirmatory runs completed. In this model, shrinkage towards the catalogue mean ranks better than the average rating when ratings are noisy and worse when they are precise; the pooled SHRINK_5 minus MEAN difference in Kendall tau-b is 0.0046 (95% interval 0.0030 to 0.0061), and the advantage reverses under a misspecified shrinkage centre or population shape. All results are simulated; manuscript draft not peer-reviewed. Authorship: Mohamed Bechir Kefi, independent researcher. An AI system was used as a research and development assistant and is not an author. Simulation parameters are calibrated on MovieLens 1M (Harper and Konstan 2015), which is not redistributed."
 keywords:
   - rating aggregation
   - Bayesian shrinkage

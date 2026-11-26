@@ -1,7 +1,9 @@
 <!-- SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0 -->
-<!-- Draft for Medium (master prompt section 8). Not published. Every number is copied from research/paper/manuscript.md. Links are placeholders until the owner releases the repository. -->
+<!-- Draft for Medium (master prompt section 8). Not published. Every number is copied from research/paper/manuscript.md. Repository and demo links filled on 2026-11-26 (owner, 2026-11-26, decision sheet). -->
 
 # Does a Bayesian average rank products better than the star average? In a simulation, it depends on rating noise
+
+*By Mohamed Bechir Kefi, independent researcher.*
 
 *Draft. Status: independent research manuscript / preprint draft, not peer-reviewed. All results are simulated and say nothing about any real platform, product or review.*
 
@@ -56,6 +58,6 @@ One sensitivity check supported the result: restricting the metric to products w
 
 ## Reproducibility
 
-The protocols, freeze record, configurations, raw results with checksums, experiment reports, manuscript (independent research manuscript / preprint draft, not peer-reviewed) and an offline interactive demo are in the project repository: `<repository URL: not yet published>`. Demo: `<demo URL: not yet published>`. Both links are to be added by the owner if and when the repository is released.
+The protocols, freeze record, configurations, raw results with checksums, experiment reports, manuscript (independent research manuscript / preprint draft, not peer-reviewed) and an offline interactive demo are in the project repository: <https://github.com/mohamedbechirkefi/trust-rating-aggregation>. Demo: <https://trust-rating-aggregation.kefimohamedbechir.workers.dev>.
 
-*The study was carried out with an AI research and development assistant (Claude Code) under the author's direction; the assistant is not an author.*
+*The study was carried out with an AI system used as a research and development assistant under the author's direction; the AI system is not an author.*

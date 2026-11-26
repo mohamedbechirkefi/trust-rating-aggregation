@@ -8,7 +8,7 @@
 | Experiment | EXP-001 (confirmatory; primary hypothesis H1) |
 | Status | Complete. The frozen matrix ran in full: 180 of 180 runs ok, 0 failed, 0 retried |
 | Report version | 1.0 (M3), 2026-11-25, written under the owner's approval of 2026-11-25 (D-013) from committed results only |
-| Authorship | Mohamed Bechir Kefi (owner-approved, C3). The AI assistant ran the experiment and drafted this report; it is not an author |
+| Authorship | Mohamed Bechir Kefi, independent researcher (owner-approved, C3; owner, 2026-11-26, decision sheet). An AI system, used as a research and development assistant, ran the experiment and drafted this report; it is not an author |
 | Protocol | `research/experiments/EXP-001/protocol.md` v1.0, SHA-256 `27766885e692caa61253528fe5d959ab25f4b64db65bfde28c301671df31ce50`; study protocol `research/protocol.md` `3226e302fb4758327d50a5f583026d469d7ccbc5ad7c72b458fcd8bf2b702f03` |
 | Config | `experiments/EXP-001.json`, file SHA-256 `bb3bec3b81261bc1c8701c63a26decfe6d229d23db8d90ed7738b7f10e4f0279` (equal to the freeze record) |
 | Provenance revision | `bd9e1460e29389def8baa43d6ca7cc553d659ff1`, clean tree |

@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-TRUST-NC-Research-1.0 -->
 # When does shrinkage beat the average star rating? A preregistered simulation of rank recovery under noise, sparsity and misspecification
 
-**Author:** Mohamed Bechir Kefi (no affiliation).
+**Author:** Mohamed Bechir Kefi, independent researcher.
 
 **Status:** independent research manuscript / preprint draft, not peer-reviewed. Version M4, 2026-11-25. Protocol v1.0 frozen by the owner on 2026-11-24 before any confirmatory run.
 
@@ -219,7 +219,7 @@ Under the frozen rule the primary hypothesis is supported, but the supported sta
 
 ## 10. Data, code availability and reproducibility
 
-Repository: `<repository URL: not yet published>`. All paths below are relative to the repository root.
+Repository: <https://github.com/mohamedbechirkefi/trust-rating-aggregation>. Interactive demo: <https://trust-rating-aggregation.kefimohamedbechir.workers.dev>. All paths below are relative to the repository root.
 
 - Protocols and freeze record: `research/protocol.md`, `research/experiments/EXP-00N/protocol.md`, `research/freeze.json`.
 - Configs: `experiments/EXP-001.json`, `EXP-002.json`, `EXP-003-*.json`.
@@ -233,7 +233,7 @@ Reproduction: `uv sync --frozen`, then `trust.cli run --config experiments/<conf
 
 ## 11. Funding, competing interests and AI assistance
 
-No funding. The author declares no competing interests. An AI system was used as a research and development assistant: it wrote code, ran the experiments, produced the analysis scaffolding and drafted this manuscript and the reports under the author's direction. The author approved the protocol, its freeze and each deviation. The AI system is not an author. AI review in this project (`research/publication/review_pass_2.md`) is internal quality control, not peer review.
+No funding was received. The author declares no competing interests. An AI system was used as a research and development assistant: it wrote code, ran the experiments, produced the analysis scaffolding and drafted this manuscript and the reports under the author's direction. The author approved the protocol, its freeze and each deviation. The AI system is not an author. AI review in this project (`research/publication/review_pass_2.md`) is internal quality control, not peer review.
 
 ## References
 
