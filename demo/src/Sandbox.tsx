@@ -6,6 +6,7 @@ import type { SandboxParams } from "./results";
 import { QUALITIES, type Fixed, type ProductRow, type Settings } from "./sandboxRun";
 import type { SandboxOutput, Summary, WorkerReply, WorkerRequest } from "./sandbox.worker";
 import { Disclosure, ExplorerChart, type OrderBy } from "./Charts";
+import { Seg } from "./Seg";
 
 const f3 = (x: number) => (Number.isFinite(x) ? x.toFixed(3) : "undefined");
 const f4 = (x: number) => (Number.isFinite(x) ? x.toFixed(4) : "undefined");
@@ -16,6 +17,13 @@ const ORDER_LABEL: Record<OrderBy, string> = {
   shrink: "shrinkage (SHRINK)",
   lcb: "lower credible bound (LCB)",
   theta: "simulated true quality",
+};
+
+const ORDER_SHORT: Record<OrderBy, string> = {
+  mean: "Average (MEAN)",
+  shrink: "Shrinkage (SHRINK)",
+  lcb: "Lower bound (LCB)",
+  theta: "True quality",
 };
 
 function topBy(products: ProductRow[], key: OrderBy, k: number): ProductRow[] {
@@ -35,6 +43,17 @@ export function Sandbox({ params }: { params: SandboxParams }) {
   const [status, setStatus] = useState("");
   const [out, setOut] = useState<SandboxOutput | null>(null);
   const [order, setOrder] = useState<OrderBy>("mean");
+  const outRef = useRef<HTMLParagraphElement>(null);
+  // A returned run settles in: opacity and a short rise, opacity only under reduced motion.
+  useEffect(() => {
+    const el = outRef.current;
+    if (!el || !status || typeof el.animate !== "function") return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.animate(
+      reduce ? [{ opacity: 0 }, { opacity: 1 }] : [{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }],
+      { duration: 240, easing: "cubic-bezier(0.23, 1, 0.32, 1)" },
+    );
+  }, [status]);
 
   useEffect(() => {
     const w = new Worker(new URL("./sandbox.worker.ts", import.meta.url), { type: "module" });
@@ -151,14 +170,14 @@ export function Sandbox({ params }: { params: SandboxParams }) {
             onChange={(e) => set("replicates", Math.min(50, Math.max(1, Math.round(Number(e.target.value) || 1))))} />
         </div>
         <div className="buttons">
-          <button type="submit" disabled={running}>Run</button>
+          <button type="submit" className="primary" disabled={running}>Run</button>
           <button type="button" onClick={cancel} disabled={!running}>Cancel</button>
           <button type="button" onClick={reset}>Reset</button>
           <button type="button" onClick={download} disabled={!out || running}>Download output (JSON)</button>
         </div>
       </form>
       {running && <progress max={1} value={progress} aria-label="Sandbox progress" />}
-      <p aria-live="polite" className="sandbox-out">{status}</p>
+      <p aria-live="polite" className="sandbox-out" ref={outRef}>{status}</p>
       {!out && !running && <p className="note">No sandbox output yet. Choose settings and press Run.</p>}
       {out && (
         <>
@@ -182,15 +201,14 @@ export function Sandbox({ params }: { params: SandboxParams }) {
           </div>
 
           <h3>Products under the lens</h3>
-          <div className="controls">
-            <div className="field wide">
-              <label htmlFor="sb-order">Show the top {k} products ranked by</label>
-              <select id="sb-order" value={order} onChange={(e) => setOrder(e.target.value as OrderBy)}>
-                {(Object.keys(ORDER_LABEL) as OrderBy[]).map((o) => (
-                  <option key={o} value={o}>{ORDER_LABEL[o]}</option>
-                ))}
-              </select>
-            </div>
+          <div className="order-row">
+            <Seg<OrderBy>
+              title={`Show the top ${k} products ranked by`}
+              ariaLabel="Rank the products shown by"
+              value={order}
+              onChange={setOrder}
+              items={(Object.keys(ORDER_LABEL) as OrderBy[]).map((o) => ({ value: o, label: ORDER_SHORT[o], id: `sb-order-${o}` }))}
+            />
           </div>
           <p className="note">
             First replicate catalogue. Intervals are the nominal 90% intervals of the research engine; an interval reaching past the axis is cut at its edge. With few reviews

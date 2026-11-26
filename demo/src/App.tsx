@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { fmtEstimate, fmtInterval, loadResults, ResultsError, type Results } from "./results";
 import { Sandbox } from "./Sandbox";
 import { describeIntervals, Disclosure, ForestChart } from "./Charts";
+import { Hero } from "./Hero";
+import { Verdict } from "./Verdict";
 
 type State = { kind: "loading" } | { kind: "error"; message: string } | { kind: "ready"; results: Results };
 
@@ -17,22 +19,47 @@ export function App() {
       );
   }, []);
 
+  const base = import.meta.env.BASE_URL;
+  const exp1 = state.kind === "ready" ? state.results.experiments.find((e) => e.id === "EXP-001") : undefined;
+  const at = (label: string) => exp1?.estimates.find((e) => e.label === label);
+  const d05 = at("D_sigma at sigma 0.5 stars (A-2)");
+  const d15 = at("D_sigma at sigma 1.5 stars (A-2)");
+
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
-      <header className="site">
-        <div className="wrap">
-          <p className="kicker">TRUST · a preregistered simulation study of rating aggregation</p>
-          <h1>When do average ratings misrank products compared with uncertainty-aware estimators?</h1>
-          <nav aria-label="Sections">
+      <div className="topbar">
+        <div className="wrap bar-row">
+          <a className="bar-brand" href="#top" aria-label="TRUST, back to top">
+            <img src={`${base}brand/lockup.svg`} alt="" width={112} height={33} />
+          </a>
+          <nav aria-label="Sections" className="bar-nav">
+            <a href="#verdict">Verdict</a>
             <a href="#overview">Overview</a>
             <a href="#results">Results</a>
-            <a href="#assumptions">Assumptions</a>
-            <a href="#method">Method and limitations</a>
             <a href="#sandbox">Rating explorer</a>
+            <a href="#assumptions">Assumptions</a>
+            <a href="#method">Method</a>
+            <a href="#reproduce">Reproduce</a>
           </nav>
         </div>
-      </header>
+      </div>
+      <Hero>
+        <p className="hero-kicker">A preregistered simulation study of rating aggregation</p>
+        <h1>When does shrinkage beat the average star rating?</h1>
+        <p className="hero-q">When do average ratings misrank products compared with uncertainty-aware estimators?</p>
+        {d05 && d15 ? (
+          <p className="hero-a">
+            It depends on the noise in individual ratings. Shrinking each product&apos;s average towards the catalogue mean recovered the true
+            order worse than the plain average when ratings were precise (Kendall tau-b difference <strong>{fmtEstimate(d05)}</strong> at 0.5
+            stars) and better when they were noisy (<strong>{fmtEstimate(d15)}</strong> at 1.5 stars), and the advantage reversed when the
+            prior was misspecified.
+          </p>
+        ) : (
+          <p className="hero-a">{state.kind === "error" ? "The published results failed validation, so no answer is shown." : "Loading the published results."}</p>
+        )}
+        <p className="hero-by">Mohamed Bechir Kefi, independent researcher</p>
+      </Hero>
       <main id="main" className="wrap">
         {state.kind === "loading" && <p role="status">Loading the published results.</p>}
         {state.kind === "error" && (
@@ -44,19 +71,37 @@ export function App() {
         )}
         {state.kind === "ready" && (
           <>
+            <Verdict r={state.results} />
             <Published r={state.results} />
-            <Sandbox params={state.results.sandbox} />
           </>
         )}
       </main>
       <footer className="site">
-        <div className="wrap">
-          <p>
-            Runs offline after the first load. No data about visitors is collected, stored or sent anywhere. All results
-            are simulated; real product quality is unobserved, nothing here describes any real platform, and nothing
-            labels any review as fraudulent. Mohamed Bechir Kefi, independent researcher. Repository:{" "}
-            <a href="https://github.com/mohamedbechirkefi/trust-rating-aggregation">https://github.com/mohamedbechirkefi/trust-rating-aggregation</a>.
-          </p>
+        <div className="wrap foot-grid">
+          <div>
+            <img className="foot-mark" src={`${base}brand/lockup-reversed.svg`} alt="TRUST" width={140} height={42} />
+            <p>Mohamed Bechir Kefi, independent researcher.</p>
+            <p>
+              Runs offline after the first load. No data about visitors is collected, stored or sent anywhere. All results are simulated; real
+              product quality is unobserved, nothing here describes any real platform, and nothing labels any review as fraudulent.
+            </p>
+          </div>
+          <div>
+            <ul className="foot-links">
+              <li><a href="https://github.com/mohamedbechirkefi/trust-rating-aggregation">Source repository on GitHub</a></li>
+              <li><a href="https://github.com/mohamedbechirkefi/trust-rating-aggregation/blob/main/research/paper/manuscript.md">Manuscript (preprint draft, not peer-reviewed)</a></li>
+              <li><a href="https://labs.kefimohamedbechir.workers.dev">All simulation labs</a></li>
+            </ul>
+            <p className="foot-small">
+              Licence: TRUST Source-Available Non-Commercial Research License v1.0 (LicenseRef-TRUST-NC-Research-1.0), a custom
+              source-available licence, not an OSI-approved open-source licence.
+            </p>
+            <p className="foot-small">
+              AI assistance: an AI system was used as a research and development assistant under the author&apos;s direction. The AI system is not
+              an author.
+            </p>
+            <p className="foot-small">Type: Archivo (Omnibus-Type) and Atkinson Hyperlegible Next (Braille Institute), both under the SIL Open Font License 1.1, served from this site.</p>
+          </div>
         </div>
       </footer>
     </>
@@ -115,10 +160,10 @@ function Published({ r }: { r: Results }) {
         {r.experiments.map((e) => (
           <article key={e.id} className={`panel exp ${e.status.startsWith("exploratory") ? "exploratory" : ""}`} aria-labelledby={`h-${e.id}`}>
             <h3 id={`h-${e.id}`}>
-              {e.id}: {e.title}
+              <span className="p-id">{e.id}<span className="sr">:</span></span> {e.title}
             </h3>
             <p>
-              <span className="badge">{e.status}</span>{" "}
+              <span className="badge">{e.status}</span>
               <strong>{e.status.startsWith("exploratory") ? "Verdict:" : "Verdict under the frozen rule:"}</strong> {e.verdict}
             </p>
             {e.estimates.length > 0 && (
@@ -156,6 +201,8 @@ function Published({ r }: { r: Results }) {
         ))}
       </section>
 
+      <Sandbox params={r.sandbox} />
+
       <section id="assumptions" aria-labelledby="h-assumptions">
         <p className="label-chip assumption-chip">Assumption</p>
         <h2 id="h-assumptions">Assumptions</h2>
@@ -187,6 +234,21 @@ function Published({ r }: { r: Results }) {
             <li key={i}>{l}</li>
           ))}
         </ul>
+      </section>
+
+      <section id="reproduce" aria-labelledby="h-reproduce">
+        <h2 id="h-reproduce">Reproduce</h2>
+        <p>
+          Every number on this page is read from <code>data/results.json</code>, written by <code>scripts/export_demo_data.py</code> from the
+          committed results of runs at revision <code>{r.code_revision.slice(0, 7)}</code>. From a clone of the repository:
+        </p>
+        <pre className="cmd" tabIndex={0} aria-label="Reproduction commands"><code>{`uv sync --frozen
+uv run --frozen pytest -q
+PYTHONPATH=src uv run --frozen python -m trust.cli smoke   # exploratory, simulated`}</code></pre>
+        <p className="note">
+          <code>trust.cli run --exp EXP-001</code> accepts only the frozen configs. The clean-clone record is{" "}
+          <code>research/publication/reproducibility_report.md</code>.
+        </p>
         <Disclosure summary={<>Source files and hashes</>}>
           <ul className="meta">
             {r.sources.map((s) => (

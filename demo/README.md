@@ -20,3 +20,14 @@ Static, offline research page for TRUST (M5, 2026-11-25). Stack: TypeScript, Rea
     node tools/a11y_check.mjs dist --screenshots <scratch dir>
 
 The results file `public/data/results.json` is written by `../scripts/export_demo_data.py` from committed results only. The page validates it and fails closed: if any field is missing or malformed, no number is shown and the sandbox does not start. No font, image or script is loaded from another host, no analytics are used, and nothing about visitors is collected, stored or sent.
+
+## Design and brand
+
+The page has its own identity (owner request of 2026-11-26): a consumer test-lab report, with product test labels, bench sheets and an instrument-panel sandbox; stars sharpen as reviews accumulate. The plan, palette, type, motion and review are in `DESIGN.md`. Brand files are in `public/brand/` (mark: a star on a confidence interval; one-colour and reversed variants; wordmark lockups; favicon SVG and 32 px PNG; Open Graph card `og.png`). `tools/make_brand.py` regenerates the SVGs (needs fontTools and a TrueType copy of the Archivo variable font, decompressed from the bundled woff2, for example with the `wawoff2` npm package outside this repository); `tools/og.html` is the source of the Open Graph card (Chrome headless, 1200 by 630). The hero animation is labelled "Illustration, not study data" and prints no numeral; every number on the page still comes from `public/data/results.json`.
+
+## Third-party notes
+
+- Archivo, `@fontsource-variable/archivo` 5.3.0 (variable width and weight; Latin, Latin Extended and Vietnamese subsets bundled, loaded by unicode-range), copyright the Archivo Project Authors (Omnibus-Type), SIL Open Font License 1.1.
+- Atkinson Hyperlegible Next, `@fontsource/atkinson-hyperlegible-next` 5.3.0 (weights 400 and 700, Latin subset), copyright the Atkinson Hyperlegible Next Project Authors (Braille Institute), SIL Open Font License 1.1.
+
+Both are bundled by Vite and served from the page's own origin. The licence texts ship in each package's `LICENSE` file under `node_modules/`.

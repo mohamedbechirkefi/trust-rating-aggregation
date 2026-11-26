@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Figure } from "./results";
 import type { ProductRow } from "./sandboxRun";
+import { useReveal } from "./useReveal";
 
 export function useWidth<T extends HTMLElement>(): [React.RefObject<T | null>, number] {
   const ref = useRef<T | null>(null);
@@ -46,6 +47,7 @@ export function describeIntervals(rows: { ci_low: number | null; ci_high: number
 
 export function ForestChart({ fig }: { fig: Figure }) {
   const [ref, width] = useWidth<HTMLDivElement>();
+  const [revealRef, reveal] = useReveal<HTMLDivElement>();
   const narrow = width < 560;
   const labelW = narrow ? 0 : Math.min(260, Math.round(width * 0.38));
   const rowH = narrow ? 44 : 26;
@@ -59,7 +61,7 @@ export function ForestChart({ fig }: { fig: Figure }) {
   const height = top + fig.rows.length * rowH + axisH;
   const ticks = niceTicks(x0, x1);
   return (
-    <div ref={ref} className="chart">
+    <div ref={(el) => { ref.current = el; revealRef.current = el; }} className={`chart forest reveal-${reveal}`}>
       <svg width={width} height={height} role="img" aria-label={`${fig.id}: ${fig.title}. ${describeIntervals(fig.rows)}`}>
         {ticks.map((t) => (
           <g key={t}>
@@ -72,7 +74,7 @@ export function ForestChart({ fig }: { fig: Figure }) {
         {fig.rows.map((r, i) => {
           const yMid = top + i * rowH + (narrow ? 30 : rowH / 2);
           return (
-            <g key={r.label} className={`row ${r.kind}`}>
+            <g key={r.label} className={`row ${r.kind}`} style={{ transitionDelay: `${Math.min(i, 12) * 40}ms` }}>
               <text x={narrow ? plotL : labelW} y={narrow ? yMid - 14 : yMid + 4} textAnchor={narrow ? "start" : "end"} className={narrow ? "row-label halo" : "row-label"}>
                 {r.label}
               </text>
